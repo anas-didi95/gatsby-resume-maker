@@ -1,0 +1,18 @@
+{
+  "fullname": "Anas Juwaidi Bin Mohd Jeffry",
+  "position": "Software Engineer",
+  "detail": {
+    "dateOfBirth": "27 Aug 1995",
+    "place": "Selangor, Malaysia",
+    "phone": "018-7601343",
+    "email": "anas.didi95@gmail.com"
+  },
+  "social": {
+    "github": "github.com/anas-didi95",
+    "linkedin": "linkedin.com/in/anas-juwaidi-mohd-jeffry"
+  },
+  "summary": [
+    "An analytical, fast learner with 1+ years of experiences in software engineer and usage of Linux, Windows and Mac OS systems.",
+    "Able to adapt to changes and communicate effeciently in organizations and events while maintaining great details to work."
+  ]
+}
