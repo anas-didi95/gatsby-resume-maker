@@ -13,7 +13,7 @@ import { AppQuery } from "../graphqlTypes"
 import Img, { FixedObject } from "gatsby-image"
 import { oc } from "ts-optchain"
 
-interface IApp { }
+interface IApp {}
 
 const App: React.FC<IApp> = () => {
   const data: AppQuery = useStaticQuery(graphql`
@@ -32,7 +32,10 @@ const App: React.FC<IApp> = () => {
     <div className="resume">
       <section className="flex">
         <article className="w-3/12">
-          <Img className="rounded-full" fixed={oc(data).profileImg.childImageSharp.fixed() as FixedObject} />
+          <Img
+            className="rounded-full"
+            fixed={oc(data).profileImg.childImageSharp.fixed() as FixedObject}
+          />
           <div className="mt-1 inline-flex">
             <TiCalendar />
             <p className="text-sm font-semibold ml-2">27 Aug 1995</p>
@@ -60,7 +63,9 @@ const App: React.FC<IApp> = () => {
           <div className="flex justify-around mt-5 items-baseline">
             <span className="inline-flex">
               <TiSocialGithubCircular className="text-xl" />{" "}
-              <p className="text-sm font-semibold ml-1">github.com/anas-didi95</p>
+              <p className="text-sm font-semibold ml-1">
+                github.com/anas-didi95
+              </p>
             </span>
             <span className="inline-flex">
               <TiSocialLinkedinCircular className="text-xl" />{" "}
