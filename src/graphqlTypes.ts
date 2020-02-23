@@ -402,6 +402,7 @@ export type File = Node & {
   parent?: Maybe<Node>,
   children: Array<Node>,
   internal: Internal,
+  childResumeJson?: Maybe<ResumeJson>,
   childImageSharp?: Maybe<ImageSharp>,
 };
 
@@ -611,6 +612,53 @@ export enum FileFieldsEnum {
   internal___mediaType = 'internal___mediaType',
   internal___owner = 'internal___owner',
   internal___type = 'internal___type',
+  childResumeJson___id = 'childResumeJson___id',
+  childResumeJson___parent___id = 'childResumeJson___parent___id',
+  childResumeJson___parent___parent___id = 'childResumeJson___parent___parent___id',
+  childResumeJson___parent___parent___children = 'childResumeJson___parent___parent___children',
+  childResumeJson___parent___children = 'childResumeJson___parent___children',
+  childResumeJson___parent___children___id = 'childResumeJson___parent___children___id',
+  childResumeJson___parent___children___children = 'childResumeJson___parent___children___children',
+  childResumeJson___parent___internal___content = 'childResumeJson___parent___internal___content',
+  childResumeJson___parent___internal___contentDigest = 'childResumeJson___parent___internal___contentDigest',
+  childResumeJson___parent___internal___description = 'childResumeJson___parent___internal___description',
+  childResumeJson___parent___internal___fieldOwners = 'childResumeJson___parent___internal___fieldOwners',
+  childResumeJson___parent___internal___ignoreType = 'childResumeJson___parent___internal___ignoreType',
+  childResumeJson___parent___internal___mediaType = 'childResumeJson___parent___internal___mediaType',
+  childResumeJson___parent___internal___owner = 'childResumeJson___parent___internal___owner',
+  childResumeJson___parent___internal___type = 'childResumeJson___parent___internal___type',
+  childResumeJson___children = 'childResumeJson___children',
+  childResumeJson___children___id = 'childResumeJson___children___id',
+  childResumeJson___children___parent___id = 'childResumeJson___children___parent___id',
+  childResumeJson___children___parent___children = 'childResumeJson___children___parent___children',
+  childResumeJson___children___children = 'childResumeJson___children___children',
+  childResumeJson___children___children___id = 'childResumeJson___children___children___id',
+  childResumeJson___children___children___children = 'childResumeJson___children___children___children',
+  childResumeJson___children___internal___content = 'childResumeJson___children___internal___content',
+  childResumeJson___children___internal___contentDigest = 'childResumeJson___children___internal___contentDigest',
+  childResumeJson___children___internal___description = 'childResumeJson___children___internal___description',
+  childResumeJson___children___internal___fieldOwners = 'childResumeJson___children___internal___fieldOwners',
+  childResumeJson___children___internal___ignoreType = 'childResumeJson___children___internal___ignoreType',
+  childResumeJson___children___internal___mediaType = 'childResumeJson___children___internal___mediaType',
+  childResumeJson___children___internal___owner = 'childResumeJson___children___internal___owner',
+  childResumeJson___children___internal___type = 'childResumeJson___children___internal___type',
+  childResumeJson___internal___content = 'childResumeJson___internal___content',
+  childResumeJson___internal___contentDigest = 'childResumeJson___internal___contentDigest',
+  childResumeJson___internal___description = 'childResumeJson___internal___description',
+  childResumeJson___internal___fieldOwners = 'childResumeJson___internal___fieldOwners',
+  childResumeJson___internal___ignoreType = 'childResumeJson___internal___ignoreType',
+  childResumeJson___internal___mediaType = 'childResumeJson___internal___mediaType',
+  childResumeJson___internal___owner = 'childResumeJson___internal___owner',
+  childResumeJson___internal___type = 'childResumeJson___internal___type',
+  childResumeJson___fullname = 'childResumeJson___fullname',
+  childResumeJson___position = 'childResumeJson___position',
+  childResumeJson___detail___dateOfBirth = 'childResumeJson___detail___dateOfBirth',
+  childResumeJson___detail___place = 'childResumeJson___detail___place',
+  childResumeJson___detail___phone = 'childResumeJson___detail___phone',
+  childResumeJson___detail___email = 'childResumeJson___detail___email',
+  childResumeJson___social___github = 'childResumeJson___social___github',
+  childResumeJson___social___linkedin = 'childResumeJson___social___linkedin',
+  childResumeJson___summary = 'childResumeJson___summary',
   childImageSharp___id = 'childImageSharp___id',
   childImageSharp___fixed___base64 = 'childImageSharp___fixed___base64',
   childImageSharp___fixed___tracedSVG = 'childImageSharp___fixed___tracedSVG',
@@ -743,6 +791,7 @@ export type FileFilterInput = {
   parent?: Maybe<NodeFilterInput>,
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>,
+  childResumeJson?: Maybe<ResumeJsonFilterInput>,
   childImageSharp?: Maybe<ImageSharpFilterInput>,
 };
 
@@ -1363,6 +1412,8 @@ export type Query = {
   allSite: SiteConnection,
   directory?: Maybe<Directory>,
   allDirectory: DirectoryConnection,
+  resumeJson?: Maybe<ResumeJson>,
+  allResumeJson: ResumeJsonConnection,
 };
 
 
@@ -1405,6 +1456,7 @@ export type QueryFileArgs = {
   parent?: Maybe<NodeFilterInput>,
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>,
+  childResumeJson?: Maybe<ResumeJsonFilterInput>,
   childImageSharp?: Maybe<ImageSharpFilterInput>
 };
 
@@ -1556,6 +1608,220 @@ export type QueryAllDirectoryArgs = {
   sort?: Maybe<DirectorySortInput>,
   skip?: Maybe<Scalars['Int']>,
   limit?: Maybe<Scalars['Int']>
+};
+
+
+export type QueryResumeJsonArgs = {
+  id?: Maybe<StringQueryOperatorInput>,
+  parent?: Maybe<NodeFilterInput>,
+  children?: Maybe<NodeFilterListInput>,
+  internal?: Maybe<InternalFilterInput>,
+  fullname?: Maybe<StringQueryOperatorInput>,
+  position?: Maybe<StringQueryOperatorInput>,
+  detail?: Maybe<ResumeJsonDetailFilterInput>,
+  social?: Maybe<ResumeJsonSocialFilterInput>,
+  summary?: Maybe<StringQueryOperatorInput>
+};
+
+
+export type QueryAllResumeJsonArgs = {
+  filter?: Maybe<ResumeJsonFilterInput>,
+  sort?: Maybe<ResumeJsonSortInput>,
+  skip?: Maybe<Scalars['Int']>,
+  limit?: Maybe<Scalars['Int']>
+};
+
+export type ResumeJson = Node & {
+   __typename?: 'ResumeJson',
+  id: Scalars['ID'],
+  parent?: Maybe<Node>,
+  children: Array<Node>,
+  internal: Internal,
+  fullname?: Maybe<Scalars['String']>,
+  position?: Maybe<Scalars['String']>,
+  detail?: Maybe<ResumeJsonDetail>,
+  social?: Maybe<ResumeJsonSocial>,
+  summary?: Maybe<Array<Maybe<Scalars['String']>>>,
+};
+
+export type ResumeJsonConnection = {
+   __typename?: 'ResumeJsonConnection',
+  totalCount: Scalars['Int'],
+  edges: Array<ResumeJsonEdge>,
+  nodes: Array<ResumeJson>,
+  pageInfo: PageInfo,
+  distinct: Array<Scalars['String']>,
+  group: Array<ResumeJsonGroupConnection>,
+};
+
+
+export type ResumeJsonConnectionDistinctArgs = {
+  field: ResumeJsonFieldsEnum
+};
+
+
+export type ResumeJsonConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>,
+  limit?: Maybe<Scalars['Int']>,
+  field: ResumeJsonFieldsEnum
+};
+
+export type ResumeJsonDetail = {
+   __typename?: 'ResumeJsonDetail',
+  dateOfBirth?: Maybe<Scalars['String']>,
+  place?: Maybe<Scalars['String']>,
+  phone?: Maybe<Scalars['String']>,
+  email?: Maybe<Scalars['String']>,
+};
+
+export type ResumeJsonDetailFilterInput = {
+  dateOfBirth?: Maybe<StringQueryOperatorInput>,
+  place?: Maybe<StringQueryOperatorInput>,
+  phone?: Maybe<StringQueryOperatorInput>,
+  email?: Maybe<StringQueryOperatorInput>,
+};
+
+export type ResumeJsonEdge = {
+   __typename?: 'ResumeJsonEdge',
+  next?: Maybe<ResumeJson>,
+  node: ResumeJson,
+  previous?: Maybe<ResumeJson>,
+};
+
+export enum ResumeJsonFieldsEnum {
+  id = 'id',
+  parent___id = 'parent___id',
+  parent___parent___id = 'parent___parent___id',
+  parent___parent___parent___id = 'parent___parent___parent___id',
+  parent___parent___parent___children = 'parent___parent___parent___children',
+  parent___parent___children = 'parent___parent___children',
+  parent___parent___children___id = 'parent___parent___children___id',
+  parent___parent___children___children = 'parent___parent___children___children',
+  parent___parent___internal___content = 'parent___parent___internal___content',
+  parent___parent___internal___contentDigest = 'parent___parent___internal___contentDigest',
+  parent___parent___internal___description = 'parent___parent___internal___description',
+  parent___parent___internal___fieldOwners = 'parent___parent___internal___fieldOwners',
+  parent___parent___internal___ignoreType = 'parent___parent___internal___ignoreType',
+  parent___parent___internal___mediaType = 'parent___parent___internal___mediaType',
+  parent___parent___internal___owner = 'parent___parent___internal___owner',
+  parent___parent___internal___type = 'parent___parent___internal___type',
+  parent___children = 'parent___children',
+  parent___children___id = 'parent___children___id',
+  parent___children___parent___id = 'parent___children___parent___id',
+  parent___children___parent___children = 'parent___children___parent___children',
+  parent___children___children = 'parent___children___children',
+  parent___children___children___id = 'parent___children___children___id',
+  parent___children___children___children = 'parent___children___children___children',
+  parent___children___internal___content = 'parent___children___internal___content',
+  parent___children___internal___contentDigest = 'parent___children___internal___contentDigest',
+  parent___children___internal___description = 'parent___children___internal___description',
+  parent___children___internal___fieldOwners = 'parent___children___internal___fieldOwners',
+  parent___children___internal___ignoreType = 'parent___children___internal___ignoreType',
+  parent___children___internal___mediaType = 'parent___children___internal___mediaType',
+  parent___children___internal___owner = 'parent___children___internal___owner',
+  parent___children___internal___type = 'parent___children___internal___type',
+  parent___internal___content = 'parent___internal___content',
+  parent___internal___contentDigest = 'parent___internal___contentDigest',
+  parent___internal___description = 'parent___internal___description',
+  parent___internal___fieldOwners = 'parent___internal___fieldOwners',
+  parent___internal___ignoreType = 'parent___internal___ignoreType',
+  parent___internal___mediaType = 'parent___internal___mediaType',
+  parent___internal___owner = 'parent___internal___owner',
+  parent___internal___type = 'parent___internal___type',
+  children = 'children',
+  children___id = 'children___id',
+  children___parent___id = 'children___parent___id',
+  children___parent___parent___id = 'children___parent___parent___id',
+  children___parent___parent___children = 'children___parent___parent___children',
+  children___parent___children = 'children___parent___children',
+  children___parent___children___id = 'children___parent___children___id',
+  children___parent___children___children = 'children___parent___children___children',
+  children___parent___internal___content = 'children___parent___internal___content',
+  children___parent___internal___contentDigest = 'children___parent___internal___contentDigest',
+  children___parent___internal___description = 'children___parent___internal___description',
+  children___parent___internal___fieldOwners = 'children___parent___internal___fieldOwners',
+  children___parent___internal___ignoreType = 'children___parent___internal___ignoreType',
+  children___parent___internal___mediaType = 'children___parent___internal___mediaType',
+  children___parent___internal___owner = 'children___parent___internal___owner',
+  children___parent___internal___type = 'children___parent___internal___type',
+  children___children = 'children___children',
+  children___children___id = 'children___children___id',
+  children___children___parent___id = 'children___children___parent___id',
+  children___children___parent___children = 'children___children___parent___children',
+  children___children___children = 'children___children___children',
+  children___children___children___id = 'children___children___children___id',
+  children___children___children___children = 'children___children___children___children',
+  children___children___internal___content = 'children___children___internal___content',
+  children___children___internal___contentDigest = 'children___children___internal___contentDigest',
+  children___children___internal___description = 'children___children___internal___description',
+  children___children___internal___fieldOwners = 'children___children___internal___fieldOwners',
+  children___children___internal___ignoreType = 'children___children___internal___ignoreType',
+  children___children___internal___mediaType = 'children___children___internal___mediaType',
+  children___children___internal___owner = 'children___children___internal___owner',
+  children___children___internal___type = 'children___children___internal___type',
+  children___internal___content = 'children___internal___content',
+  children___internal___contentDigest = 'children___internal___contentDigest',
+  children___internal___description = 'children___internal___description',
+  children___internal___fieldOwners = 'children___internal___fieldOwners',
+  children___internal___ignoreType = 'children___internal___ignoreType',
+  children___internal___mediaType = 'children___internal___mediaType',
+  children___internal___owner = 'children___internal___owner',
+  children___internal___type = 'children___internal___type',
+  internal___content = 'internal___content',
+  internal___contentDigest = 'internal___contentDigest',
+  internal___description = 'internal___description',
+  internal___fieldOwners = 'internal___fieldOwners',
+  internal___ignoreType = 'internal___ignoreType',
+  internal___mediaType = 'internal___mediaType',
+  internal___owner = 'internal___owner',
+  internal___type = 'internal___type',
+  fullname = 'fullname',
+  position = 'position',
+  detail___dateOfBirth = 'detail___dateOfBirth',
+  detail___place = 'detail___place',
+  detail___phone = 'detail___phone',
+  detail___email = 'detail___email',
+  social___github = 'social___github',
+  social___linkedin = 'social___linkedin',
+  summary = 'summary'
+}
+
+export type ResumeJsonFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>,
+  parent?: Maybe<NodeFilterInput>,
+  children?: Maybe<NodeFilterListInput>,
+  internal?: Maybe<InternalFilterInput>,
+  fullname?: Maybe<StringQueryOperatorInput>,
+  position?: Maybe<StringQueryOperatorInput>,
+  detail?: Maybe<ResumeJsonDetailFilterInput>,
+  social?: Maybe<ResumeJsonSocialFilterInput>,
+  summary?: Maybe<StringQueryOperatorInput>,
+};
+
+export type ResumeJsonGroupConnection = {
+   __typename?: 'ResumeJsonGroupConnection',
+  totalCount: Scalars['Int'],
+  edges: Array<ResumeJsonEdge>,
+  nodes: Array<ResumeJson>,
+  pageInfo: PageInfo,
+  field: Scalars['String'],
+  fieldValue?: Maybe<Scalars['String']>,
+};
+
+export type ResumeJsonSocial = {
+   __typename?: 'ResumeJsonSocial',
+  github?: Maybe<Scalars['String']>,
+  linkedin?: Maybe<Scalars['String']>,
+};
+
+export type ResumeJsonSocialFilterInput = {
+  github?: Maybe<StringQueryOperatorInput>,
+  linkedin?: Maybe<StringQueryOperatorInput>,
+};
+
+export type ResumeJsonSortInput = {
+  fields?: Maybe<Array<Maybe<ResumeJsonFieldsEnum>>>,
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>,
 };
 
 export type Site = Node & {
@@ -1907,12 +2173,12 @@ export enum SitePageFieldsEnum {
   pluginCreator___resolve = 'pluginCreator___resolve',
   pluginCreator___name = 'pluginCreator___name',
   pluginCreator___version = 'pluginCreator___version',
+  pluginCreator___pluginOptions___path = 'pluginCreator___pluginOptions___path',
   pluginCreator___pluginOptions___postCssPlugins = 'pluginCreator___pluginOptions___postCssPlugins',
   pluginCreator___pluginOptions___postCssPlugins___prefix = 'pluginCreator___pluginOptions___postCssPlugins___prefix',
   pluginCreator___pluginOptions___postCssPlugins___important = 'pluginCreator___pluginOptions___postCssPlugins___important',
   pluginCreator___pluginOptions___postCssPlugins___separator = 'pluginCreator___pluginOptions___postCssPlugins___separator',
   pluginCreator___pluginOptions___name = 'pluginCreator___pluginOptions___name',
-  pluginCreator___pluginOptions___path = 'pluginCreator___pluginOptions___path',
   pluginCreator___pluginOptions___short_name = 'pluginCreator___pluginOptions___short_name',
   pluginCreator___pluginOptions___start_url = 'pluginCreator___pluginOptions___start_url',
   pluginCreator___pluginOptions___background_color = 'pluginCreator___pluginOptions___background_color',
@@ -2110,6 +2376,7 @@ export enum SitePluginFieldsEnum {
   resolve = 'resolve',
   name = 'name',
   version = 'version',
+  pluginOptions___path = 'pluginOptions___path',
   pluginOptions___postCssPlugins = 'pluginOptions___postCssPlugins',
   pluginOptions___postCssPlugins___prefix = 'pluginOptions___postCssPlugins___prefix',
   pluginOptions___postCssPlugins___important = 'pluginOptions___postCssPlugins___important',
@@ -2203,7 +2470,6 @@ export enum SitePluginFieldsEnum {
   pluginOptions___postCssPlugins___variants___transitionTimingFunction = 'pluginOptions___postCssPlugins___variants___transitionTimingFunction',
   pluginOptions___postCssPlugins___variants___transitionDuration = 'pluginOptions___postCssPlugins___variants___transitionDuration',
   pluginOptions___name = 'pluginOptions___name',
-  pluginOptions___path = 'pluginOptions___path',
   pluginOptions___short_name = 'pluginOptions___short_name',
   pluginOptions___start_url = 'pluginOptions___start_url',
   pluginOptions___background_color = 'pluginOptions___background_color',
@@ -2333,9 +2599,9 @@ export type SitePluginPackageJsonPeerDependenciesFilterListInput = {
 
 export type SitePluginPluginOptions = {
    __typename?: 'SitePluginPluginOptions',
+  path?: Maybe<Scalars['String']>,
   postCssPlugins?: Maybe<Array<Maybe<SitePluginPluginOptionsPostCssPlugins>>>,
   name?: Maybe<Scalars['String']>,
-  path?: Maybe<Scalars['String']>,
   short_name?: Maybe<Scalars['String']>,
   start_url?: Maybe<Scalars['String']>,
   background_color?: Maybe<Scalars['String']>,
@@ -2346,9 +2612,9 @@ export type SitePluginPluginOptions = {
 };
 
 export type SitePluginPluginOptionsFilterInput = {
+  path?: Maybe<StringQueryOperatorInput>,
   postCssPlugins?: Maybe<SitePluginPluginOptionsPostCssPluginsFilterListInput>,
   name?: Maybe<StringQueryOperatorInput>,
-  path?: Maybe<StringQueryOperatorInput>,
   short_name?: Maybe<StringQueryOperatorInput>,
   start_url?: Maybe<StringQueryOperatorInput>,
   background_color?: Maybe<StringQueryOperatorInput>,
@@ -4056,6 +4322,16 @@ export type AppQuery = (
         { __typename?: 'ImageSharpFixed' }
         & Pick<ImageSharpFixed, 'src'>
       )> }
+    )> }
+  )>, header: Maybe<(
+    { __typename?: 'ResumeJson' }
+    & Pick<ResumeJson, 'fullname' | 'position' | 'summary'>
+    & { detail: Maybe<(
+      { __typename?: 'ResumeJsonDetail' }
+      & Pick<ResumeJsonDetail, 'dateOfBirth' | 'place' | 'phone' | 'email'>
+    )>, social: Maybe<(
+      { __typename?: 'ResumeJsonSocial' }
+      & Pick<ResumeJsonSocial, 'github' | 'linkedin'>
     )> }
   )> }
 );
