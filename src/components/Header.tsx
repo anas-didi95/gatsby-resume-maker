@@ -10,29 +10,25 @@ import {
 } from "react-icons/ti"
 import { oc } from "ts-optchain"
 
-enum EnumSocial {
-  github = "github",
-  linkedin = "linkedin",
+export interface ISocialHeader {
+  github: string
+  linkedin: string
 }
 
-enum EnumDetail {
-  dateOfBirth = "dateOfBirth",
-  place = "place",
-  phone = "phone",
-  email = "email",
+export interface IDetailHeader {
+  dateOfBirth: string
+  place: string
+  phone: string
+  email: string
 }
 
 interface IHeader {
   profileImg: FixedObject
   fullname: string
   position: string
-  detail: {
-    [k in EnumDetail]: string
-  }
-  social: {
-    [site in EnumSocial]?: string
-  }
-  summary: Array<string>
+  detail: IDetailHeader
+  social: ISocialHeader
+  summary: string[]
 }
 
 const Header: React.FC<IHeader> = ({
@@ -66,7 +62,7 @@ const Header: React.FC<IHeader> = ({
       </div>
     </article>
     <article className="ml-5 w-full">
-      <h1 className="font-bold capitalize text-3xl mb-2">{fullname}</h1>
+      <h1 className="font-bold capitalize text-3xl ">{fullname}</h1>
       <h2 className="text-semibold text-xl text-gray-700 italic">{position}</h2>
       <div className="flex justify-around mt-5 items-baseline">
         {oc(social).github("") && (
