@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  webapp:
+    build:
+      context: .devcontainer
+      dockerfile: Dockerfile
+    command: sleep infinity
+    ports:
+      - 8000:8000 # development
+      - 9000:9000 # serve
+    volumes:
+      - ./:/workspace
+      - webapp-vscode-server:/root/.vscode-server
+
+volumes:
+  webapp-vscode-server:
