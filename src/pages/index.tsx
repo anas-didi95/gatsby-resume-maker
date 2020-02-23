@@ -1,34 +1,63 @@
 import React from "react"
+import {
+  TiCalendar,
+  TiDevicePhone,
+  TiLocation,
+  TiMail,
+  TiSocialGithubCircular,
+  TiSocialLinkedinCircular,
+} from "react-icons/ti"
 import "../styles/app.scss"
+import { useStaticQuery, graphql } from "gatsby"
+import { AppQuery } from "../graphqlTypes"
+import Img, { FixedObject } from "gatsby-image"
+import { oc } from "ts-optchain"
+import Header, { IDetailHeader, ISocialHeader } from "../components/Header"
 
+interface IApp {}
 
-const IndexPage: React.FC = () => (
-  <div className="max-w-sm rounded overflow-hidden shadow-lg mx-auto">
-    <img
-      className="w-full"
-      src="/img/card-top.jpg"
-      alt="Sunset in the mountains"
-    />
-    <div className="px-6 py-4">
-      <div className="font-bold text-xl mb-2 text-blue-700">The Coldest Sunset</div>
-      <p className="text-gray-700 text-base">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus
-        quia, nulla! Maiores et perferendis eaque, exercitationem praesentium
-        nihil.
-      </p>
+const App: React.FC<IApp> = () => {
+  const data: AppQuery = useStaticQuery(graphql`
+    query App {
+      profileImg: file(absolutePath: { regex: "/profile-pic/" }) {
+        childImageSharp {
+          fixed(width: 160, height: 160) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+      header: resumeJson {
+        fullname
+        position
+        detail {
+          dateOfBirth
+          place
+          phone
+          email
+        }
+        social {
+          github
+          linkedin
+        }
+        summary
+      }
+    }
+  `)
+
+  const { profileImg, header } = data
+
+  return (
+    <div className="resume">
+      <Header
+        profileImg={oc(profileImg).childImageSharp.fixed() as FixedObject}
+        fullname={oc(header).fullname("")}
+        detail={oc(header).detail() as IDetailHeader}
+        position={oc(header).position("")}
+        social={oc(header).social() as ISocialHeader}
+        summary={oc(header).summary([]) as string[]}
+      />
     </div>
-    <div className="px-6 py-4">
-      <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
-        #photography
-      </span>
-      <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
-        #travel
-      </span>
-      <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">
-        #winter
-      </span>
-    </div>
-  </div>
-)
+  )
+}
 
-export default IndexPage
+export default App

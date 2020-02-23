@@ -402,6 +402,7 @@ export type File = Node & {
   parent?: Maybe<Node>,
   children: Array<Node>,
   internal: Internal,
+  childResumeJson?: Maybe<ResumeJson>,
   childImageSharp?: Maybe<ImageSharp>,
 };
 
@@ -611,6 +612,53 @@ export enum FileFieldsEnum {
   internal___mediaType = 'internal___mediaType',
   internal___owner = 'internal___owner',
   internal___type = 'internal___type',
+  childResumeJson___id = 'childResumeJson___id',
+  childResumeJson___parent___id = 'childResumeJson___parent___id',
+  childResumeJson___parent___parent___id = 'childResumeJson___parent___parent___id',
+  childResumeJson___parent___parent___children = 'childResumeJson___parent___parent___children',
+  childResumeJson___parent___children = 'childResumeJson___parent___children',
+  childResumeJson___parent___children___id = 'childResumeJson___parent___children___id',
+  childResumeJson___parent___children___children = 'childResumeJson___parent___children___children',
+  childResumeJson___parent___internal___content = 'childResumeJson___parent___internal___content',
+  childResumeJson___parent___internal___contentDigest = 'childResumeJson___parent___internal___contentDigest',
+  childResumeJson___parent___internal___description = 'childResumeJson___parent___internal___description',
+  childResumeJson___parent___internal___fieldOwners = 'childResumeJson___parent___internal___fieldOwners',
+  childResumeJson___parent___internal___ignoreType = 'childResumeJson___parent___internal___ignoreType',
+  childResumeJson___parent___internal___mediaType = 'childResumeJson___parent___internal___mediaType',
+  childResumeJson___parent___internal___owner = 'childResumeJson___parent___internal___owner',
+  childResumeJson___parent___internal___type = 'childResumeJson___parent___internal___type',
+  childResumeJson___children = 'childResumeJson___children',
+  childResumeJson___children___id = 'childResumeJson___children___id',
+  childResumeJson___children___parent___id = 'childResumeJson___children___parent___id',
+  childResumeJson___children___parent___children = 'childResumeJson___children___parent___children',
+  childResumeJson___children___children = 'childResumeJson___children___children',
+  childResumeJson___children___children___id = 'childResumeJson___children___children___id',
+  childResumeJson___children___children___children = 'childResumeJson___children___children___children',
+  childResumeJson___children___internal___content = 'childResumeJson___children___internal___content',
+  childResumeJson___children___internal___contentDigest = 'childResumeJson___children___internal___contentDigest',
+  childResumeJson___children___internal___description = 'childResumeJson___children___internal___description',
+  childResumeJson___children___internal___fieldOwners = 'childResumeJson___children___internal___fieldOwners',
+  childResumeJson___children___internal___ignoreType = 'childResumeJson___children___internal___ignoreType',
+  childResumeJson___children___internal___mediaType = 'childResumeJson___children___internal___mediaType',
+  childResumeJson___children___internal___owner = 'childResumeJson___children___internal___owner',
+  childResumeJson___children___internal___type = 'childResumeJson___children___internal___type',
+  childResumeJson___internal___content = 'childResumeJson___internal___content',
+  childResumeJson___internal___contentDigest = 'childResumeJson___internal___contentDigest',
+  childResumeJson___internal___description = 'childResumeJson___internal___description',
+  childResumeJson___internal___fieldOwners = 'childResumeJson___internal___fieldOwners',
+  childResumeJson___internal___ignoreType = 'childResumeJson___internal___ignoreType',
+  childResumeJson___internal___mediaType = 'childResumeJson___internal___mediaType',
+  childResumeJson___internal___owner = 'childResumeJson___internal___owner',
+  childResumeJson___internal___type = 'childResumeJson___internal___type',
+  childResumeJson___fullname = 'childResumeJson___fullname',
+  childResumeJson___position = 'childResumeJson___position',
+  childResumeJson___detail___dateOfBirth = 'childResumeJson___detail___dateOfBirth',
+  childResumeJson___detail___place = 'childResumeJson___detail___place',
+  childResumeJson___detail___phone = 'childResumeJson___detail___phone',
+  childResumeJson___detail___email = 'childResumeJson___detail___email',
+  childResumeJson___social___github = 'childResumeJson___social___github',
+  childResumeJson___social___linkedin = 'childResumeJson___social___linkedin',
+  childResumeJson___summary = 'childResumeJson___summary',
   childImageSharp___id = 'childImageSharp___id',
   childImageSharp___fixed___base64 = 'childImageSharp___fixed___base64',
   childImageSharp___fixed___tracedSVG = 'childImageSharp___fixed___tracedSVG',
@@ -743,6 +791,7 @@ export type FileFilterInput = {
   parent?: Maybe<NodeFilterInput>,
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>,
+  childResumeJson?: Maybe<ResumeJsonFilterInput>,
   childImageSharp?: Maybe<ImageSharpFilterInput>,
 };
 
@@ -1363,6 +1412,8 @@ export type Query = {
   allSite: SiteConnection,
   directory?: Maybe<Directory>,
   allDirectory: DirectoryConnection,
+  resumeJson?: Maybe<ResumeJson>,
+  allResumeJson: ResumeJsonConnection,
 };
 
 
@@ -1405,6 +1456,7 @@ export type QueryFileArgs = {
   parent?: Maybe<NodeFilterInput>,
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>,
+  childResumeJson?: Maybe<ResumeJsonFilterInput>,
   childImageSharp?: Maybe<ImageSharpFilterInput>
 };
 
@@ -1556,6 +1608,220 @@ export type QueryAllDirectoryArgs = {
   sort?: Maybe<DirectorySortInput>,
   skip?: Maybe<Scalars['Int']>,
   limit?: Maybe<Scalars['Int']>
+};
+
+
+export type QueryResumeJsonArgs = {
+  id?: Maybe<StringQueryOperatorInput>,
+  parent?: Maybe<NodeFilterInput>,
+  children?: Maybe<NodeFilterListInput>,
+  internal?: Maybe<InternalFilterInput>,
+  fullname?: Maybe<StringQueryOperatorInput>,
+  position?: Maybe<StringQueryOperatorInput>,
+  detail?: Maybe<ResumeJsonDetailFilterInput>,
+  social?: Maybe<ResumeJsonSocialFilterInput>,
+  summary?: Maybe<StringQueryOperatorInput>
+};
+
+
+export type QueryAllResumeJsonArgs = {
+  filter?: Maybe<ResumeJsonFilterInput>,
+  sort?: Maybe<ResumeJsonSortInput>,
+  skip?: Maybe<Scalars['Int']>,
+  limit?: Maybe<Scalars['Int']>
+};
+
+export type ResumeJson = Node & {
+   __typename?: 'ResumeJson',
+  id: Scalars['ID'],
+  parent?: Maybe<Node>,
+  children: Array<Node>,
+  internal: Internal,
+  fullname?: Maybe<Scalars['String']>,
+  position?: Maybe<Scalars['String']>,
+  detail?: Maybe<ResumeJsonDetail>,
+  social?: Maybe<ResumeJsonSocial>,
+  summary?: Maybe<Array<Maybe<Scalars['String']>>>,
+};
+
+export type ResumeJsonConnection = {
+   __typename?: 'ResumeJsonConnection',
+  totalCount: Scalars['Int'],
+  edges: Array<ResumeJsonEdge>,
+  nodes: Array<ResumeJson>,
+  pageInfo: PageInfo,
+  distinct: Array<Scalars['String']>,
+  group: Array<ResumeJsonGroupConnection>,
+};
+
+
+export type ResumeJsonConnectionDistinctArgs = {
+  field: ResumeJsonFieldsEnum
+};
+
+
+export type ResumeJsonConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>,
+  limit?: Maybe<Scalars['Int']>,
+  field: ResumeJsonFieldsEnum
+};
+
+export type ResumeJsonDetail = {
+   __typename?: 'ResumeJsonDetail',
+  dateOfBirth?: Maybe<Scalars['String']>,
+  place?: Maybe<Scalars['String']>,
+  phone?: Maybe<Scalars['String']>,
+  email?: Maybe<Scalars['String']>,
+};
+
+export type ResumeJsonDetailFilterInput = {
+  dateOfBirth?: Maybe<StringQueryOperatorInput>,
+  place?: Maybe<StringQueryOperatorInput>,
+  phone?: Maybe<StringQueryOperatorInput>,
+  email?: Maybe<StringQueryOperatorInput>,
+};
+
+export type ResumeJsonEdge = {
+   __typename?: 'ResumeJsonEdge',
+  next?: Maybe<ResumeJson>,
+  node: ResumeJson,
+  previous?: Maybe<ResumeJson>,
+};
+
+export enum ResumeJsonFieldsEnum {
+  id = 'id',
+  parent___id = 'parent___id',
+  parent___parent___id = 'parent___parent___id',
+  parent___parent___parent___id = 'parent___parent___parent___id',
+  parent___parent___parent___children = 'parent___parent___parent___children',
+  parent___parent___children = 'parent___parent___children',
+  parent___parent___children___id = 'parent___parent___children___id',
+  parent___parent___children___children = 'parent___parent___children___children',
+  parent___parent___internal___content = 'parent___parent___internal___content',
+  parent___parent___internal___contentDigest = 'parent___parent___internal___contentDigest',
+  parent___parent___internal___description = 'parent___parent___internal___description',
+  parent___parent___internal___fieldOwners = 'parent___parent___internal___fieldOwners',
+  parent___parent___internal___ignoreType = 'parent___parent___internal___ignoreType',
+  parent___parent___internal___mediaType = 'parent___parent___internal___mediaType',
+  parent___parent___internal___owner = 'parent___parent___internal___owner',
+  parent___parent___internal___type = 'parent___parent___internal___type',
+  parent___children = 'parent___children',
+  parent___children___id = 'parent___children___id',
+  parent___children___parent___id = 'parent___children___parent___id',
+  parent___children___parent___children = 'parent___children___parent___children',
+  parent___children___children = 'parent___children___children',
+  parent___children___children___id = 'parent___children___children___id',
+  parent___children___children___children = 'parent___children___children___children',
+  parent___children___internal___content = 'parent___children___internal___content',
+  parent___children___internal___contentDigest = 'parent___children___internal___contentDigest',
+  parent___children___internal___description = 'parent___children___internal___description',
+  parent___children___internal___fieldOwners = 'parent___children___internal___fieldOwners',
+  parent___children___internal___ignoreType = 'parent___children___internal___ignoreType',
+  parent___children___internal___mediaType = 'parent___children___internal___mediaType',
+  parent___children___internal___owner = 'parent___children___internal___owner',
+  parent___children___internal___type = 'parent___children___internal___type',
+  parent___internal___content = 'parent___internal___content',
+  parent___internal___contentDigest = 'parent___internal___contentDigest',
+  parent___internal___description = 'parent___internal___description',
+  parent___internal___fieldOwners = 'parent___internal___fieldOwners',
+  parent___internal___ignoreType = 'parent___internal___ignoreType',
+  parent___internal___mediaType = 'parent___internal___mediaType',
+  parent___internal___owner = 'parent___internal___owner',
+  parent___internal___type = 'parent___internal___type',
+  children = 'children',
+  children___id = 'children___id',
+  children___parent___id = 'children___parent___id',
+  children___parent___parent___id = 'children___parent___parent___id',
+  children___parent___parent___children = 'children___parent___parent___children',
+  children___parent___children = 'children___parent___children',
+  children___parent___children___id = 'children___parent___children___id',
+  children___parent___children___children = 'children___parent___children___children',
+  children___parent___internal___content = 'children___parent___internal___content',
+  children___parent___internal___contentDigest = 'children___parent___internal___contentDigest',
+  children___parent___internal___description = 'children___parent___internal___description',
+  children___parent___internal___fieldOwners = 'children___parent___internal___fieldOwners',
+  children___parent___internal___ignoreType = 'children___parent___internal___ignoreType',
+  children___parent___internal___mediaType = 'children___parent___internal___mediaType',
+  children___parent___internal___owner = 'children___parent___internal___owner',
+  children___parent___internal___type = 'children___parent___internal___type',
+  children___children = 'children___children',
+  children___children___id = 'children___children___id',
+  children___children___parent___id = 'children___children___parent___id',
+  children___children___parent___children = 'children___children___parent___children',
+  children___children___children = 'children___children___children',
+  children___children___children___id = 'children___children___children___id',
+  children___children___children___children = 'children___children___children___children',
+  children___children___internal___content = 'children___children___internal___content',
+  children___children___internal___contentDigest = 'children___children___internal___contentDigest',
+  children___children___internal___description = 'children___children___internal___description',
+  children___children___internal___fieldOwners = 'children___children___internal___fieldOwners',
+  children___children___internal___ignoreType = 'children___children___internal___ignoreType',
+  children___children___internal___mediaType = 'children___children___internal___mediaType',
+  children___children___internal___owner = 'children___children___internal___owner',
+  children___children___internal___type = 'children___children___internal___type',
+  children___internal___content = 'children___internal___content',
+  children___internal___contentDigest = 'children___internal___contentDigest',
+  children___internal___description = 'children___internal___description',
+  children___internal___fieldOwners = 'children___internal___fieldOwners',
+  children___internal___ignoreType = 'children___internal___ignoreType',
+  children___internal___mediaType = 'children___internal___mediaType',
+  children___internal___owner = 'children___internal___owner',
+  children___internal___type = 'children___internal___type',
+  internal___content = 'internal___content',
+  internal___contentDigest = 'internal___contentDigest',
+  internal___description = 'internal___description',
+  internal___fieldOwners = 'internal___fieldOwners',
+  internal___ignoreType = 'internal___ignoreType',
+  internal___mediaType = 'internal___mediaType',
+  internal___owner = 'internal___owner',
+  internal___type = 'internal___type',
+  fullname = 'fullname',
+  position = 'position',
+  detail___dateOfBirth = 'detail___dateOfBirth',
+  detail___place = 'detail___place',
+  detail___phone = 'detail___phone',
+  detail___email = 'detail___email',
+  social___github = 'social___github',
+  social___linkedin = 'social___linkedin',
+  summary = 'summary'
+}
+
+export type ResumeJsonFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>,
+  parent?: Maybe<NodeFilterInput>,
+  children?: Maybe<NodeFilterListInput>,
+  internal?: Maybe<InternalFilterInput>,
+  fullname?: Maybe<StringQueryOperatorInput>,
+  position?: Maybe<StringQueryOperatorInput>,
+  detail?: Maybe<ResumeJsonDetailFilterInput>,
+  social?: Maybe<ResumeJsonSocialFilterInput>,
+  summary?: Maybe<StringQueryOperatorInput>,
+};
+
+export type ResumeJsonGroupConnection = {
+   __typename?: 'ResumeJsonGroupConnection',
+  totalCount: Scalars['Int'],
+  edges: Array<ResumeJsonEdge>,
+  nodes: Array<ResumeJson>,
+  pageInfo: PageInfo,
+  field: Scalars['String'],
+  fieldValue?: Maybe<Scalars['String']>,
+};
+
+export type ResumeJsonSocial = {
+   __typename?: 'ResumeJsonSocial',
+  github?: Maybe<Scalars['String']>,
+  linkedin?: Maybe<Scalars['String']>,
+};
+
+export type ResumeJsonSocialFilterInput = {
+  github?: Maybe<StringQueryOperatorInput>,
+  linkedin?: Maybe<StringQueryOperatorInput>,
+};
+
+export type ResumeJsonSortInput = {
+  fields?: Maybe<Array<Maybe<ResumeJsonFieldsEnum>>>,
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>,
 };
 
 export type Site = Node & {
@@ -1907,8 +2173,12 @@ export enum SitePageFieldsEnum {
   pluginCreator___resolve = 'pluginCreator___resolve',
   pluginCreator___name = 'pluginCreator___name',
   pluginCreator___version = 'pluginCreator___version',
-  pluginCreator___pluginOptions___name = 'pluginCreator___pluginOptions___name',
   pluginCreator___pluginOptions___path = 'pluginCreator___pluginOptions___path',
+  pluginCreator___pluginOptions___postCssPlugins = 'pluginCreator___pluginOptions___postCssPlugins',
+  pluginCreator___pluginOptions___postCssPlugins___prefix = 'pluginCreator___pluginOptions___postCssPlugins___prefix',
+  pluginCreator___pluginOptions___postCssPlugins___important = 'pluginCreator___pluginOptions___postCssPlugins___important',
+  pluginCreator___pluginOptions___postCssPlugins___separator = 'pluginCreator___pluginOptions___postCssPlugins___separator',
+  pluginCreator___pluginOptions___name = 'pluginCreator___pluginOptions___name',
   pluginCreator___pluginOptions___short_name = 'pluginCreator___pluginOptions___short_name',
   pluginCreator___pluginOptions___start_url = 'pluginCreator___pluginOptions___start_url',
   pluginCreator___pluginOptions___background_color = 'pluginCreator___pluginOptions___background_color',
@@ -1924,6 +2194,7 @@ export enum SitePageFieldsEnum {
   pluginCreator___packageJson___description = 'pluginCreator___packageJson___description',
   pluginCreator___packageJson___version = 'pluginCreator___packageJson___version',
   pluginCreator___packageJson___main = 'pluginCreator___packageJson___main',
+  pluginCreator___packageJson___author = 'pluginCreator___packageJson___author',
   pluginCreator___packageJson___license = 'pluginCreator___packageJson___license',
   pluginCreator___packageJson___dependencies = 'pluginCreator___packageJson___dependencies',
   pluginCreator___packageJson___dependencies___name = 'pluginCreator___packageJson___dependencies___name',
@@ -2105,8 +2376,100 @@ export enum SitePluginFieldsEnum {
   resolve = 'resolve',
   name = 'name',
   version = 'version',
-  pluginOptions___name = 'pluginOptions___name',
   pluginOptions___path = 'pluginOptions___path',
+  pluginOptions___postCssPlugins = 'pluginOptions___postCssPlugins',
+  pluginOptions___postCssPlugins___prefix = 'pluginOptions___postCssPlugins___prefix',
+  pluginOptions___postCssPlugins___important = 'pluginOptions___postCssPlugins___important',
+  pluginOptions___postCssPlugins___separator = 'pluginOptions___postCssPlugins___separator',
+  pluginOptions___postCssPlugins___variants___accessibility = 'pluginOptions___postCssPlugins___variants___accessibility',
+  pluginOptions___postCssPlugins___variants___alignContent = 'pluginOptions___postCssPlugins___variants___alignContent',
+  pluginOptions___postCssPlugins___variants___alignItems = 'pluginOptions___postCssPlugins___variants___alignItems',
+  pluginOptions___postCssPlugins___variants___alignSelf = 'pluginOptions___postCssPlugins___variants___alignSelf',
+  pluginOptions___postCssPlugins___variants___appearance = 'pluginOptions___postCssPlugins___variants___appearance',
+  pluginOptions___postCssPlugins___variants___backgroundAttachment = 'pluginOptions___postCssPlugins___variants___backgroundAttachment',
+  pluginOptions___postCssPlugins___variants___backgroundColor = 'pluginOptions___postCssPlugins___variants___backgroundColor',
+  pluginOptions___postCssPlugins___variants___backgroundPosition = 'pluginOptions___postCssPlugins___variants___backgroundPosition',
+  pluginOptions___postCssPlugins___variants___backgroundRepeat = 'pluginOptions___postCssPlugins___variants___backgroundRepeat',
+  pluginOptions___postCssPlugins___variants___backgroundSize = 'pluginOptions___postCssPlugins___variants___backgroundSize',
+  pluginOptions___postCssPlugins___variants___borderCollapse = 'pluginOptions___postCssPlugins___variants___borderCollapse',
+  pluginOptions___postCssPlugins___variants___borderColor = 'pluginOptions___postCssPlugins___variants___borderColor',
+  pluginOptions___postCssPlugins___variants___borderRadius = 'pluginOptions___postCssPlugins___variants___borderRadius',
+  pluginOptions___postCssPlugins___variants___borderStyle = 'pluginOptions___postCssPlugins___variants___borderStyle',
+  pluginOptions___postCssPlugins___variants___borderWidth = 'pluginOptions___postCssPlugins___variants___borderWidth',
+  pluginOptions___postCssPlugins___variants___boxShadow = 'pluginOptions___postCssPlugins___variants___boxShadow',
+  pluginOptions___postCssPlugins___variants___boxSizing = 'pluginOptions___postCssPlugins___variants___boxSizing',
+  pluginOptions___postCssPlugins___variants___cursor = 'pluginOptions___postCssPlugins___variants___cursor',
+  pluginOptions___postCssPlugins___variants___display = 'pluginOptions___postCssPlugins___variants___display',
+  pluginOptions___postCssPlugins___variants___fill = 'pluginOptions___postCssPlugins___variants___fill',
+  pluginOptions___postCssPlugins___variants___flex = 'pluginOptions___postCssPlugins___variants___flex',
+  pluginOptions___postCssPlugins___variants___flexDirection = 'pluginOptions___postCssPlugins___variants___flexDirection',
+  pluginOptions___postCssPlugins___variants___flexGrow = 'pluginOptions___postCssPlugins___variants___flexGrow',
+  pluginOptions___postCssPlugins___variants___flexShrink = 'pluginOptions___postCssPlugins___variants___flexShrink',
+  pluginOptions___postCssPlugins___variants___flexWrap = 'pluginOptions___postCssPlugins___variants___flexWrap',
+  pluginOptions___postCssPlugins___variants___float = 'pluginOptions___postCssPlugins___variants___float',
+  pluginOptions___postCssPlugins___variants___clear = 'pluginOptions___postCssPlugins___variants___clear',
+  pluginOptions___postCssPlugins___variants___fontFamily = 'pluginOptions___postCssPlugins___variants___fontFamily',
+  pluginOptions___postCssPlugins___variants___fontSize = 'pluginOptions___postCssPlugins___variants___fontSize',
+  pluginOptions___postCssPlugins___variants___fontSmoothing = 'pluginOptions___postCssPlugins___variants___fontSmoothing',
+  pluginOptions___postCssPlugins___variants___fontStyle = 'pluginOptions___postCssPlugins___variants___fontStyle',
+  pluginOptions___postCssPlugins___variants___fontWeight = 'pluginOptions___postCssPlugins___variants___fontWeight',
+  pluginOptions___postCssPlugins___variants___height = 'pluginOptions___postCssPlugins___variants___height',
+  pluginOptions___postCssPlugins___variants___inset = 'pluginOptions___postCssPlugins___variants___inset',
+  pluginOptions___postCssPlugins___variants___justifyContent = 'pluginOptions___postCssPlugins___variants___justifyContent',
+  pluginOptions___postCssPlugins___variants___letterSpacing = 'pluginOptions___postCssPlugins___variants___letterSpacing',
+  pluginOptions___postCssPlugins___variants___lineHeight = 'pluginOptions___postCssPlugins___variants___lineHeight',
+  pluginOptions___postCssPlugins___variants___listStylePosition = 'pluginOptions___postCssPlugins___variants___listStylePosition',
+  pluginOptions___postCssPlugins___variants___listStyleType = 'pluginOptions___postCssPlugins___variants___listStyleType',
+  pluginOptions___postCssPlugins___variants___margin = 'pluginOptions___postCssPlugins___variants___margin',
+  pluginOptions___postCssPlugins___variants___maxHeight = 'pluginOptions___postCssPlugins___variants___maxHeight',
+  pluginOptions___postCssPlugins___variants___maxWidth = 'pluginOptions___postCssPlugins___variants___maxWidth',
+  pluginOptions___postCssPlugins___variants___minHeight = 'pluginOptions___postCssPlugins___variants___minHeight',
+  pluginOptions___postCssPlugins___variants___minWidth = 'pluginOptions___postCssPlugins___variants___minWidth',
+  pluginOptions___postCssPlugins___variants___objectFit = 'pluginOptions___postCssPlugins___variants___objectFit',
+  pluginOptions___postCssPlugins___variants___objectPosition = 'pluginOptions___postCssPlugins___variants___objectPosition',
+  pluginOptions___postCssPlugins___variants___opacity = 'pluginOptions___postCssPlugins___variants___opacity',
+  pluginOptions___postCssPlugins___variants___order = 'pluginOptions___postCssPlugins___variants___order',
+  pluginOptions___postCssPlugins___variants___outline = 'pluginOptions___postCssPlugins___variants___outline',
+  pluginOptions___postCssPlugins___variants___overflow = 'pluginOptions___postCssPlugins___variants___overflow',
+  pluginOptions___postCssPlugins___variants___padding = 'pluginOptions___postCssPlugins___variants___padding',
+  pluginOptions___postCssPlugins___variants___placeholderColor = 'pluginOptions___postCssPlugins___variants___placeholderColor',
+  pluginOptions___postCssPlugins___variants___pointerEvents = 'pluginOptions___postCssPlugins___variants___pointerEvents',
+  pluginOptions___postCssPlugins___variants___position = 'pluginOptions___postCssPlugins___variants___position',
+  pluginOptions___postCssPlugins___variants___resize = 'pluginOptions___postCssPlugins___variants___resize',
+  pluginOptions___postCssPlugins___variants___stroke = 'pluginOptions___postCssPlugins___variants___stroke',
+  pluginOptions___postCssPlugins___variants___strokeWidth = 'pluginOptions___postCssPlugins___variants___strokeWidth',
+  pluginOptions___postCssPlugins___variants___tableLayout = 'pluginOptions___postCssPlugins___variants___tableLayout',
+  pluginOptions___postCssPlugins___variants___textAlign = 'pluginOptions___postCssPlugins___variants___textAlign',
+  pluginOptions___postCssPlugins___variants___textColor = 'pluginOptions___postCssPlugins___variants___textColor',
+  pluginOptions___postCssPlugins___variants___textDecoration = 'pluginOptions___postCssPlugins___variants___textDecoration',
+  pluginOptions___postCssPlugins___variants___textTransform = 'pluginOptions___postCssPlugins___variants___textTransform',
+  pluginOptions___postCssPlugins___variants___userSelect = 'pluginOptions___postCssPlugins___variants___userSelect',
+  pluginOptions___postCssPlugins___variants___verticalAlign = 'pluginOptions___postCssPlugins___variants___verticalAlign',
+  pluginOptions___postCssPlugins___variants___visibility = 'pluginOptions___postCssPlugins___variants___visibility',
+  pluginOptions___postCssPlugins___variants___whitespace = 'pluginOptions___postCssPlugins___variants___whitespace',
+  pluginOptions___postCssPlugins___variants___width = 'pluginOptions___postCssPlugins___variants___width',
+  pluginOptions___postCssPlugins___variants___wordBreak = 'pluginOptions___postCssPlugins___variants___wordBreak',
+  pluginOptions___postCssPlugins___variants___zIndex = 'pluginOptions___postCssPlugins___variants___zIndex',
+  pluginOptions___postCssPlugins___variants___gap = 'pluginOptions___postCssPlugins___variants___gap',
+  pluginOptions___postCssPlugins___variants___gridAutoFlow = 'pluginOptions___postCssPlugins___variants___gridAutoFlow',
+  pluginOptions___postCssPlugins___variants___gridTemplateColumns = 'pluginOptions___postCssPlugins___variants___gridTemplateColumns',
+  pluginOptions___postCssPlugins___variants___gridColumn = 'pluginOptions___postCssPlugins___variants___gridColumn',
+  pluginOptions___postCssPlugins___variants___gridColumnStart = 'pluginOptions___postCssPlugins___variants___gridColumnStart',
+  pluginOptions___postCssPlugins___variants___gridColumnEnd = 'pluginOptions___postCssPlugins___variants___gridColumnEnd',
+  pluginOptions___postCssPlugins___variants___gridTemplateRows = 'pluginOptions___postCssPlugins___variants___gridTemplateRows',
+  pluginOptions___postCssPlugins___variants___gridRow = 'pluginOptions___postCssPlugins___variants___gridRow',
+  pluginOptions___postCssPlugins___variants___gridRowStart = 'pluginOptions___postCssPlugins___variants___gridRowStart',
+  pluginOptions___postCssPlugins___variants___gridRowEnd = 'pluginOptions___postCssPlugins___variants___gridRowEnd',
+  pluginOptions___postCssPlugins___variants___transform = 'pluginOptions___postCssPlugins___variants___transform',
+  pluginOptions___postCssPlugins___variants___transformOrigin = 'pluginOptions___postCssPlugins___variants___transformOrigin',
+  pluginOptions___postCssPlugins___variants___scale = 'pluginOptions___postCssPlugins___variants___scale',
+  pluginOptions___postCssPlugins___variants___rotate = 'pluginOptions___postCssPlugins___variants___rotate',
+  pluginOptions___postCssPlugins___variants___translate = 'pluginOptions___postCssPlugins___variants___translate',
+  pluginOptions___postCssPlugins___variants___skew = 'pluginOptions___postCssPlugins___variants___skew',
+  pluginOptions___postCssPlugins___variants___transitionProperty = 'pluginOptions___postCssPlugins___variants___transitionProperty',
+  pluginOptions___postCssPlugins___variants___transitionTimingFunction = 'pluginOptions___postCssPlugins___variants___transitionTimingFunction',
+  pluginOptions___postCssPlugins___variants___transitionDuration = 'pluginOptions___postCssPlugins___variants___transitionDuration',
+  pluginOptions___name = 'pluginOptions___name',
   pluginOptions___short_name = 'pluginOptions___short_name',
   pluginOptions___start_url = 'pluginOptions___start_url',
   pluginOptions___background_color = 'pluginOptions___background_color',
@@ -2122,6 +2485,7 @@ export enum SitePluginFieldsEnum {
   packageJson___description = 'packageJson___description',
   packageJson___version = 'packageJson___version',
   packageJson___main = 'packageJson___main',
+  packageJson___author = 'packageJson___author',
   packageJson___license = 'packageJson___license',
   packageJson___dependencies = 'packageJson___dependencies',
   packageJson___dependencies___name = 'packageJson___dependencies___name',
@@ -2167,6 +2531,7 @@ export type SitePluginPackageJson = {
   description?: Maybe<Scalars['String']>,
   version?: Maybe<Scalars['String']>,
   main?: Maybe<Scalars['String']>,
+  author?: Maybe<Scalars['String']>,
   license?: Maybe<Scalars['String']>,
   dependencies?: Maybe<Array<Maybe<SitePluginPackageJsonDependencies>>>,
   devDependencies?: Maybe<Array<Maybe<SitePluginPackageJsonDevDependencies>>>,
@@ -2209,6 +2574,7 @@ export type SitePluginPackageJsonFilterInput = {
   description?: Maybe<StringQueryOperatorInput>,
   version?: Maybe<StringQueryOperatorInput>,
   main?: Maybe<StringQueryOperatorInput>,
+  author?: Maybe<StringQueryOperatorInput>,
   license?: Maybe<StringQueryOperatorInput>,
   dependencies?: Maybe<SitePluginPackageJsonDependenciesFilterListInput>,
   devDependencies?: Maybe<SitePluginPackageJsonDevDependenciesFilterListInput>,
@@ -2233,8 +2599,9 @@ export type SitePluginPackageJsonPeerDependenciesFilterListInput = {
 
 export type SitePluginPluginOptions = {
    __typename?: 'SitePluginPluginOptions',
-  name?: Maybe<Scalars['String']>,
   path?: Maybe<Scalars['String']>,
+  postCssPlugins?: Maybe<Array<Maybe<SitePluginPluginOptionsPostCssPlugins>>>,
+  name?: Maybe<Scalars['String']>,
   short_name?: Maybe<Scalars['String']>,
   start_url?: Maybe<Scalars['String']>,
   background_color?: Maybe<Scalars['String']>,
@@ -2245,8 +2612,9 @@ export type SitePluginPluginOptions = {
 };
 
 export type SitePluginPluginOptionsFilterInput = {
-  name?: Maybe<StringQueryOperatorInput>,
   path?: Maybe<StringQueryOperatorInput>,
+  postCssPlugins?: Maybe<SitePluginPluginOptionsPostCssPluginsFilterListInput>,
+  name?: Maybe<StringQueryOperatorInput>,
   short_name?: Maybe<StringQueryOperatorInput>,
   start_url?: Maybe<StringQueryOperatorInput>,
   background_color?: Maybe<StringQueryOperatorInput>,
@@ -2254,6 +2622,1489 @@ export type SitePluginPluginOptionsFilterInput = {
   display?: Maybe<StringQueryOperatorInput>,
   icon?: Maybe<StringQueryOperatorInput>,
   pathCheck?: Maybe<BooleanQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPlugins = {
+   __typename?: 'SitePluginPluginOptionsPostCssPlugins',
+  prefix?: Maybe<Scalars['String']>,
+  important?: Maybe<Scalars['Boolean']>,
+  separator?: Maybe<Scalars['String']>,
+  theme?: Maybe<SitePluginPluginOptionsPostCssPluginsTheme>,
+  variants?: Maybe<SitePluginPluginOptionsPostCssPluginsVariants>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsFilterInput = {
+  prefix?: Maybe<StringQueryOperatorInput>,
+  important?: Maybe<BooleanQueryOperatorInput>,
+  separator?: Maybe<StringQueryOperatorInput>,
+  theme?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeFilterInput>,
+  variants?: Maybe<SitePluginPluginOptionsPostCssPluginsVariantsFilterInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsFilterListInput = {
+  elemMatch?: Maybe<SitePluginPluginOptionsPostCssPluginsFilterInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsTheme = {
+   __typename?: 'SitePluginPluginOptionsPostCssPluginsTheme',
+  screens?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeScreens>,
+  colors?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeColors>,
+  spacing?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeSpacing>,
+  backgroundPosition?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeBackgroundPosition>,
+  backgroundSize?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeBackgroundSize>,
+  borderRadius?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeBorderRadius>,
+  borderWidth?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeBorderWidth>,
+  boxShadow?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeBoxShadow>,
+  cursor?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeCursor>,
+  fill?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeFill>,
+  flex?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeFlex>,
+  flexGrow?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeFlexGrow>,
+  flexShrink?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeFlexShrink>,
+  fontFamily?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeFontFamily>,
+  fontSize?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeFontSize>,
+  fontWeight?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeFontWeight>,
+  inset?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeInset>,
+  letterSpacing?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeLetterSpacing>,
+  lineHeight?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeLineHeight>,
+  listStyleType?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeListStyleType>,
+  maxHeight?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeMaxHeight>,
+  minHeight?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeMinHeight>,
+  minWidth?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeMinWidth>,
+  objectPosition?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeObjectPosition>,
+  opacity?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeOpacity>,
+  order?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeOrder>,
+  stroke?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeStroke>,
+  strokeWidth?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeStrokeWidth>,
+  zIndex?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeZIndex>,
+  gridTemplateColumns?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeGridTemplateColumns>,
+  gridColumn?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeGridColumn>,
+  gridColumnStart?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeGridColumnStart>,
+  gridColumnEnd?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeGridColumnEnd>,
+  gridTemplateRows?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeGridTemplateRows>,
+  gridRow?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeGridRow>,
+  gridRowStart?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeGridRowStart>,
+  gridRowEnd?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeGridRowEnd>,
+  transformOrigin?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeTransformOrigin>,
+  scale?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeScale>,
+  rotate?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeRotate>,
+  skew?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeSkew>,
+  transitionProperty?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeTransitionProperty>,
+  transitionTimingFunction?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeTransitionTimingFunction>,
+  transitionDuration?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeTransitionDuration>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeBackgroundPosition = {
+   __typename?: 'SitePluginPluginOptionsPostCssPluginsThemeBackgroundPosition',
+  bottom?: Maybe<Scalars['String']>,
+  center?: Maybe<Scalars['String']>,
+  left?: Maybe<Scalars['String']>,
+  left_bottom?: Maybe<Scalars['String']>,
+  left_top?: Maybe<Scalars['String']>,
+  right?: Maybe<Scalars['String']>,
+  right_bottom?: Maybe<Scalars['String']>,
+  right_top?: Maybe<Scalars['String']>,
+  top?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeBackgroundPositionFilterInput = {
+  bottom?: Maybe<StringQueryOperatorInput>,
+  center?: Maybe<StringQueryOperatorInput>,
+  left?: Maybe<StringQueryOperatorInput>,
+  left_bottom?: Maybe<StringQueryOperatorInput>,
+  left_top?: Maybe<StringQueryOperatorInput>,
+  right?: Maybe<StringQueryOperatorInput>,
+  right_bottom?: Maybe<StringQueryOperatorInput>,
+  right_top?: Maybe<StringQueryOperatorInput>,
+  top?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeBackgroundSize = {
+   __typename?: 'SitePluginPluginOptionsPostCssPluginsThemeBackgroundSize',
+  auto?: Maybe<Scalars['String']>,
+  cover?: Maybe<Scalars['String']>,
+  contain?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeBackgroundSizeFilterInput = {
+  auto?: Maybe<StringQueryOperatorInput>,
+  cover?: Maybe<StringQueryOperatorInput>,
+  contain?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeBorderRadius = {
+   __typename?: 'SitePluginPluginOptionsPostCssPluginsThemeBorderRadius',
+  none?: Maybe<Scalars['String']>,
+  sm?: Maybe<Scalars['String']>,
+  default?: Maybe<Scalars['String']>,
+  md?: Maybe<Scalars['String']>,
+  lg?: Maybe<Scalars['String']>,
+  full?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeBorderRadiusFilterInput = {
+  none?: Maybe<StringQueryOperatorInput>,
+  sm?: Maybe<StringQueryOperatorInput>,
+  default?: Maybe<StringQueryOperatorInput>,
+  md?: Maybe<StringQueryOperatorInput>,
+  lg?: Maybe<StringQueryOperatorInput>,
+  full?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeBorderWidth = {
+   __typename?: 'SitePluginPluginOptionsPostCssPluginsThemeBorderWidth',
+  _0?: Maybe<Scalars['String']>,
+  _2?: Maybe<Scalars['String']>,
+  _4?: Maybe<Scalars['String']>,
+  _8?: Maybe<Scalars['String']>,
+  default?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeBorderWidthFilterInput = {
+  _0?: Maybe<StringQueryOperatorInput>,
+  _2?: Maybe<StringQueryOperatorInput>,
+  _4?: Maybe<StringQueryOperatorInput>,
+  _8?: Maybe<StringQueryOperatorInput>,
+  default?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeBoxShadow = {
+   __typename?: 'SitePluginPluginOptionsPostCssPluginsThemeBoxShadow',
+  xs?: Maybe<Scalars['String']>,
+  sm?: Maybe<Scalars['String']>,
+  default?: Maybe<Scalars['String']>,
+  md?: Maybe<Scalars['String']>,
+  lg?: Maybe<Scalars['String']>,
+  xl?: Maybe<Scalars['String']>,
+  _2xl?: Maybe<Scalars['String']>,
+  inner?: Maybe<Scalars['String']>,
+  outline?: Maybe<Scalars['String']>,
+  none?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeBoxShadowFilterInput = {
+  xs?: Maybe<StringQueryOperatorInput>,
+  sm?: Maybe<StringQueryOperatorInput>,
+  default?: Maybe<StringQueryOperatorInput>,
+  md?: Maybe<StringQueryOperatorInput>,
+  lg?: Maybe<StringQueryOperatorInput>,
+  xl?: Maybe<StringQueryOperatorInput>,
+  _2xl?: Maybe<StringQueryOperatorInput>,
+  inner?: Maybe<StringQueryOperatorInput>,
+  outline?: Maybe<StringQueryOperatorInput>,
+  none?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeColors = {
+   __typename?: 'SitePluginPluginOptionsPostCssPluginsThemeColors',
+  transparent?: Maybe<Scalars['String']>,
+  black?: Maybe<Scalars['String']>,
+  white?: Maybe<Scalars['String']>,
+  gray?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeColorsGray>,
+  red?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeColorsRed>,
+  orange?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeColorsOrange>,
+  yellow?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeColorsYellow>,
+  green?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeColorsGreen>,
+  teal?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeColorsTeal>,
+  blue?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeColorsBlue>,
+  indigo?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeColorsIndigo>,
+  purple?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeColorsPurple>,
+  pink?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeColorsPink>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeColorsBlue = {
+   __typename?: 'SitePluginPluginOptionsPostCssPluginsThemeColorsBlue',
+  _100?: Maybe<Scalars['String']>,
+  _200?: Maybe<Scalars['String']>,
+  _300?: Maybe<Scalars['String']>,
+  _400?: Maybe<Scalars['String']>,
+  _500?: Maybe<Scalars['String']>,
+  _600?: Maybe<Scalars['String']>,
+  _700?: Maybe<Scalars['String']>,
+  _800?: Maybe<Scalars['String']>,
+  _900?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeColorsBlueFilterInput = {
+  _100?: Maybe<StringQueryOperatorInput>,
+  _200?: Maybe<StringQueryOperatorInput>,
+  _300?: Maybe<StringQueryOperatorInput>,
+  _400?: Maybe<StringQueryOperatorInput>,
+  _500?: Maybe<StringQueryOperatorInput>,
+  _600?: Maybe<StringQueryOperatorInput>,
+  _700?: Maybe<StringQueryOperatorInput>,
+  _800?: Maybe<StringQueryOperatorInput>,
+  _900?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeColorsFilterInput = {
+  transparent?: Maybe<StringQueryOperatorInput>,
+  black?: Maybe<StringQueryOperatorInput>,
+  white?: Maybe<StringQueryOperatorInput>,
+  gray?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeColorsGrayFilterInput>,
+  red?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeColorsRedFilterInput>,
+  orange?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeColorsOrangeFilterInput>,
+  yellow?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeColorsYellowFilterInput>,
+  green?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeColorsGreenFilterInput>,
+  teal?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeColorsTealFilterInput>,
+  blue?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeColorsBlueFilterInput>,
+  indigo?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeColorsIndigoFilterInput>,
+  purple?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeColorsPurpleFilterInput>,
+  pink?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeColorsPinkFilterInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeColorsGray = {
+   __typename?: 'SitePluginPluginOptionsPostCssPluginsThemeColorsGray',
+  _100?: Maybe<Scalars['String']>,
+  _200?: Maybe<Scalars['String']>,
+  _300?: Maybe<Scalars['String']>,
+  _400?: Maybe<Scalars['String']>,
+  _500?: Maybe<Scalars['String']>,
+  _600?: Maybe<Scalars['String']>,
+  _700?: Maybe<Scalars['String']>,
+  _800?: Maybe<Scalars['String']>,
+  _900?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeColorsGrayFilterInput = {
+  _100?: Maybe<StringQueryOperatorInput>,
+  _200?: Maybe<StringQueryOperatorInput>,
+  _300?: Maybe<StringQueryOperatorInput>,
+  _400?: Maybe<StringQueryOperatorInput>,
+  _500?: Maybe<StringQueryOperatorInput>,
+  _600?: Maybe<StringQueryOperatorInput>,
+  _700?: Maybe<StringQueryOperatorInput>,
+  _800?: Maybe<StringQueryOperatorInput>,
+  _900?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeColorsGreen = {
+   __typename?: 'SitePluginPluginOptionsPostCssPluginsThemeColorsGreen',
+  _100?: Maybe<Scalars['String']>,
+  _200?: Maybe<Scalars['String']>,
+  _300?: Maybe<Scalars['String']>,
+  _400?: Maybe<Scalars['String']>,
+  _500?: Maybe<Scalars['String']>,
+  _600?: Maybe<Scalars['String']>,
+  _700?: Maybe<Scalars['String']>,
+  _800?: Maybe<Scalars['String']>,
+  _900?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeColorsGreenFilterInput = {
+  _100?: Maybe<StringQueryOperatorInput>,
+  _200?: Maybe<StringQueryOperatorInput>,
+  _300?: Maybe<StringQueryOperatorInput>,
+  _400?: Maybe<StringQueryOperatorInput>,
+  _500?: Maybe<StringQueryOperatorInput>,
+  _600?: Maybe<StringQueryOperatorInput>,
+  _700?: Maybe<StringQueryOperatorInput>,
+  _800?: Maybe<StringQueryOperatorInput>,
+  _900?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeColorsIndigo = {
+   __typename?: 'SitePluginPluginOptionsPostCssPluginsThemeColorsIndigo',
+  _100?: Maybe<Scalars['String']>,
+  _200?: Maybe<Scalars['String']>,
+  _300?: Maybe<Scalars['String']>,
+  _400?: Maybe<Scalars['String']>,
+  _500?: Maybe<Scalars['String']>,
+  _600?: Maybe<Scalars['String']>,
+  _700?: Maybe<Scalars['String']>,
+  _800?: Maybe<Scalars['String']>,
+  _900?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeColorsIndigoFilterInput = {
+  _100?: Maybe<StringQueryOperatorInput>,
+  _200?: Maybe<StringQueryOperatorInput>,
+  _300?: Maybe<StringQueryOperatorInput>,
+  _400?: Maybe<StringQueryOperatorInput>,
+  _500?: Maybe<StringQueryOperatorInput>,
+  _600?: Maybe<StringQueryOperatorInput>,
+  _700?: Maybe<StringQueryOperatorInput>,
+  _800?: Maybe<StringQueryOperatorInput>,
+  _900?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeColorsOrange = {
+   __typename?: 'SitePluginPluginOptionsPostCssPluginsThemeColorsOrange',
+  _100?: Maybe<Scalars['String']>,
+  _200?: Maybe<Scalars['String']>,
+  _300?: Maybe<Scalars['String']>,
+  _400?: Maybe<Scalars['String']>,
+  _500?: Maybe<Scalars['String']>,
+  _600?: Maybe<Scalars['String']>,
+  _700?: Maybe<Scalars['String']>,
+  _800?: Maybe<Scalars['String']>,
+  _900?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeColorsOrangeFilterInput = {
+  _100?: Maybe<StringQueryOperatorInput>,
+  _200?: Maybe<StringQueryOperatorInput>,
+  _300?: Maybe<StringQueryOperatorInput>,
+  _400?: Maybe<StringQueryOperatorInput>,
+  _500?: Maybe<StringQueryOperatorInput>,
+  _600?: Maybe<StringQueryOperatorInput>,
+  _700?: Maybe<StringQueryOperatorInput>,
+  _800?: Maybe<StringQueryOperatorInput>,
+  _900?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeColorsPink = {
+   __typename?: 'SitePluginPluginOptionsPostCssPluginsThemeColorsPink',
+  _100?: Maybe<Scalars['String']>,
+  _200?: Maybe<Scalars['String']>,
+  _300?: Maybe<Scalars['String']>,
+  _400?: Maybe<Scalars['String']>,
+  _500?: Maybe<Scalars['String']>,
+  _600?: Maybe<Scalars['String']>,
+  _700?: Maybe<Scalars['String']>,
+  _800?: Maybe<Scalars['String']>,
+  _900?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeColorsPinkFilterInput = {
+  _100?: Maybe<StringQueryOperatorInput>,
+  _200?: Maybe<StringQueryOperatorInput>,
+  _300?: Maybe<StringQueryOperatorInput>,
+  _400?: Maybe<StringQueryOperatorInput>,
+  _500?: Maybe<StringQueryOperatorInput>,
+  _600?: Maybe<StringQueryOperatorInput>,
+  _700?: Maybe<StringQueryOperatorInput>,
+  _800?: Maybe<StringQueryOperatorInput>,
+  _900?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeColorsPurple = {
+   __typename?: 'SitePluginPluginOptionsPostCssPluginsThemeColorsPurple',
+  _100?: Maybe<Scalars['String']>,
+  _200?: Maybe<Scalars['String']>,
+  _300?: Maybe<Scalars['String']>,
+  _400?: Maybe<Scalars['String']>,
+  _500?: Maybe<Scalars['String']>,
+  _600?: Maybe<Scalars['String']>,
+  _700?: Maybe<Scalars['String']>,
+  _800?: Maybe<Scalars['String']>,
+  _900?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeColorsPurpleFilterInput = {
+  _100?: Maybe<StringQueryOperatorInput>,
+  _200?: Maybe<StringQueryOperatorInput>,
+  _300?: Maybe<StringQueryOperatorInput>,
+  _400?: Maybe<StringQueryOperatorInput>,
+  _500?: Maybe<StringQueryOperatorInput>,
+  _600?: Maybe<StringQueryOperatorInput>,
+  _700?: Maybe<StringQueryOperatorInput>,
+  _800?: Maybe<StringQueryOperatorInput>,
+  _900?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeColorsRed = {
+   __typename?: 'SitePluginPluginOptionsPostCssPluginsThemeColorsRed',
+  _100?: Maybe<Scalars['String']>,
+  _200?: Maybe<Scalars['String']>,
+  _300?: Maybe<Scalars['String']>,
+  _400?: Maybe<Scalars['String']>,
+  _500?: Maybe<Scalars['String']>,
+  _600?: Maybe<Scalars['String']>,
+  _700?: Maybe<Scalars['String']>,
+  _800?: Maybe<Scalars['String']>,
+  _900?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeColorsRedFilterInput = {
+  _100?: Maybe<StringQueryOperatorInput>,
+  _200?: Maybe<StringQueryOperatorInput>,
+  _300?: Maybe<StringQueryOperatorInput>,
+  _400?: Maybe<StringQueryOperatorInput>,
+  _500?: Maybe<StringQueryOperatorInput>,
+  _600?: Maybe<StringQueryOperatorInput>,
+  _700?: Maybe<StringQueryOperatorInput>,
+  _800?: Maybe<StringQueryOperatorInput>,
+  _900?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeColorsTeal = {
+   __typename?: 'SitePluginPluginOptionsPostCssPluginsThemeColorsTeal',
+  _100?: Maybe<Scalars['String']>,
+  _200?: Maybe<Scalars['String']>,
+  _300?: Maybe<Scalars['String']>,
+  _400?: Maybe<Scalars['String']>,
+  _500?: Maybe<Scalars['String']>,
+  _600?: Maybe<Scalars['String']>,
+  _700?: Maybe<Scalars['String']>,
+  _800?: Maybe<Scalars['String']>,
+  _900?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeColorsTealFilterInput = {
+  _100?: Maybe<StringQueryOperatorInput>,
+  _200?: Maybe<StringQueryOperatorInput>,
+  _300?: Maybe<StringQueryOperatorInput>,
+  _400?: Maybe<StringQueryOperatorInput>,
+  _500?: Maybe<StringQueryOperatorInput>,
+  _600?: Maybe<StringQueryOperatorInput>,
+  _700?: Maybe<StringQueryOperatorInput>,
+  _800?: Maybe<StringQueryOperatorInput>,
+  _900?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeColorsYellow = {
+   __typename?: 'SitePluginPluginOptionsPostCssPluginsThemeColorsYellow',
+  _100?: Maybe<Scalars['String']>,
+  _200?: Maybe<Scalars['String']>,
+  _300?: Maybe<Scalars['String']>,
+  _400?: Maybe<Scalars['String']>,
+  _500?: Maybe<Scalars['String']>,
+  _600?: Maybe<Scalars['String']>,
+  _700?: Maybe<Scalars['String']>,
+  _800?: Maybe<Scalars['String']>,
+  _900?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeColorsYellowFilterInput = {
+  _100?: Maybe<StringQueryOperatorInput>,
+  _200?: Maybe<StringQueryOperatorInput>,
+  _300?: Maybe<StringQueryOperatorInput>,
+  _400?: Maybe<StringQueryOperatorInput>,
+  _500?: Maybe<StringQueryOperatorInput>,
+  _600?: Maybe<StringQueryOperatorInput>,
+  _700?: Maybe<StringQueryOperatorInput>,
+  _800?: Maybe<StringQueryOperatorInput>,
+  _900?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeCursor = {
+   __typename?: 'SitePluginPluginOptionsPostCssPluginsThemeCursor',
+  auto?: Maybe<Scalars['String']>,
+  default?: Maybe<Scalars['String']>,
+  pointer?: Maybe<Scalars['String']>,
+  wait?: Maybe<Scalars['String']>,
+  text?: Maybe<Scalars['String']>,
+  move?: Maybe<Scalars['String']>,
+  not_allowed?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeCursorFilterInput = {
+  auto?: Maybe<StringQueryOperatorInput>,
+  default?: Maybe<StringQueryOperatorInput>,
+  pointer?: Maybe<StringQueryOperatorInput>,
+  wait?: Maybe<StringQueryOperatorInput>,
+  text?: Maybe<StringQueryOperatorInput>,
+  move?: Maybe<StringQueryOperatorInput>,
+  not_allowed?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeFill = {
+   __typename?: 'SitePluginPluginOptionsPostCssPluginsThemeFill',
+  current?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeFillFilterInput = {
+  current?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeFilterInput = {
+  screens?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeScreensFilterInput>,
+  colors?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeColorsFilterInput>,
+  spacing?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeSpacingFilterInput>,
+  backgroundPosition?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeBackgroundPositionFilterInput>,
+  backgroundSize?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeBackgroundSizeFilterInput>,
+  borderRadius?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeBorderRadiusFilterInput>,
+  borderWidth?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeBorderWidthFilterInput>,
+  boxShadow?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeBoxShadowFilterInput>,
+  cursor?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeCursorFilterInput>,
+  fill?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeFillFilterInput>,
+  flex?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeFlexFilterInput>,
+  flexGrow?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeFlexGrowFilterInput>,
+  flexShrink?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeFlexShrinkFilterInput>,
+  fontFamily?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeFontFamilyFilterInput>,
+  fontSize?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeFontSizeFilterInput>,
+  fontWeight?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeFontWeightFilterInput>,
+  inset?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeInsetFilterInput>,
+  letterSpacing?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeLetterSpacingFilterInput>,
+  lineHeight?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeLineHeightFilterInput>,
+  listStyleType?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeListStyleTypeFilterInput>,
+  maxHeight?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeMaxHeightFilterInput>,
+  minHeight?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeMinHeightFilterInput>,
+  minWidth?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeMinWidthFilterInput>,
+  objectPosition?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeObjectPositionFilterInput>,
+  opacity?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeOpacityFilterInput>,
+  order?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeOrderFilterInput>,
+  stroke?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeStrokeFilterInput>,
+  strokeWidth?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeStrokeWidthFilterInput>,
+  zIndex?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeZIndexFilterInput>,
+  gridTemplateColumns?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeGridTemplateColumnsFilterInput>,
+  gridColumn?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeGridColumnFilterInput>,
+  gridColumnStart?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeGridColumnStartFilterInput>,
+  gridColumnEnd?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeGridColumnEndFilterInput>,
+  gridTemplateRows?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeGridTemplateRowsFilterInput>,
+  gridRow?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeGridRowFilterInput>,
+  gridRowStart?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeGridRowStartFilterInput>,
+  gridRowEnd?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeGridRowEndFilterInput>,
+  transformOrigin?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeTransformOriginFilterInput>,
+  scale?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeScaleFilterInput>,
+  rotate?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeRotateFilterInput>,
+  skew?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeSkewFilterInput>,
+  transitionProperty?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeTransitionPropertyFilterInput>,
+  transitionTimingFunction?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeTransitionTimingFunctionFilterInput>,
+  transitionDuration?: Maybe<SitePluginPluginOptionsPostCssPluginsThemeTransitionDurationFilterInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeFlex = {
+   __typename?: 'SitePluginPluginOptionsPostCssPluginsThemeFlex',
+  _1?: Maybe<Scalars['String']>,
+  auto?: Maybe<Scalars['String']>,
+  initial?: Maybe<Scalars['String']>,
+  none?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeFlexFilterInput = {
+  _1?: Maybe<StringQueryOperatorInput>,
+  auto?: Maybe<StringQueryOperatorInput>,
+  initial?: Maybe<StringQueryOperatorInput>,
+  none?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeFlexGrow = {
+   __typename?: 'SitePluginPluginOptionsPostCssPluginsThemeFlexGrow',
+  _0?: Maybe<Scalars['String']>,
+  default?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeFlexGrowFilterInput = {
+  _0?: Maybe<StringQueryOperatorInput>,
+  default?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeFlexShrink = {
+   __typename?: 'SitePluginPluginOptionsPostCssPluginsThemeFlexShrink',
+  _0?: Maybe<Scalars['String']>,
+  default?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeFlexShrinkFilterInput = {
+  _0?: Maybe<StringQueryOperatorInput>,
+  default?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeFontFamily = {
+   __typename?: 'SitePluginPluginOptionsPostCssPluginsThemeFontFamily',
+  sans?: Maybe<Array<Maybe<Scalars['String']>>>,
+  serif?: Maybe<Array<Maybe<Scalars['String']>>>,
+  mono?: Maybe<Array<Maybe<Scalars['String']>>>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeFontFamilyFilterInput = {
+  sans?: Maybe<StringQueryOperatorInput>,
+  serif?: Maybe<StringQueryOperatorInput>,
+  mono?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeFontSize = {
+   __typename?: 'SitePluginPluginOptionsPostCssPluginsThemeFontSize',
+  xs?: Maybe<Scalars['String']>,
+  sm?: Maybe<Scalars['String']>,
+  base?: Maybe<Scalars['String']>,
+  lg?: Maybe<Scalars['String']>,
+  xl?: Maybe<Scalars['String']>,
+  _2xl?: Maybe<Scalars['String']>,
+  _3xl?: Maybe<Scalars['String']>,
+  _4xl?: Maybe<Scalars['String']>,
+  _5xl?: Maybe<Scalars['String']>,
+  _6xl?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeFontSizeFilterInput = {
+  xs?: Maybe<StringQueryOperatorInput>,
+  sm?: Maybe<StringQueryOperatorInput>,
+  base?: Maybe<StringQueryOperatorInput>,
+  lg?: Maybe<StringQueryOperatorInput>,
+  xl?: Maybe<StringQueryOperatorInput>,
+  _2xl?: Maybe<StringQueryOperatorInput>,
+  _3xl?: Maybe<StringQueryOperatorInput>,
+  _4xl?: Maybe<StringQueryOperatorInput>,
+  _5xl?: Maybe<StringQueryOperatorInput>,
+  _6xl?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeFontWeight = {
+   __typename?: 'SitePluginPluginOptionsPostCssPluginsThemeFontWeight',
+  hairline?: Maybe<Scalars['String']>,
+  thin?: Maybe<Scalars['String']>,
+  light?: Maybe<Scalars['String']>,
+  normal?: Maybe<Scalars['String']>,
+  medium?: Maybe<Scalars['String']>,
+  semibold?: Maybe<Scalars['String']>,
+  bold?: Maybe<Scalars['String']>,
+  extrabold?: Maybe<Scalars['String']>,
+  black?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeFontWeightFilterInput = {
+  hairline?: Maybe<StringQueryOperatorInput>,
+  thin?: Maybe<StringQueryOperatorInput>,
+  light?: Maybe<StringQueryOperatorInput>,
+  normal?: Maybe<StringQueryOperatorInput>,
+  medium?: Maybe<StringQueryOperatorInput>,
+  semibold?: Maybe<StringQueryOperatorInput>,
+  bold?: Maybe<StringQueryOperatorInput>,
+  extrabold?: Maybe<StringQueryOperatorInput>,
+  black?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeGridColumn = {
+   __typename?: 'SitePluginPluginOptionsPostCssPluginsThemeGridColumn',
+  auto?: Maybe<Scalars['String']>,
+  span_1?: Maybe<Scalars['String']>,
+  span_2?: Maybe<Scalars['String']>,
+  span_3?: Maybe<Scalars['String']>,
+  span_4?: Maybe<Scalars['String']>,
+  span_5?: Maybe<Scalars['String']>,
+  span_6?: Maybe<Scalars['String']>,
+  span_7?: Maybe<Scalars['String']>,
+  span_8?: Maybe<Scalars['String']>,
+  span_9?: Maybe<Scalars['String']>,
+  span_10?: Maybe<Scalars['String']>,
+  span_11?: Maybe<Scalars['String']>,
+  span_12?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeGridColumnEnd = {
+   __typename?: 'SitePluginPluginOptionsPostCssPluginsThemeGridColumnEnd',
+  _1?: Maybe<Scalars['String']>,
+  _2?: Maybe<Scalars['String']>,
+  _3?: Maybe<Scalars['String']>,
+  _4?: Maybe<Scalars['String']>,
+  _5?: Maybe<Scalars['String']>,
+  _6?: Maybe<Scalars['String']>,
+  _7?: Maybe<Scalars['String']>,
+  _8?: Maybe<Scalars['String']>,
+  _9?: Maybe<Scalars['String']>,
+  _10?: Maybe<Scalars['String']>,
+  _11?: Maybe<Scalars['String']>,
+  _12?: Maybe<Scalars['String']>,
+  _13?: Maybe<Scalars['String']>,
+  auto?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeGridColumnEndFilterInput = {
+  _1?: Maybe<StringQueryOperatorInput>,
+  _2?: Maybe<StringQueryOperatorInput>,
+  _3?: Maybe<StringQueryOperatorInput>,
+  _4?: Maybe<StringQueryOperatorInput>,
+  _5?: Maybe<StringQueryOperatorInput>,
+  _6?: Maybe<StringQueryOperatorInput>,
+  _7?: Maybe<StringQueryOperatorInput>,
+  _8?: Maybe<StringQueryOperatorInput>,
+  _9?: Maybe<StringQueryOperatorInput>,
+  _10?: Maybe<StringQueryOperatorInput>,
+  _11?: Maybe<StringQueryOperatorInput>,
+  _12?: Maybe<StringQueryOperatorInput>,
+  _13?: Maybe<StringQueryOperatorInput>,
+  auto?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeGridColumnFilterInput = {
+  auto?: Maybe<StringQueryOperatorInput>,
+  span_1?: Maybe<StringQueryOperatorInput>,
+  span_2?: Maybe<StringQueryOperatorInput>,
+  span_3?: Maybe<StringQueryOperatorInput>,
+  span_4?: Maybe<StringQueryOperatorInput>,
+  span_5?: Maybe<StringQueryOperatorInput>,
+  span_6?: Maybe<StringQueryOperatorInput>,
+  span_7?: Maybe<StringQueryOperatorInput>,
+  span_8?: Maybe<StringQueryOperatorInput>,
+  span_9?: Maybe<StringQueryOperatorInput>,
+  span_10?: Maybe<StringQueryOperatorInput>,
+  span_11?: Maybe<StringQueryOperatorInput>,
+  span_12?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeGridColumnStart = {
+   __typename?: 'SitePluginPluginOptionsPostCssPluginsThemeGridColumnStart',
+  _1?: Maybe<Scalars['String']>,
+  _2?: Maybe<Scalars['String']>,
+  _3?: Maybe<Scalars['String']>,
+  _4?: Maybe<Scalars['String']>,
+  _5?: Maybe<Scalars['String']>,
+  _6?: Maybe<Scalars['String']>,
+  _7?: Maybe<Scalars['String']>,
+  _8?: Maybe<Scalars['String']>,
+  _9?: Maybe<Scalars['String']>,
+  _10?: Maybe<Scalars['String']>,
+  _11?: Maybe<Scalars['String']>,
+  _12?: Maybe<Scalars['String']>,
+  _13?: Maybe<Scalars['String']>,
+  auto?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeGridColumnStartFilterInput = {
+  _1?: Maybe<StringQueryOperatorInput>,
+  _2?: Maybe<StringQueryOperatorInput>,
+  _3?: Maybe<StringQueryOperatorInput>,
+  _4?: Maybe<StringQueryOperatorInput>,
+  _5?: Maybe<StringQueryOperatorInput>,
+  _6?: Maybe<StringQueryOperatorInput>,
+  _7?: Maybe<StringQueryOperatorInput>,
+  _8?: Maybe<StringQueryOperatorInput>,
+  _9?: Maybe<StringQueryOperatorInput>,
+  _10?: Maybe<StringQueryOperatorInput>,
+  _11?: Maybe<StringQueryOperatorInput>,
+  _12?: Maybe<StringQueryOperatorInput>,
+  _13?: Maybe<StringQueryOperatorInput>,
+  auto?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeGridRow = {
+   __typename?: 'SitePluginPluginOptionsPostCssPluginsThemeGridRow',
+  auto?: Maybe<Scalars['String']>,
+  span_1?: Maybe<Scalars['String']>,
+  span_2?: Maybe<Scalars['String']>,
+  span_3?: Maybe<Scalars['String']>,
+  span_4?: Maybe<Scalars['String']>,
+  span_5?: Maybe<Scalars['String']>,
+  span_6?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeGridRowEnd = {
+   __typename?: 'SitePluginPluginOptionsPostCssPluginsThemeGridRowEnd',
+  _1?: Maybe<Scalars['String']>,
+  _2?: Maybe<Scalars['String']>,
+  _3?: Maybe<Scalars['String']>,
+  _4?: Maybe<Scalars['String']>,
+  _5?: Maybe<Scalars['String']>,
+  _6?: Maybe<Scalars['String']>,
+  _7?: Maybe<Scalars['String']>,
+  auto?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeGridRowEndFilterInput = {
+  _1?: Maybe<StringQueryOperatorInput>,
+  _2?: Maybe<StringQueryOperatorInput>,
+  _3?: Maybe<StringQueryOperatorInput>,
+  _4?: Maybe<StringQueryOperatorInput>,
+  _5?: Maybe<StringQueryOperatorInput>,
+  _6?: Maybe<StringQueryOperatorInput>,
+  _7?: Maybe<StringQueryOperatorInput>,
+  auto?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeGridRowFilterInput = {
+  auto?: Maybe<StringQueryOperatorInput>,
+  span_1?: Maybe<StringQueryOperatorInput>,
+  span_2?: Maybe<StringQueryOperatorInput>,
+  span_3?: Maybe<StringQueryOperatorInput>,
+  span_4?: Maybe<StringQueryOperatorInput>,
+  span_5?: Maybe<StringQueryOperatorInput>,
+  span_6?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeGridRowStart = {
+   __typename?: 'SitePluginPluginOptionsPostCssPluginsThemeGridRowStart',
+  _1?: Maybe<Scalars['String']>,
+  _2?: Maybe<Scalars['String']>,
+  _3?: Maybe<Scalars['String']>,
+  _4?: Maybe<Scalars['String']>,
+  _5?: Maybe<Scalars['String']>,
+  _6?: Maybe<Scalars['String']>,
+  _7?: Maybe<Scalars['String']>,
+  auto?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeGridRowStartFilterInput = {
+  _1?: Maybe<StringQueryOperatorInput>,
+  _2?: Maybe<StringQueryOperatorInput>,
+  _3?: Maybe<StringQueryOperatorInput>,
+  _4?: Maybe<StringQueryOperatorInput>,
+  _5?: Maybe<StringQueryOperatorInput>,
+  _6?: Maybe<StringQueryOperatorInput>,
+  _7?: Maybe<StringQueryOperatorInput>,
+  auto?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeGridTemplateColumns = {
+   __typename?: 'SitePluginPluginOptionsPostCssPluginsThemeGridTemplateColumns',
+  _1?: Maybe<Scalars['String']>,
+  _2?: Maybe<Scalars['String']>,
+  _3?: Maybe<Scalars['String']>,
+  _4?: Maybe<Scalars['String']>,
+  _5?: Maybe<Scalars['String']>,
+  _6?: Maybe<Scalars['String']>,
+  _7?: Maybe<Scalars['String']>,
+  _8?: Maybe<Scalars['String']>,
+  _9?: Maybe<Scalars['String']>,
+  _10?: Maybe<Scalars['String']>,
+  _11?: Maybe<Scalars['String']>,
+  _12?: Maybe<Scalars['String']>,
+  none?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeGridTemplateColumnsFilterInput = {
+  _1?: Maybe<StringQueryOperatorInput>,
+  _2?: Maybe<StringQueryOperatorInput>,
+  _3?: Maybe<StringQueryOperatorInput>,
+  _4?: Maybe<StringQueryOperatorInput>,
+  _5?: Maybe<StringQueryOperatorInput>,
+  _6?: Maybe<StringQueryOperatorInput>,
+  _7?: Maybe<StringQueryOperatorInput>,
+  _8?: Maybe<StringQueryOperatorInput>,
+  _9?: Maybe<StringQueryOperatorInput>,
+  _10?: Maybe<StringQueryOperatorInput>,
+  _11?: Maybe<StringQueryOperatorInput>,
+  _12?: Maybe<StringQueryOperatorInput>,
+  none?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeGridTemplateRows = {
+   __typename?: 'SitePluginPluginOptionsPostCssPluginsThemeGridTemplateRows',
+  _1?: Maybe<Scalars['String']>,
+  _2?: Maybe<Scalars['String']>,
+  _3?: Maybe<Scalars['String']>,
+  _4?: Maybe<Scalars['String']>,
+  _5?: Maybe<Scalars['String']>,
+  _6?: Maybe<Scalars['String']>,
+  none?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeGridTemplateRowsFilterInput = {
+  _1?: Maybe<StringQueryOperatorInput>,
+  _2?: Maybe<StringQueryOperatorInput>,
+  _3?: Maybe<StringQueryOperatorInput>,
+  _4?: Maybe<StringQueryOperatorInput>,
+  _5?: Maybe<StringQueryOperatorInput>,
+  _6?: Maybe<StringQueryOperatorInput>,
+  none?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeInset = {
+   __typename?: 'SitePluginPluginOptionsPostCssPluginsThemeInset',
+  _0?: Maybe<Scalars['String']>,
+  auto?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeInsetFilterInput = {
+  _0?: Maybe<StringQueryOperatorInput>,
+  auto?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeLetterSpacing = {
+   __typename?: 'SitePluginPluginOptionsPostCssPluginsThemeLetterSpacing',
+  tighter?: Maybe<Scalars['String']>,
+  tight?: Maybe<Scalars['String']>,
+  normal?: Maybe<Scalars['String']>,
+  wide?: Maybe<Scalars['String']>,
+  wider?: Maybe<Scalars['String']>,
+  widest?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeLetterSpacingFilterInput = {
+  tighter?: Maybe<StringQueryOperatorInput>,
+  tight?: Maybe<StringQueryOperatorInput>,
+  normal?: Maybe<StringQueryOperatorInput>,
+  wide?: Maybe<StringQueryOperatorInput>,
+  wider?: Maybe<StringQueryOperatorInput>,
+  widest?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeLineHeight = {
+   __typename?: 'SitePluginPluginOptionsPostCssPluginsThemeLineHeight',
+  _3?: Maybe<Scalars['String']>,
+  _4?: Maybe<Scalars['String']>,
+  _5?: Maybe<Scalars['String']>,
+  _6?: Maybe<Scalars['String']>,
+  _7?: Maybe<Scalars['String']>,
+  _8?: Maybe<Scalars['String']>,
+  _9?: Maybe<Scalars['String']>,
+  _10?: Maybe<Scalars['String']>,
+  none?: Maybe<Scalars['String']>,
+  tight?: Maybe<Scalars['String']>,
+  snug?: Maybe<Scalars['String']>,
+  normal?: Maybe<Scalars['String']>,
+  relaxed?: Maybe<Scalars['String']>,
+  loose?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeLineHeightFilterInput = {
+  _3?: Maybe<StringQueryOperatorInput>,
+  _4?: Maybe<StringQueryOperatorInput>,
+  _5?: Maybe<StringQueryOperatorInput>,
+  _6?: Maybe<StringQueryOperatorInput>,
+  _7?: Maybe<StringQueryOperatorInput>,
+  _8?: Maybe<StringQueryOperatorInput>,
+  _9?: Maybe<StringQueryOperatorInput>,
+  _10?: Maybe<StringQueryOperatorInput>,
+  none?: Maybe<StringQueryOperatorInput>,
+  tight?: Maybe<StringQueryOperatorInput>,
+  snug?: Maybe<StringQueryOperatorInput>,
+  normal?: Maybe<StringQueryOperatorInput>,
+  relaxed?: Maybe<StringQueryOperatorInput>,
+  loose?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeListStyleType = {
+   __typename?: 'SitePluginPluginOptionsPostCssPluginsThemeListStyleType',
+  none?: Maybe<Scalars['String']>,
+  disc?: Maybe<Scalars['String']>,
+  decimal?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeListStyleTypeFilterInput = {
+  none?: Maybe<StringQueryOperatorInput>,
+  disc?: Maybe<StringQueryOperatorInput>,
+  decimal?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeMaxHeight = {
+   __typename?: 'SitePluginPluginOptionsPostCssPluginsThemeMaxHeight',
+  full?: Maybe<Scalars['String']>,
+  screen?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeMaxHeightFilterInput = {
+  full?: Maybe<StringQueryOperatorInput>,
+  screen?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeMinHeight = {
+   __typename?: 'SitePluginPluginOptionsPostCssPluginsThemeMinHeight',
+  _0?: Maybe<Scalars['String']>,
+  full?: Maybe<Scalars['String']>,
+  screen?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeMinHeightFilterInput = {
+  _0?: Maybe<StringQueryOperatorInput>,
+  full?: Maybe<StringQueryOperatorInput>,
+  screen?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeMinWidth = {
+   __typename?: 'SitePluginPluginOptionsPostCssPluginsThemeMinWidth',
+  _0?: Maybe<Scalars['String']>,
+  full?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeMinWidthFilterInput = {
+  _0?: Maybe<StringQueryOperatorInput>,
+  full?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeObjectPosition = {
+   __typename?: 'SitePluginPluginOptionsPostCssPluginsThemeObjectPosition',
+  bottom?: Maybe<Scalars['String']>,
+  center?: Maybe<Scalars['String']>,
+  left?: Maybe<Scalars['String']>,
+  left_bottom?: Maybe<Scalars['String']>,
+  left_top?: Maybe<Scalars['String']>,
+  right?: Maybe<Scalars['String']>,
+  right_bottom?: Maybe<Scalars['String']>,
+  right_top?: Maybe<Scalars['String']>,
+  top?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeObjectPositionFilterInput = {
+  bottom?: Maybe<StringQueryOperatorInput>,
+  center?: Maybe<StringQueryOperatorInput>,
+  left?: Maybe<StringQueryOperatorInput>,
+  left_bottom?: Maybe<StringQueryOperatorInput>,
+  left_top?: Maybe<StringQueryOperatorInput>,
+  right?: Maybe<StringQueryOperatorInput>,
+  right_bottom?: Maybe<StringQueryOperatorInput>,
+  right_top?: Maybe<StringQueryOperatorInput>,
+  top?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeOpacity = {
+   __typename?: 'SitePluginPluginOptionsPostCssPluginsThemeOpacity',
+  _0?: Maybe<Scalars['String']>,
+  _25?: Maybe<Scalars['String']>,
+  _50?: Maybe<Scalars['String']>,
+  _75?: Maybe<Scalars['String']>,
+  _100?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeOpacityFilterInput = {
+  _0?: Maybe<StringQueryOperatorInput>,
+  _25?: Maybe<StringQueryOperatorInput>,
+  _50?: Maybe<StringQueryOperatorInput>,
+  _75?: Maybe<StringQueryOperatorInput>,
+  _100?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeOrder = {
+   __typename?: 'SitePluginPluginOptionsPostCssPluginsThemeOrder',
+  _1?: Maybe<Scalars['String']>,
+  _2?: Maybe<Scalars['String']>,
+  _3?: Maybe<Scalars['String']>,
+  _4?: Maybe<Scalars['String']>,
+  _5?: Maybe<Scalars['String']>,
+  _6?: Maybe<Scalars['String']>,
+  _7?: Maybe<Scalars['String']>,
+  _8?: Maybe<Scalars['String']>,
+  _9?: Maybe<Scalars['String']>,
+  _10?: Maybe<Scalars['String']>,
+  _11?: Maybe<Scalars['String']>,
+  _12?: Maybe<Scalars['String']>,
+  first?: Maybe<Scalars['String']>,
+  last?: Maybe<Scalars['Date']>,
+  none?: Maybe<Scalars['String']>,
+};
+
+
+export type SitePluginPluginOptionsPostCssPluginsThemeOrderLastArgs = {
+  formatString?: Maybe<Scalars['String']>,
+  fromNow?: Maybe<Scalars['Boolean']>,
+  difference?: Maybe<Scalars['String']>,
+  locale?: Maybe<Scalars['String']>
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeOrderFilterInput = {
+  _1?: Maybe<StringQueryOperatorInput>,
+  _2?: Maybe<StringQueryOperatorInput>,
+  _3?: Maybe<StringQueryOperatorInput>,
+  _4?: Maybe<StringQueryOperatorInput>,
+  _5?: Maybe<StringQueryOperatorInput>,
+  _6?: Maybe<StringQueryOperatorInput>,
+  _7?: Maybe<StringQueryOperatorInput>,
+  _8?: Maybe<StringQueryOperatorInput>,
+  _9?: Maybe<StringQueryOperatorInput>,
+  _10?: Maybe<StringQueryOperatorInput>,
+  _11?: Maybe<StringQueryOperatorInput>,
+  _12?: Maybe<StringQueryOperatorInput>,
+  first?: Maybe<StringQueryOperatorInput>,
+  last?: Maybe<DateQueryOperatorInput>,
+  none?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeRotate = {
+   __typename?: 'SitePluginPluginOptionsPostCssPluginsThemeRotate',
+  _0?: Maybe<Scalars['String']>,
+  _45?: Maybe<Scalars['String']>,
+  _90?: Maybe<Scalars['String']>,
+  _180?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeRotateFilterInput = {
+  _0?: Maybe<StringQueryOperatorInput>,
+  _45?: Maybe<StringQueryOperatorInput>,
+  _90?: Maybe<StringQueryOperatorInput>,
+  _180?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeScale = {
+   __typename?: 'SitePluginPluginOptionsPostCssPluginsThemeScale',
+  _0?: Maybe<Scalars['String']>,
+  _50?: Maybe<Scalars['String']>,
+  _75?: Maybe<Scalars['String']>,
+  _90?: Maybe<Scalars['String']>,
+  _95?: Maybe<Scalars['String']>,
+  _100?: Maybe<Scalars['String']>,
+  _105?: Maybe<Scalars['String']>,
+  _110?: Maybe<Scalars['String']>,
+  _125?: Maybe<Scalars['String']>,
+  _150?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeScaleFilterInput = {
+  _0?: Maybe<StringQueryOperatorInput>,
+  _50?: Maybe<StringQueryOperatorInput>,
+  _75?: Maybe<StringQueryOperatorInput>,
+  _90?: Maybe<StringQueryOperatorInput>,
+  _95?: Maybe<StringQueryOperatorInput>,
+  _100?: Maybe<StringQueryOperatorInput>,
+  _105?: Maybe<StringQueryOperatorInput>,
+  _110?: Maybe<StringQueryOperatorInput>,
+  _125?: Maybe<StringQueryOperatorInput>,
+  _150?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeScreens = {
+   __typename?: 'SitePluginPluginOptionsPostCssPluginsThemeScreens',
+  sm?: Maybe<Scalars['String']>,
+  md?: Maybe<Scalars['String']>,
+  lg?: Maybe<Scalars['String']>,
+  xl?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeScreensFilterInput = {
+  sm?: Maybe<StringQueryOperatorInput>,
+  md?: Maybe<StringQueryOperatorInput>,
+  lg?: Maybe<StringQueryOperatorInput>,
+  xl?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeSkew = {
+   __typename?: 'SitePluginPluginOptionsPostCssPluginsThemeSkew',
+  _0?: Maybe<Scalars['String']>,
+  _3?: Maybe<Scalars['String']>,
+  _6?: Maybe<Scalars['String']>,
+  _12?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeSkewFilterInput = {
+  _0?: Maybe<StringQueryOperatorInput>,
+  _3?: Maybe<StringQueryOperatorInput>,
+  _6?: Maybe<StringQueryOperatorInput>,
+  _12?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeSpacing = {
+   __typename?: 'SitePluginPluginOptionsPostCssPluginsThemeSpacing',
+  _0?: Maybe<Scalars['String']>,
+  _1?: Maybe<Scalars['String']>,
+  _2?: Maybe<Scalars['String']>,
+  _3?: Maybe<Scalars['String']>,
+  _4?: Maybe<Scalars['String']>,
+  _5?: Maybe<Scalars['String']>,
+  _6?: Maybe<Scalars['String']>,
+  _8?: Maybe<Scalars['String']>,
+  _10?: Maybe<Scalars['String']>,
+  _12?: Maybe<Scalars['String']>,
+  _16?: Maybe<Scalars['String']>,
+  _20?: Maybe<Scalars['String']>,
+  _24?: Maybe<Scalars['String']>,
+  _32?: Maybe<Scalars['String']>,
+  _40?: Maybe<Scalars['String']>,
+  _48?: Maybe<Scalars['String']>,
+  _56?: Maybe<Scalars['String']>,
+  _64?: Maybe<Scalars['String']>,
+  px?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeSpacingFilterInput = {
+  _0?: Maybe<StringQueryOperatorInput>,
+  _1?: Maybe<StringQueryOperatorInput>,
+  _2?: Maybe<StringQueryOperatorInput>,
+  _3?: Maybe<StringQueryOperatorInput>,
+  _4?: Maybe<StringQueryOperatorInput>,
+  _5?: Maybe<StringQueryOperatorInput>,
+  _6?: Maybe<StringQueryOperatorInput>,
+  _8?: Maybe<StringQueryOperatorInput>,
+  _10?: Maybe<StringQueryOperatorInput>,
+  _12?: Maybe<StringQueryOperatorInput>,
+  _16?: Maybe<StringQueryOperatorInput>,
+  _20?: Maybe<StringQueryOperatorInput>,
+  _24?: Maybe<StringQueryOperatorInput>,
+  _32?: Maybe<StringQueryOperatorInput>,
+  _40?: Maybe<StringQueryOperatorInput>,
+  _48?: Maybe<StringQueryOperatorInput>,
+  _56?: Maybe<StringQueryOperatorInput>,
+  _64?: Maybe<StringQueryOperatorInput>,
+  px?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeStroke = {
+   __typename?: 'SitePluginPluginOptionsPostCssPluginsThemeStroke',
+  current?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeStrokeFilterInput = {
+  current?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeStrokeWidth = {
+   __typename?: 'SitePluginPluginOptionsPostCssPluginsThemeStrokeWidth',
+  _0?: Maybe<Scalars['String']>,
+  _1?: Maybe<Scalars['String']>,
+  _2?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeStrokeWidthFilterInput = {
+  _0?: Maybe<StringQueryOperatorInput>,
+  _1?: Maybe<StringQueryOperatorInput>,
+  _2?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeTransformOrigin = {
+   __typename?: 'SitePluginPluginOptionsPostCssPluginsThemeTransformOrigin',
+  center?: Maybe<Scalars['String']>,
+  top?: Maybe<Scalars['String']>,
+  top_right?: Maybe<Scalars['String']>,
+  right?: Maybe<Scalars['String']>,
+  bottom_right?: Maybe<Scalars['String']>,
+  bottom?: Maybe<Scalars['String']>,
+  bottom_left?: Maybe<Scalars['String']>,
+  left?: Maybe<Scalars['String']>,
+  top_left?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeTransformOriginFilterInput = {
+  center?: Maybe<StringQueryOperatorInput>,
+  top?: Maybe<StringQueryOperatorInput>,
+  top_right?: Maybe<StringQueryOperatorInput>,
+  right?: Maybe<StringQueryOperatorInput>,
+  bottom_right?: Maybe<StringQueryOperatorInput>,
+  bottom?: Maybe<StringQueryOperatorInput>,
+  bottom_left?: Maybe<StringQueryOperatorInput>,
+  left?: Maybe<StringQueryOperatorInput>,
+  top_left?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeTransitionDuration = {
+   __typename?: 'SitePluginPluginOptionsPostCssPluginsThemeTransitionDuration',
+  _75?: Maybe<Scalars['String']>,
+  _100?: Maybe<Scalars['String']>,
+  _150?: Maybe<Scalars['String']>,
+  _200?: Maybe<Scalars['String']>,
+  _300?: Maybe<Scalars['String']>,
+  _500?: Maybe<Scalars['String']>,
+  _700?: Maybe<Scalars['String']>,
+  _1000?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeTransitionDurationFilterInput = {
+  _75?: Maybe<StringQueryOperatorInput>,
+  _100?: Maybe<StringQueryOperatorInput>,
+  _150?: Maybe<StringQueryOperatorInput>,
+  _200?: Maybe<StringQueryOperatorInput>,
+  _300?: Maybe<StringQueryOperatorInput>,
+  _500?: Maybe<StringQueryOperatorInput>,
+  _700?: Maybe<StringQueryOperatorInput>,
+  _1000?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeTransitionProperty = {
+   __typename?: 'SitePluginPluginOptionsPostCssPluginsThemeTransitionProperty',
+  none?: Maybe<Scalars['String']>,
+  all?: Maybe<Scalars['String']>,
+  default?: Maybe<Scalars['String']>,
+  colors?: Maybe<Scalars['String']>,
+  opacity?: Maybe<Scalars['String']>,
+  shadow?: Maybe<Scalars['String']>,
+  transform?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeTransitionPropertyFilterInput = {
+  none?: Maybe<StringQueryOperatorInput>,
+  all?: Maybe<StringQueryOperatorInput>,
+  default?: Maybe<StringQueryOperatorInput>,
+  colors?: Maybe<StringQueryOperatorInput>,
+  opacity?: Maybe<StringQueryOperatorInput>,
+  shadow?: Maybe<StringQueryOperatorInput>,
+  transform?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeTransitionTimingFunction = {
+   __typename?: 'SitePluginPluginOptionsPostCssPluginsThemeTransitionTimingFunction',
+  linear?: Maybe<Scalars['String']>,
+  in?: Maybe<Scalars['String']>,
+  out?: Maybe<Scalars['String']>,
+  in_out?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeTransitionTimingFunctionFilterInput = {
+  linear?: Maybe<StringQueryOperatorInput>,
+  in?: Maybe<StringQueryOperatorInput>,
+  out?: Maybe<StringQueryOperatorInput>,
+  in_out?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeZIndex = {
+   __typename?: 'SitePluginPluginOptionsPostCssPluginsThemeZIndex',
+  _0?: Maybe<Scalars['String']>,
+  _10?: Maybe<Scalars['String']>,
+  _20?: Maybe<Scalars['String']>,
+  _30?: Maybe<Scalars['String']>,
+  _40?: Maybe<Scalars['String']>,
+  _50?: Maybe<Scalars['String']>,
+  auto?: Maybe<Scalars['String']>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsThemeZIndexFilterInput = {
+  _0?: Maybe<StringQueryOperatorInput>,
+  _10?: Maybe<StringQueryOperatorInput>,
+  _20?: Maybe<StringQueryOperatorInput>,
+  _30?: Maybe<StringQueryOperatorInput>,
+  _40?: Maybe<StringQueryOperatorInput>,
+  _50?: Maybe<StringQueryOperatorInput>,
+  auto?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsVariants = {
+   __typename?: 'SitePluginPluginOptionsPostCssPluginsVariants',
+  accessibility?: Maybe<Array<Maybe<Scalars['String']>>>,
+  alignContent?: Maybe<Array<Maybe<Scalars['String']>>>,
+  alignItems?: Maybe<Array<Maybe<Scalars['String']>>>,
+  alignSelf?: Maybe<Array<Maybe<Scalars['String']>>>,
+  appearance?: Maybe<Array<Maybe<Scalars['String']>>>,
+  backgroundAttachment?: Maybe<Array<Maybe<Scalars['String']>>>,
+  backgroundColor?: Maybe<Array<Maybe<Scalars['String']>>>,
+  backgroundPosition?: Maybe<Array<Maybe<Scalars['String']>>>,
+  backgroundRepeat?: Maybe<Array<Maybe<Scalars['String']>>>,
+  backgroundSize?: Maybe<Array<Maybe<Scalars['String']>>>,
+  borderCollapse?: Maybe<Array<Maybe<Scalars['String']>>>,
+  borderColor?: Maybe<Array<Maybe<Scalars['String']>>>,
+  borderRadius?: Maybe<Array<Maybe<Scalars['String']>>>,
+  borderStyle?: Maybe<Array<Maybe<Scalars['String']>>>,
+  borderWidth?: Maybe<Array<Maybe<Scalars['String']>>>,
+  boxShadow?: Maybe<Array<Maybe<Scalars['String']>>>,
+  boxSizing?: Maybe<Array<Maybe<Scalars['String']>>>,
+  cursor?: Maybe<Array<Maybe<Scalars['String']>>>,
+  display?: Maybe<Array<Maybe<Scalars['String']>>>,
+  fill?: Maybe<Array<Maybe<Scalars['String']>>>,
+  flex?: Maybe<Array<Maybe<Scalars['String']>>>,
+  flexDirection?: Maybe<Array<Maybe<Scalars['String']>>>,
+  flexGrow?: Maybe<Array<Maybe<Scalars['String']>>>,
+  flexShrink?: Maybe<Array<Maybe<Scalars['String']>>>,
+  flexWrap?: Maybe<Array<Maybe<Scalars['String']>>>,
+  float?: Maybe<Array<Maybe<Scalars['String']>>>,
+  clear?: Maybe<Array<Maybe<Scalars['String']>>>,
+  fontFamily?: Maybe<Array<Maybe<Scalars['String']>>>,
+  fontSize?: Maybe<Array<Maybe<Scalars['String']>>>,
+  fontSmoothing?: Maybe<Array<Maybe<Scalars['String']>>>,
+  fontStyle?: Maybe<Array<Maybe<Scalars['String']>>>,
+  fontWeight?: Maybe<Array<Maybe<Scalars['String']>>>,
+  height?: Maybe<Array<Maybe<Scalars['String']>>>,
+  inset?: Maybe<Array<Maybe<Scalars['String']>>>,
+  justifyContent?: Maybe<Array<Maybe<Scalars['String']>>>,
+  letterSpacing?: Maybe<Array<Maybe<Scalars['String']>>>,
+  lineHeight?: Maybe<Array<Maybe<Scalars['String']>>>,
+  listStylePosition?: Maybe<Array<Maybe<Scalars['String']>>>,
+  listStyleType?: Maybe<Array<Maybe<Scalars['String']>>>,
+  margin?: Maybe<Array<Maybe<Scalars['String']>>>,
+  maxHeight?: Maybe<Array<Maybe<Scalars['String']>>>,
+  maxWidth?: Maybe<Array<Maybe<Scalars['String']>>>,
+  minHeight?: Maybe<Array<Maybe<Scalars['String']>>>,
+  minWidth?: Maybe<Array<Maybe<Scalars['String']>>>,
+  objectFit?: Maybe<Array<Maybe<Scalars['String']>>>,
+  objectPosition?: Maybe<Array<Maybe<Scalars['String']>>>,
+  opacity?: Maybe<Array<Maybe<Scalars['String']>>>,
+  order?: Maybe<Array<Maybe<Scalars['String']>>>,
+  outline?: Maybe<Array<Maybe<Scalars['String']>>>,
+  overflow?: Maybe<Array<Maybe<Scalars['String']>>>,
+  padding?: Maybe<Array<Maybe<Scalars['String']>>>,
+  placeholderColor?: Maybe<Array<Maybe<Scalars['String']>>>,
+  pointerEvents?: Maybe<Array<Maybe<Scalars['String']>>>,
+  position?: Maybe<Array<Maybe<Scalars['String']>>>,
+  resize?: Maybe<Array<Maybe<Scalars['String']>>>,
+  stroke?: Maybe<Array<Maybe<Scalars['String']>>>,
+  strokeWidth?: Maybe<Array<Maybe<Scalars['String']>>>,
+  tableLayout?: Maybe<Array<Maybe<Scalars['String']>>>,
+  textAlign?: Maybe<Array<Maybe<Scalars['String']>>>,
+  textColor?: Maybe<Array<Maybe<Scalars['String']>>>,
+  textDecoration?: Maybe<Array<Maybe<Scalars['String']>>>,
+  textTransform?: Maybe<Array<Maybe<Scalars['String']>>>,
+  userSelect?: Maybe<Array<Maybe<Scalars['String']>>>,
+  verticalAlign?: Maybe<Array<Maybe<Scalars['String']>>>,
+  visibility?: Maybe<Array<Maybe<Scalars['String']>>>,
+  whitespace?: Maybe<Array<Maybe<Scalars['String']>>>,
+  width?: Maybe<Array<Maybe<Scalars['String']>>>,
+  wordBreak?: Maybe<Array<Maybe<Scalars['String']>>>,
+  zIndex?: Maybe<Array<Maybe<Scalars['String']>>>,
+  gap?: Maybe<Array<Maybe<Scalars['String']>>>,
+  gridAutoFlow?: Maybe<Array<Maybe<Scalars['String']>>>,
+  gridTemplateColumns?: Maybe<Array<Maybe<Scalars['String']>>>,
+  gridColumn?: Maybe<Array<Maybe<Scalars['String']>>>,
+  gridColumnStart?: Maybe<Array<Maybe<Scalars['String']>>>,
+  gridColumnEnd?: Maybe<Array<Maybe<Scalars['String']>>>,
+  gridTemplateRows?: Maybe<Array<Maybe<Scalars['String']>>>,
+  gridRow?: Maybe<Array<Maybe<Scalars['String']>>>,
+  gridRowStart?: Maybe<Array<Maybe<Scalars['String']>>>,
+  gridRowEnd?: Maybe<Array<Maybe<Scalars['String']>>>,
+  transform?: Maybe<Array<Maybe<Scalars['String']>>>,
+  transformOrigin?: Maybe<Array<Maybe<Scalars['String']>>>,
+  scale?: Maybe<Array<Maybe<Scalars['String']>>>,
+  rotate?: Maybe<Array<Maybe<Scalars['String']>>>,
+  translate?: Maybe<Array<Maybe<Scalars['String']>>>,
+  skew?: Maybe<Array<Maybe<Scalars['String']>>>,
+  transitionProperty?: Maybe<Array<Maybe<Scalars['String']>>>,
+  transitionTimingFunction?: Maybe<Array<Maybe<Scalars['String']>>>,
+  transitionDuration?: Maybe<Array<Maybe<Scalars['String']>>>,
+};
+
+export type SitePluginPluginOptionsPostCssPluginsVariantsFilterInput = {
+  accessibility?: Maybe<StringQueryOperatorInput>,
+  alignContent?: Maybe<StringQueryOperatorInput>,
+  alignItems?: Maybe<StringQueryOperatorInput>,
+  alignSelf?: Maybe<StringQueryOperatorInput>,
+  appearance?: Maybe<StringQueryOperatorInput>,
+  backgroundAttachment?: Maybe<StringQueryOperatorInput>,
+  backgroundColor?: Maybe<StringQueryOperatorInput>,
+  backgroundPosition?: Maybe<StringQueryOperatorInput>,
+  backgroundRepeat?: Maybe<StringQueryOperatorInput>,
+  backgroundSize?: Maybe<StringQueryOperatorInput>,
+  borderCollapse?: Maybe<StringQueryOperatorInput>,
+  borderColor?: Maybe<StringQueryOperatorInput>,
+  borderRadius?: Maybe<StringQueryOperatorInput>,
+  borderStyle?: Maybe<StringQueryOperatorInput>,
+  borderWidth?: Maybe<StringQueryOperatorInput>,
+  boxShadow?: Maybe<StringQueryOperatorInput>,
+  boxSizing?: Maybe<StringQueryOperatorInput>,
+  cursor?: Maybe<StringQueryOperatorInput>,
+  display?: Maybe<StringQueryOperatorInput>,
+  fill?: Maybe<StringQueryOperatorInput>,
+  flex?: Maybe<StringQueryOperatorInput>,
+  flexDirection?: Maybe<StringQueryOperatorInput>,
+  flexGrow?: Maybe<StringQueryOperatorInput>,
+  flexShrink?: Maybe<StringQueryOperatorInput>,
+  flexWrap?: Maybe<StringQueryOperatorInput>,
+  float?: Maybe<StringQueryOperatorInput>,
+  clear?: Maybe<StringQueryOperatorInput>,
+  fontFamily?: Maybe<StringQueryOperatorInput>,
+  fontSize?: Maybe<StringQueryOperatorInput>,
+  fontSmoothing?: Maybe<StringQueryOperatorInput>,
+  fontStyle?: Maybe<StringQueryOperatorInput>,
+  fontWeight?: Maybe<StringQueryOperatorInput>,
+  height?: Maybe<StringQueryOperatorInput>,
+  inset?: Maybe<StringQueryOperatorInput>,
+  justifyContent?: Maybe<StringQueryOperatorInput>,
+  letterSpacing?: Maybe<StringQueryOperatorInput>,
+  lineHeight?: Maybe<StringQueryOperatorInput>,
+  listStylePosition?: Maybe<StringQueryOperatorInput>,
+  listStyleType?: Maybe<StringQueryOperatorInput>,
+  margin?: Maybe<StringQueryOperatorInput>,
+  maxHeight?: Maybe<StringQueryOperatorInput>,
+  maxWidth?: Maybe<StringQueryOperatorInput>,
+  minHeight?: Maybe<StringQueryOperatorInput>,
+  minWidth?: Maybe<StringQueryOperatorInput>,
+  objectFit?: Maybe<StringQueryOperatorInput>,
+  objectPosition?: Maybe<StringQueryOperatorInput>,
+  opacity?: Maybe<StringQueryOperatorInput>,
+  order?: Maybe<StringQueryOperatorInput>,
+  outline?: Maybe<StringQueryOperatorInput>,
+  overflow?: Maybe<StringQueryOperatorInput>,
+  padding?: Maybe<StringQueryOperatorInput>,
+  placeholderColor?: Maybe<StringQueryOperatorInput>,
+  pointerEvents?: Maybe<StringQueryOperatorInput>,
+  position?: Maybe<StringQueryOperatorInput>,
+  resize?: Maybe<StringQueryOperatorInput>,
+  stroke?: Maybe<StringQueryOperatorInput>,
+  strokeWidth?: Maybe<StringQueryOperatorInput>,
+  tableLayout?: Maybe<StringQueryOperatorInput>,
+  textAlign?: Maybe<StringQueryOperatorInput>,
+  textColor?: Maybe<StringQueryOperatorInput>,
+  textDecoration?: Maybe<StringQueryOperatorInput>,
+  textTransform?: Maybe<StringQueryOperatorInput>,
+  userSelect?: Maybe<StringQueryOperatorInput>,
+  verticalAlign?: Maybe<StringQueryOperatorInput>,
+  visibility?: Maybe<StringQueryOperatorInput>,
+  whitespace?: Maybe<StringQueryOperatorInput>,
+  width?: Maybe<StringQueryOperatorInput>,
+  wordBreak?: Maybe<StringQueryOperatorInput>,
+  zIndex?: Maybe<StringQueryOperatorInput>,
+  gap?: Maybe<StringQueryOperatorInput>,
+  gridAutoFlow?: Maybe<StringQueryOperatorInput>,
+  gridTemplateColumns?: Maybe<StringQueryOperatorInput>,
+  gridColumn?: Maybe<StringQueryOperatorInput>,
+  gridColumnStart?: Maybe<StringQueryOperatorInput>,
+  gridColumnEnd?: Maybe<StringQueryOperatorInput>,
+  gridTemplateRows?: Maybe<StringQueryOperatorInput>,
+  gridRow?: Maybe<StringQueryOperatorInput>,
+  gridRowStart?: Maybe<StringQueryOperatorInput>,
+  gridRowEnd?: Maybe<StringQueryOperatorInput>,
+  transform?: Maybe<StringQueryOperatorInput>,
+  transformOrigin?: Maybe<StringQueryOperatorInput>,
+  scale?: Maybe<StringQueryOperatorInput>,
+  rotate?: Maybe<StringQueryOperatorInput>,
+  translate?: Maybe<StringQueryOperatorInput>,
+  skew?: Maybe<StringQueryOperatorInput>,
+  transitionProperty?: Maybe<StringQueryOperatorInput>,
+  transitionTimingFunction?: Maybe<StringQueryOperatorInput>,
+  transitionDuration?: Maybe<StringQueryOperatorInput>,
 };
 
 export type SitePluginSortInput = {
@@ -2292,6 +4143,7 @@ export type StringQueryOperatorInput = {
   regex?: Maybe<Scalars['String']>,
   glob?: Maybe<Scalars['String']>,
 };
+
 export type GatsbyImageSharpFixedFragment = (
   { __typename?: 'ImageSharpFixed' }
   & Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>
@@ -2421,9 +4273,10 @@ export type ImageQueryQuery = (
     { __typename?: 'File' }
     & { childImageSharp: Maybe<(
       { __typename?: 'ImageSharp' }
-      & { fluid: Maybe<{ __typename?: 'ImageSharpFluid' }
+      & { fluid: Maybe<(
+        { __typename?: 'ImageSharpFluid' }
         & GatsbyImageSharpFluidFragment
-      > }
+      )> }
     )> }
   )> }
 );
@@ -2452,6 +4305,33 @@ export type SiteMetadataQueryQuery = (
     & { siteMetadata: Maybe<(
       { __typename?: 'SiteSiteMetadata' }
       & Pick<SiteSiteMetadata, 'title' | 'description' | 'author'>
+    )> }
+  )> }
+);
+
+export type AppQueryVariables = {};
+
+
+export type AppQuery = (
+  { __typename?: 'Query' }
+  & { profileImg: Maybe<(
+    { __typename?: 'File' }
+    & { childImageSharp: Maybe<(
+      { __typename?: 'ImageSharp' }
+      & { fixed: Maybe<(
+        { __typename?: 'ImageSharpFixed' }
+        & Pick<ImageSharpFixed, 'src'>
+      )> }
+    )> }
+  )>, header: Maybe<(
+    { __typename?: 'ResumeJson' }
+    & Pick<ResumeJson, 'fullname' | 'position' | 'summary'>
+    & { detail: Maybe<(
+      { __typename?: 'ResumeJsonDetail' }
+      & Pick<ResumeJsonDetail, 'dateOfBirth' | 'place' | 'phone' | 'email'>
+    )>, social: Maybe<(
+      { __typename?: 'ResumeJsonSocial' }
+      & Pick<ResumeJsonSocial, 'github' | 'linkedin'>
     )> }
   )> }
 );
