@@ -1,34 +1,54 @@
 import React from "react"
 import "../styles/app.scss"
+import { TiCalendar, TiDevicePhone, TiLocation, TiSocialGithub, TiSocialLinkedin, TiSocialGithubCircular, TiSocialLinkedinCircular, TiMail } from "react-icons/ti"
 
+interface IApp { }
 
-const IndexPage: React.FC = () => (
-  <div className="max-w-sm rounded overflow-hidden shadow-lg mx-auto">
-    <img
-      className="w-full"
-      src="/img/card-top.jpg"
-      alt="Sunset in the mountains"
-    />
-    <div className="px-6 py-4">
-      <div className="font-bold text-xl mb-2 text-blue-700">The Coldest Sunset</div>
-      <p className="text-gray-700 text-base">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus
-        quia, nulla! Maiores et perferendis eaque, exercitationem praesentium
-        nihil.
-      </p>
-    </div>
-    <div className="px-6 py-4">
-      <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
-        #photography
-      </span>
-      <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
-        #travel
-      </span>
-      <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">
-        #winter
-      </span>
-    </div>
+const App: React.FC<IApp> = () => (
+  <div className="resume">
+    <section className="flex">
+      <article className="w-3/12">
+        <img src="" alt="Profile Image" />
+        <div className="mt-2 inline-flex">
+          <TiCalendar />
+          <p className="text-sm font-semibold ml-2">27 Aug 1995</p>
+        </div>
+        <div className="mt-2 inline-flex">
+          <TiLocation />
+          <p className="text-sm font-semibold ml-2">Selangor, Malaysia</p>
+        </div>
+        <div className="mt-2 inline-flex">
+          <TiDevicePhone />
+          <p className="text-sm font-semibold ml-2">018-7601343</p>
+        </div>
+        <div className="mt-2 inline-flex">
+          <TiMail />
+          <p className="text-sm font-semibold ml-2">anas.didi95@gmail.com</p></div>
+      </article>
+      <article className="ml-5 w-full">
+        <h1 className="font-bold capitalize text-3xl mb-1">
+          Anas Juwaidi Bin mohd jeffry
+        </h1>
+        <h2 className="text-semibold text-xl text-gray-700 italic">
+          Software Engineer
+        </h2>
+        <div className="flex justify-around mt-3 items-baseline">
+          <span className="inline-flex">
+            <TiSocialGithubCircular className="text-xl" /> <p className="text-sm font-medium ml-1">github.com/anas-didi95</p>
+          </span>
+          <span className="inline-flex">
+            <TiSocialLinkedinCircular className="text-xl" /> <p className="text-sm font-medium ml-1">linkedin.com/in/anas-juwaidi-mohd-jeffry</p>
+          </span>
+        </div>
+        <p className="text-justify p-3 bg-gray-200 rounded-md mt-3">
+          Telecom Engineer with IT experience. Worked in the most important
+          telecom company in Malaysia across different areas. Got experience
+          managing servers, application servers and cloud tools. Love learning
+          new things or tools everyday.
+        </p>
+      </article>
+    </section>
   </div>
 )
 
-export default IndexPage
+export default App
