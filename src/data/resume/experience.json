@@ -1,0 +1,22 @@
+[
+  {
+    "company": "Kulliyah of Information and Communication Technology (KICT)",
+    "position": "Teaching Assistant",
+    "period": "09/2017 - 08/2018",
+    "achievements": [
+      "Responsible to conduct tutor regarding concepts and implementation of data structures and algorithms to students.",
+      "Responsible to conduct tutor regarding web application by using Java Servlets and provided guidance to students for their projects.",
+      "Responsible to conduct tutor regarding C++ programming and helping lecturers in giving their quizzes for grading."
+    ]
+  },
+  {
+    "company": "Kulliyah of Information and Communication Technology (KICT)",
+    "position": "Assistant Head of Education Bureau",
+    "period": "2015 - 2016",
+    "achievements": [
+      "Involved in planning activities for students related to education in ICT fields such as programming, creative design and talks.",
+      "Involved in event 'IOW And Kict Exhibition' as Treasurer and responsible to control and reporting the financial of the event.",
+      "Involved in event 'ACM-ICPC Crash Course' as Program Manager and responsible to coordinate and give introduction of competitive programming to students."
+    ]
+  }
+]
