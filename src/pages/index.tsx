@@ -13,6 +13,7 @@ import { AppQuery } from "../graphqlTypes"
 import Img, { FixedObject } from "gatsby-image"
 import { oc } from "ts-optchain"
 import Header, { IDetailHeader, ISocialHeader } from "../components/Header"
+import Experience from "../components/Experience"
 
 interface IApp { }
 
@@ -41,10 +42,20 @@ const App: React.FC<IApp> = () => {
         }
         summary
       }
+      experiences: allExperienceJson {
+        edges {
+          node {
+            company
+            position
+            period
+            achievements
+          }
+        }
+      }
     }
   `)
 
-  const { profileImg, header } = data
+  const { profileImg, header, experiences } = data
 
   return (
     <div className="resume">
@@ -59,29 +70,17 @@ const App: React.FC<IApp> = () => {
       <div className="flex mt-10">
         <section className="w-3/5">
           <h1 className="font-bold text-3xl">Work Experience</h1>
-          <article className="my-3">
-            <div className="flex justify-between">
-              <h1 className="text-orange-500 text-xl">Position</h1>
-              <h1 className="text-orange-500 text-xl">Period</h1>
-            </div>
-            <p className="italic mt-1 font-bold">Company</p>
-            <p className="mt-2">Achievements / Tasks
-            </p>
-            <ul className="list-disc ml-6">
-              <li className="text-sm mt-1">1sajf;sakjflksajfsa;lkjf;lksajf;lksajf;lksajf
-                sad;lfjsa;lkfj sa;lkfjsajf sa;lkjfsa
-                asjd;fkjsa;lfkjsafjsalfjs a;lfjsa;ljfsa;ljf;lsajf;lsajf;lsajf;lsajfa;dsjf;lsaf
-                sajfdlkjsa;lfkjsa;lfdj as; lfjsa;lfj;saljf;lsajf;lsajf;lsajf;lsajf;lsajfasad;fjsa;lfja
-              </li>
-              <li>1</li>
-              <li>1</li>
-              <li>1</li>
-              <li>1</li>
-              <li>1</li>
-              <li>1</li>
-            </ul>
-          </article>
-        </section >
+          {oc(experiences)
+            .edges([])
+            .map(edge => (
+              <Experience
+                achievements={oc(edge).node.achievements([]) as string[]}
+                company={oc(edge).node.company("")}
+                period={oc(edge).node.period("")}
+                position={oc(edge).node.position("")}
+              />
+            ))}
+        </section>
       </div>
     </div>
   )
