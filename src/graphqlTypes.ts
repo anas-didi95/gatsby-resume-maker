@@ -361,6 +361,170 @@ export type DuotoneGradient = {
   opacity?: Maybe<Scalars['Int']>,
 };
 
+export type ExperienceJson = Node & {
+   __typename?: 'ExperienceJson',
+  id: Scalars['ID'],
+  parent?: Maybe<Node>,
+  children: Array<Node>,
+  internal: Internal,
+  company?: Maybe<Scalars['String']>,
+  position?: Maybe<Scalars['String']>,
+  period?: Maybe<Scalars['String']>,
+  achievements?: Maybe<Array<Maybe<Scalars['String']>>>,
+};
+
+export type ExperienceJsonConnection = {
+   __typename?: 'ExperienceJsonConnection',
+  totalCount: Scalars['Int'],
+  edges: Array<ExperienceJsonEdge>,
+  nodes: Array<ExperienceJson>,
+  pageInfo: PageInfo,
+  distinct: Array<Scalars['String']>,
+  group: Array<ExperienceJsonGroupConnection>,
+};
+
+
+export type ExperienceJsonConnectionDistinctArgs = {
+  field: ExperienceJsonFieldsEnum
+};
+
+
+export type ExperienceJsonConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>,
+  limit?: Maybe<Scalars['Int']>,
+  field: ExperienceJsonFieldsEnum
+};
+
+export type ExperienceJsonEdge = {
+   __typename?: 'ExperienceJsonEdge',
+  next?: Maybe<ExperienceJson>,
+  node: ExperienceJson,
+  previous?: Maybe<ExperienceJson>,
+};
+
+export enum ExperienceJsonFieldsEnum {
+  id = 'id',
+  parent___id = 'parent___id',
+  parent___parent___id = 'parent___parent___id',
+  parent___parent___parent___id = 'parent___parent___parent___id',
+  parent___parent___parent___children = 'parent___parent___parent___children',
+  parent___parent___children = 'parent___parent___children',
+  parent___parent___children___id = 'parent___parent___children___id',
+  parent___parent___children___children = 'parent___parent___children___children',
+  parent___parent___internal___content = 'parent___parent___internal___content',
+  parent___parent___internal___contentDigest = 'parent___parent___internal___contentDigest',
+  parent___parent___internal___description = 'parent___parent___internal___description',
+  parent___parent___internal___fieldOwners = 'parent___parent___internal___fieldOwners',
+  parent___parent___internal___ignoreType = 'parent___parent___internal___ignoreType',
+  parent___parent___internal___mediaType = 'parent___parent___internal___mediaType',
+  parent___parent___internal___owner = 'parent___parent___internal___owner',
+  parent___parent___internal___type = 'parent___parent___internal___type',
+  parent___children = 'parent___children',
+  parent___children___id = 'parent___children___id',
+  parent___children___parent___id = 'parent___children___parent___id',
+  parent___children___parent___children = 'parent___children___parent___children',
+  parent___children___children = 'parent___children___children',
+  parent___children___children___id = 'parent___children___children___id',
+  parent___children___children___children = 'parent___children___children___children',
+  parent___children___internal___content = 'parent___children___internal___content',
+  parent___children___internal___contentDigest = 'parent___children___internal___contentDigest',
+  parent___children___internal___description = 'parent___children___internal___description',
+  parent___children___internal___fieldOwners = 'parent___children___internal___fieldOwners',
+  parent___children___internal___ignoreType = 'parent___children___internal___ignoreType',
+  parent___children___internal___mediaType = 'parent___children___internal___mediaType',
+  parent___children___internal___owner = 'parent___children___internal___owner',
+  parent___children___internal___type = 'parent___children___internal___type',
+  parent___internal___content = 'parent___internal___content',
+  parent___internal___contentDigest = 'parent___internal___contentDigest',
+  parent___internal___description = 'parent___internal___description',
+  parent___internal___fieldOwners = 'parent___internal___fieldOwners',
+  parent___internal___ignoreType = 'parent___internal___ignoreType',
+  parent___internal___mediaType = 'parent___internal___mediaType',
+  parent___internal___owner = 'parent___internal___owner',
+  parent___internal___type = 'parent___internal___type',
+  children = 'children',
+  children___id = 'children___id',
+  children___parent___id = 'children___parent___id',
+  children___parent___parent___id = 'children___parent___parent___id',
+  children___parent___parent___children = 'children___parent___parent___children',
+  children___parent___children = 'children___parent___children',
+  children___parent___children___id = 'children___parent___children___id',
+  children___parent___children___children = 'children___parent___children___children',
+  children___parent___internal___content = 'children___parent___internal___content',
+  children___parent___internal___contentDigest = 'children___parent___internal___contentDigest',
+  children___parent___internal___description = 'children___parent___internal___description',
+  children___parent___internal___fieldOwners = 'children___parent___internal___fieldOwners',
+  children___parent___internal___ignoreType = 'children___parent___internal___ignoreType',
+  children___parent___internal___mediaType = 'children___parent___internal___mediaType',
+  children___parent___internal___owner = 'children___parent___internal___owner',
+  children___parent___internal___type = 'children___parent___internal___type',
+  children___children = 'children___children',
+  children___children___id = 'children___children___id',
+  children___children___parent___id = 'children___children___parent___id',
+  children___children___parent___children = 'children___children___parent___children',
+  children___children___children = 'children___children___children',
+  children___children___children___id = 'children___children___children___id',
+  children___children___children___children = 'children___children___children___children',
+  children___children___internal___content = 'children___children___internal___content',
+  children___children___internal___contentDigest = 'children___children___internal___contentDigest',
+  children___children___internal___description = 'children___children___internal___description',
+  children___children___internal___fieldOwners = 'children___children___internal___fieldOwners',
+  children___children___internal___ignoreType = 'children___children___internal___ignoreType',
+  children___children___internal___mediaType = 'children___children___internal___mediaType',
+  children___children___internal___owner = 'children___children___internal___owner',
+  children___children___internal___type = 'children___children___internal___type',
+  children___internal___content = 'children___internal___content',
+  children___internal___contentDigest = 'children___internal___contentDigest',
+  children___internal___description = 'children___internal___description',
+  children___internal___fieldOwners = 'children___internal___fieldOwners',
+  children___internal___ignoreType = 'children___internal___ignoreType',
+  children___internal___mediaType = 'children___internal___mediaType',
+  children___internal___owner = 'children___internal___owner',
+  children___internal___type = 'children___internal___type',
+  internal___content = 'internal___content',
+  internal___contentDigest = 'internal___contentDigest',
+  internal___description = 'internal___description',
+  internal___fieldOwners = 'internal___fieldOwners',
+  internal___ignoreType = 'internal___ignoreType',
+  internal___mediaType = 'internal___mediaType',
+  internal___owner = 'internal___owner',
+  internal___type = 'internal___type',
+  company = 'company',
+  position = 'position',
+  period = 'period',
+  achievements = 'achievements'
+}
+
+export type ExperienceJsonFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>,
+  parent?: Maybe<NodeFilterInput>,
+  children?: Maybe<NodeFilterListInput>,
+  internal?: Maybe<InternalFilterInput>,
+  company?: Maybe<StringQueryOperatorInput>,
+  position?: Maybe<StringQueryOperatorInput>,
+  period?: Maybe<StringQueryOperatorInput>,
+  achievements?: Maybe<StringQueryOperatorInput>,
+};
+
+export type ExperienceJsonFilterListInput = {
+  elemMatch?: Maybe<ExperienceJsonFilterInput>,
+};
+
+export type ExperienceJsonGroupConnection = {
+   __typename?: 'ExperienceJsonGroupConnection',
+  totalCount: Scalars['Int'],
+  edges: Array<ExperienceJsonEdge>,
+  nodes: Array<ExperienceJson>,
+  pageInfo: PageInfo,
+  field: Scalars['String'],
+  fieldValue?: Maybe<Scalars['String']>,
+};
+
+export type ExperienceJsonSortInput = {
+  fields?: Maybe<Array<Maybe<ExperienceJsonFieldsEnum>>>,
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>,
+};
+
 export type File = Node & {
    __typename?: 'File',
   birthtime?: Maybe<Scalars['Date']>,
@@ -404,6 +568,7 @@ export type File = Node & {
   internal: Internal,
   childResumeJson?: Maybe<ResumeJson>,
   childImageSharp?: Maybe<ImageSharp>,
+  childrenExperienceJson?: Maybe<Array<Maybe<ExperienceJson>>>,
 };
 
 
@@ -749,7 +914,50 @@ export enum FileFieldsEnum {
   childImageSharp___internal___ignoreType = 'childImageSharp___internal___ignoreType',
   childImageSharp___internal___mediaType = 'childImageSharp___internal___mediaType',
   childImageSharp___internal___owner = 'childImageSharp___internal___owner',
-  childImageSharp___internal___type = 'childImageSharp___internal___type'
+  childImageSharp___internal___type = 'childImageSharp___internal___type',
+  childrenExperienceJson = 'childrenExperienceJson',
+  childrenExperienceJson___id = 'childrenExperienceJson___id',
+  childrenExperienceJson___parent___id = 'childrenExperienceJson___parent___id',
+  childrenExperienceJson___parent___parent___id = 'childrenExperienceJson___parent___parent___id',
+  childrenExperienceJson___parent___parent___children = 'childrenExperienceJson___parent___parent___children',
+  childrenExperienceJson___parent___children = 'childrenExperienceJson___parent___children',
+  childrenExperienceJson___parent___children___id = 'childrenExperienceJson___parent___children___id',
+  childrenExperienceJson___parent___children___children = 'childrenExperienceJson___parent___children___children',
+  childrenExperienceJson___parent___internal___content = 'childrenExperienceJson___parent___internal___content',
+  childrenExperienceJson___parent___internal___contentDigest = 'childrenExperienceJson___parent___internal___contentDigest',
+  childrenExperienceJson___parent___internal___description = 'childrenExperienceJson___parent___internal___description',
+  childrenExperienceJson___parent___internal___fieldOwners = 'childrenExperienceJson___parent___internal___fieldOwners',
+  childrenExperienceJson___parent___internal___ignoreType = 'childrenExperienceJson___parent___internal___ignoreType',
+  childrenExperienceJson___parent___internal___mediaType = 'childrenExperienceJson___parent___internal___mediaType',
+  childrenExperienceJson___parent___internal___owner = 'childrenExperienceJson___parent___internal___owner',
+  childrenExperienceJson___parent___internal___type = 'childrenExperienceJson___parent___internal___type',
+  childrenExperienceJson___children = 'childrenExperienceJson___children',
+  childrenExperienceJson___children___id = 'childrenExperienceJson___children___id',
+  childrenExperienceJson___children___parent___id = 'childrenExperienceJson___children___parent___id',
+  childrenExperienceJson___children___parent___children = 'childrenExperienceJson___children___parent___children',
+  childrenExperienceJson___children___children = 'childrenExperienceJson___children___children',
+  childrenExperienceJson___children___children___id = 'childrenExperienceJson___children___children___id',
+  childrenExperienceJson___children___children___children = 'childrenExperienceJson___children___children___children',
+  childrenExperienceJson___children___internal___content = 'childrenExperienceJson___children___internal___content',
+  childrenExperienceJson___children___internal___contentDigest = 'childrenExperienceJson___children___internal___contentDigest',
+  childrenExperienceJson___children___internal___description = 'childrenExperienceJson___children___internal___description',
+  childrenExperienceJson___children___internal___fieldOwners = 'childrenExperienceJson___children___internal___fieldOwners',
+  childrenExperienceJson___children___internal___ignoreType = 'childrenExperienceJson___children___internal___ignoreType',
+  childrenExperienceJson___children___internal___mediaType = 'childrenExperienceJson___children___internal___mediaType',
+  childrenExperienceJson___children___internal___owner = 'childrenExperienceJson___children___internal___owner',
+  childrenExperienceJson___children___internal___type = 'childrenExperienceJson___children___internal___type',
+  childrenExperienceJson___internal___content = 'childrenExperienceJson___internal___content',
+  childrenExperienceJson___internal___contentDigest = 'childrenExperienceJson___internal___contentDigest',
+  childrenExperienceJson___internal___description = 'childrenExperienceJson___internal___description',
+  childrenExperienceJson___internal___fieldOwners = 'childrenExperienceJson___internal___fieldOwners',
+  childrenExperienceJson___internal___ignoreType = 'childrenExperienceJson___internal___ignoreType',
+  childrenExperienceJson___internal___mediaType = 'childrenExperienceJson___internal___mediaType',
+  childrenExperienceJson___internal___owner = 'childrenExperienceJson___internal___owner',
+  childrenExperienceJson___internal___type = 'childrenExperienceJson___internal___type',
+  childrenExperienceJson___company = 'childrenExperienceJson___company',
+  childrenExperienceJson___position = 'childrenExperienceJson___position',
+  childrenExperienceJson___period = 'childrenExperienceJson___period',
+  childrenExperienceJson___achievements = 'childrenExperienceJson___achievements'
 }
 
 export type FileFilterInput = {
@@ -793,6 +1001,7 @@ export type FileFilterInput = {
   internal?: Maybe<InternalFilterInput>,
   childResumeJson?: Maybe<ResumeJsonFilterInput>,
   childImageSharp?: Maybe<ImageSharpFilterInput>,
+  childrenExperienceJson?: Maybe<ExperienceJsonFilterListInput>,
 };
 
 export type FileGroupConnection = {
@@ -1414,6 +1623,8 @@ export type Query = {
   allDirectory: DirectoryConnection,
   resumeJson?: Maybe<ResumeJson>,
   allResumeJson: ResumeJsonConnection,
+  experienceJson?: Maybe<ExperienceJson>,
+  allExperienceJson: ExperienceJsonConnection,
 };
 
 
@@ -1457,7 +1668,8 @@ export type QueryFileArgs = {
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>,
   childResumeJson?: Maybe<ResumeJsonFilterInput>,
-  childImageSharp?: Maybe<ImageSharpFilterInput>
+  childImageSharp?: Maybe<ImageSharpFilterInput>,
+  childrenExperienceJson?: Maybe<ExperienceJsonFilterListInput>
 };
 
 
@@ -1627,6 +1839,26 @@ export type QueryResumeJsonArgs = {
 export type QueryAllResumeJsonArgs = {
   filter?: Maybe<ResumeJsonFilterInput>,
   sort?: Maybe<ResumeJsonSortInput>,
+  skip?: Maybe<Scalars['Int']>,
+  limit?: Maybe<Scalars['Int']>
+};
+
+
+export type QueryExperienceJsonArgs = {
+  id?: Maybe<StringQueryOperatorInput>,
+  parent?: Maybe<NodeFilterInput>,
+  children?: Maybe<NodeFilterListInput>,
+  internal?: Maybe<InternalFilterInput>,
+  company?: Maybe<StringQueryOperatorInput>,
+  position?: Maybe<StringQueryOperatorInput>,
+  period?: Maybe<StringQueryOperatorInput>,
+  achievements?: Maybe<StringQueryOperatorInput>
+};
+
+
+export type QueryAllExperienceJsonArgs = {
+  filter?: Maybe<ExperienceJsonFilterInput>,
+  sort?: Maybe<ExperienceJsonSortInput>,
   skip?: Maybe<Scalars['Int']>,
   limit?: Maybe<Scalars['Int']>
 };
@@ -4281,20 +4513,6 @@ export type ImageQueryQuery = (
   )> }
 );
 
-export type SiteTitleQueryQueryVariables = {};
-
-
-export type SiteTitleQueryQuery = (
-  { __typename?: 'Query' }
-  & { site: Maybe<(
-    { __typename?: 'Site' }
-    & { siteMetadata: Maybe<(
-      { __typename?: 'SiteSiteMetadata' }
-      & Pick<SiteSiteMetadata, 'title'>
-    )> }
-  )> }
-);
-
 export type SiteMetadataQueryQueryVariables = {};
 
 
@@ -4320,7 +4538,7 @@ export type AppQuery = (
       { __typename?: 'ImageSharp' }
       & { fixed: Maybe<(
         { __typename?: 'ImageSharpFixed' }
-        & Pick<ImageSharpFixed, 'src'>
+        & GatsbyImageSharpFixedFragment
       )> }
     )> }
   )>, header: Maybe<(
@@ -4333,5 +4551,14 @@ export type AppQuery = (
       { __typename?: 'ResumeJsonSocial' }
       & Pick<ResumeJsonSocial, 'github' | 'linkedin'>
     )> }
-  )> }
+  )>, experiences: (
+    { __typename?: 'ExperienceJsonConnection' }
+    & { edges: Array<(
+      { __typename?: 'ExperienceJsonEdge' }
+      & { node: (
+        { __typename?: 'ExperienceJson' }
+        & Pick<ExperienceJson, 'company' | 'position' | 'period' | 'achievements'>
+      ) }
+    )> }
+  ) }
 );
