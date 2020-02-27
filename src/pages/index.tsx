@@ -1,22 +1,15 @@
+import { graphql, useStaticQuery } from "gatsby"
+import { FixedObject } from "gatsby-image"
 import React from "react"
-import {
-  TiCalendar,
-  TiDevicePhone,
-  TiLocation,
-  TiMail,
-  TiSocialGithubCircular,
-  TiSocialLinkedinCircular,
-} from "react-icons/ti"
-import "../styles/app.scss"
-import { useStaticQuery, graphql } from "gatsby"
-import { AppQuery } from "../graphqlTypes"
-import Img, { FixedObject } from "gatsby-image"
 import { oc } from "ts-optchain"
-import Header, { IDetailHeader, ISocialHeader } from "../components/Header"
+import Education, { IEducationMark } from "../components/Education"
 import Experience from "../components/Experience"
+import Header, { IDetailHeader, ISocialHeader } from "../components/Header"
 import SectionHeader from "../components/SectionHeader"
+import { AppQuery } from "../graphqlTypes"
+import "../styles/app.scss"
 
-interface IApp { }
+interface IApp {}
 
 const App: React.FC<IApp> = () => {
   const data: AppQuery = useStaticQuery(graphql`
@@ -53,10 +46,23 @@ const App: React.FC<IApp> = () => {
           }
         }
       }
+      educations: allEducationJson {
+        edges {
+          node {
+            major
+            university
+            period
+            mark {
+              name
+              value
+            }
+          }
+        }
+      }
     }
   `)
 
-  const { profileImg, header, experiences } = data
+  const { profileImg, header, experiences, educations } = data
 
   return (
     <div className="resume">
@@ -83,6 +89,16 @@ const App: React.FC<IApp> = () => {
             ))}
           <br />
           <SectionHeader value="Education" />
+          {oc(educations)
+            .edges([])
+            .map(edge => (
+              <Education
+                major={oc(edge).node.major("")}
+                university={oc(edge).node.university("")}
+                period={oc(edge).node.period("")}
+                mark={oc(edge).node.mark() as IEducationMark}
+              />
+            ))}
         </section>
       </div>
     </div>
