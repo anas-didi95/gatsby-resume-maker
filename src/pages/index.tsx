@@ -9,7 +9,7 @@ import SectionHeader from "../components/SectionHeader"
 import { AppQuery } from "../graphqlTypes"
 import "../styles/app.scss"
 
-interface IApp {}
+interface IApp { }
 
 const App: React.FC<IApp> = () => {
   const data: AppQuery = useStaticQuery(graphql`
@@ -75,7 +75,7 @@ const App: React.FC<IApp> = () => {
         summary={oc(header).summary([]) as string[]}
       />
       <div className="flex mt-10">
-        <section className="w-3/5">
+        <section className="w-3/5 mr-4">
           <SectionHeader value="Work Experience" />
           {oc(experiences)
             .edges([])
@@ -99,6 +99,14 @@ const App: React.FC<IApp> = () => {
                 mark={oc(edge).node.mark() as IEducationMark}
               />
             ))}
+        </section>
+        <section className="w-2/5 ml-4">
+          <SectionHeader value="Skills" />
+          <div className="text-sm flex justify-around items-center">
+            <p className="font-bold">Legend:</p>
+            <button className="border p-2 rounded-full bg-green-300">Proficient</button>
+            <button className="border p-2 rounded-full bg-yellow-300">Familiar</button>
+          </div>
         </section>
       </div>
     </div>
