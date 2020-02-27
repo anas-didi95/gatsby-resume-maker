@@ -14,6 +14,7 @@ import Img, { FixedObject } from "gatsby-image"
 import { oc } from "ts-optchain"
 import Header, { IDetailHeader, ISocialHeader } from "../components/Header"
 import Experience from "../components/Experience"
+import SectionHeader from "../components/SectionHeader"
 
 interface IApp { }
 
@@ -69,7 +70,7 @@ const App: React.FC<IApp> = () => {
       />
       <div className="flex mt-10">
         <section className="w-3/5">
-          <h1 className="font-bold text-3xl">Work Experience</h1>
+          <SectionHeader value="Work Experience" />
           {oc(experiences)
             .edges([])
             .map(edge => (
@@ -80,6 +81,8 @@ const App: React.FC<IApp> = () => {
                 position={oc(edge).node.position("")}
               />
             ))}
+          <br />
+          <SectionHeader value="Education" />
         </section>
       </div>
     </div>
