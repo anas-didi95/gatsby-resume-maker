@@ -13,7 +13,7 @@ const Experience: React.FC<IExperience> = ({
   period,
   achievements,
 }) => (
-    <article className="my-3">
+    <article className="mb-3">
       <div className="flex justify-between">
         <h1 className="text-orange-500 text-xl">{position}</h1>
         <h1 className="text-orange-500 text-xl">{period}</h1>
@@ -25,7 +25,6 @@ const Experience: React.FC<IExperience> = ({
           <li className="text-sm mt-1">{ach}</li>
         ))}
       </ul>
-      <br />
     </article>
   )
 
