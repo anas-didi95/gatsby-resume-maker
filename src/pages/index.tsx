@@ -8,6 +8,7 @@ import Header, { IDetailHeader, ISocialHeader } from "../components/Header"
 import SectionHeader from "../components/SectionHeader"
 import { AppQuery } from "../graphqlTypes"
 import "../styles/app.scss"
+import Skill from "../components/Skill"
 
 interface IApp { }
 
@@ -59,10 +60,22 @@ const App: React.FC<IApp> = () => {
           }
         }
       }
+      skills: allSkillJson(
+        sort: { fields: [proficient, name], order: [DESC, ASC] }
+        filter: { show: { eq: true } }
+      ) {
+        edges {
+          node {
+            name
+            proficient
+            show
+          }
+        }
+      }
     }
   `)
 
-  const { profileImg, header, experiences, educations } = data
+  const { profileImg, header, experiences, educations, skills } = data
 
   return (
     <div className="resume">
@@ -104,8 +117,13 @@ const App: React.FC<IApp> = () => {
           <SectionHeader value="Skills" />
           <div className="text-sm flex justify-around items-center">
             <p className="font-bold">Legend:</p>
-            <button className="border p-2 rounded-full bg-green-300">Proficient</button>
-            <button className="border p-2 rounded-full bg-yellow-300">Familiar</button>
+            <Skill name="Proficient" proficient={true} />
+            <Skill name="Familiar" proficient={false} />
+          </div>
+          <div className="flex flex-wrap text-sm justify-center mt-1">
+            {oc(skills).edges([]).map(edge => (
+              <Skill name={oc(edge).node.name("")} proficient={oc(edge).node.proficient(false)} />
+            ))}
           </div>
         </section>
       </div>
