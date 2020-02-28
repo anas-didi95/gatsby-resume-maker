@@ -1,0 +1,57 @@
+[
+  {
+    "name": "Java",
+    "proficient": true,
+    "show": true
+  },
+  {
+    "name": "SQL",
+    "proficient": true,
+    "show": true
+  },
+  {
+    "name": "HTML",
+    "proficient": true,
+    "show": true
+  },
+  {
+    "name": "JavaScript",
+    "proficient": true,
+    "show": true
+  },
+  {
+    "name": "CSS",
+    "proficient": true,
+    "show": true
+  },
+  {
+    "name": "PHP",
+    "proficient": false,
+    "show": true
+  },
+  {
+    "name": "Python",
+    "proficient": false,
+    "show": true
+  },
+  {
+    "name": "C++",
+    "proficient": false,
+    "show": true
+  },
+  {
+    "name": "React",
+    "proficient": true,
+    "show": true
+  },
+  {
+    "name": "Struts",
+    "proficient": true,
+    "show": true
+  },
+  {
+    "name": "Oracle DB",
+    "proficient": true,
+    "show": true
+  }
+]
