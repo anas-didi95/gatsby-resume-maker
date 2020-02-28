@@ -10,7 +10,7 @@ import { AppQuery } from "../graphqlTypes"
 import "../styles/app.scss"
 import Skill from "../components/Skill"
 
-interface IApp { }
+interface IApp {}
 
 const App: React.FC<IApp> = () => {
   const data: AppQuery = useStaticQuery(graphql`
@@ -121,9 +121,14 @@ const App: React.FC<IApp> = () => {
             <Skill name="Familiar" proficient={false} />
           </div>
           <div className="flex flex-wrap text-sm justify-center mt-1">
-            {oc(skills).edges([]).map(edge => (
-              <Skill name={oc(edge).node.name("")} proficient={oc(edge).node.proficient(false)} />
-            ))}
+            {oc(skills)
+              .edges([])
+              .map(edge => (
+                <Skill
+                  name={oc(edge).node.name("")}
+                  proficient={oc(edge).node.proficient(false)}
+                />
+              ))}
           </div>
         </section>
       </div>
