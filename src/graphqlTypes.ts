@@ -742,6 +742,7 @@ export type File = Node & {
   childImageSharp?: Maybe<ImageSharp>,
   childrenExperienceJson?: Maybe<Array<Maybe<ExperienceJson>>>,
   childEducationJson?: Maybe<EducationJson>,
+  childrenSkillJson?: Maybe<Array<Maybe<SkillJson>>>,
 };
 
 
@@ -1173,7 +1174,49 @@ export enum FileFieldsEnum {
   childEducationJson___university = 'childEducationJson___university',
   childEducationJson___period = 'childEducationJson___period',
   childEducationJson___mark___name = 'childEducationJson___mark___name',
-  childEducationJson___mark___value = 'childEducationJson___mark___value'
+  childEducationJson___mark___value = 'childEducationJson___mark___value',
+  childrenSkillJson = 'childrenSkillJson',
+  childrenSkillJson___id = 'childrenSkillJson___id',
+  childrenSkillJson___parent___id = 'childrenSkillJson___parent___id',
+  childrenSkillJson___parent___parent___id = 'childrenSkillJson___parent___parent___id',
+  childrenSkillJson___parent___parent___children = 'childrenSkillJson___parent___parent___children',
+  childrenSkillJson___parent___children = 'childrenSkillJson___parent___children',
+  childrenSkillJson___parent___children___id = 'childrenSkillJson___parent___children___id',
+  childrenSkillJson___parent___children___children = 'childrenSkillJson___parent___children___children',
+  childrenSkillJson___parent___internal___content = 'childrenSkillJson___parent___internal___content',
+  childrenSkillJson___parent___internal___contentDigest = 'childrenSkillJson___parent___internal___contentDigest',
+  childrenSkillJson___parent___internal___description = 'childrenSkillJson___parent___internal___description',
+  childrenSkillJson___parent___internal___fieldOwners = 'childrenSkillJson___parent___internal___fieldOwners',
+  childrenSkillJson___parent___internal___ignoreType = 'childrenSkillJson___parent___internal___ignoreType',
+  childrenSkillJson___parent___internal___mediaType = 'childrenSkillJson___parent___internal___mediaType',
+  childrenSkillJson___parent___internal___owner = 'childrenSkillJson___parent___internal___owner',
+  childrenSkillJson___parent___internal___type = 'childrenSkillJson___parent___internal___type',
+  childrenSkillJson___children = 'childrenSkillJson___children',
+  childrenSkillJson___children___id = 'childrenSkillJson___children___id',
+  childrenSkillJson___children___parent___id = 'childrenSkillJson___children___parent___id',
+  childrenSkillJson___children___parent___children = 'childrenSkillJson___children___parent___children',
+  childrenSkillJson___children___children = 'childrenSkillJson___children___children',
+  childrenSkillJson___children___children___id = 'childrenSkillJson___children___children___id',
+  childrenSkillJson___children___children___children = 'childrenSkillJson___children___children___children',
+  childrenSkillJson___children___internal___content = 'childrenSkillJson___children___internal___content',
+  childrenSkillJson___children___internal___contentDigest = 'childrenSkillJson___children___internal___contentDigest',
+  childrenSkillJson___children___internal___description = 'childrenSkillJson___children___internal___description',
+  childrenSkillJson___children___internal___fieldOwners = 'childrenSkillJson___children___internal___fieldOwners',
+  childrenSkillJson___children___internal___ignoreType = 'childrenSkillJson___children___internal___ignoreType',
+  childrenSkillJson___children___internal___mediaType = 'childrenSkillJson___children___internal___mediaType',
+  childrenSkillJson___children___internal___owner = 'childrenSkillJson___children___internal___owner',
+  childrenSkillJson___children___internal___type = 'childrenSkillJson___children___internal___type',
+  childrenSkillJson___internal___content = 'childrenSkillJson___internal___content',
+  childrenSkillJson___internal___contentDigest = 'childrenSkillJson___internal___contentDigest',
+  childrenSkillJson___internal___description = 'childrenSkillJson___internal___description',
+  childrenSkillJson___internal___fieldOwners = 'childrenSkillJson___internal___fieldOwners',
+  childrenSkillJson___internal___ignoreType = 'childrenSkillJson___internal___ignoreType',
+  childrenSkillJson___internal___mediaType = 'childrenSkillJson___internal___mediaType',
+  childrenSkillJson___internal___owner = 'childrenSkillJson___internal___owner',
+  childrenSkillJson___internal___type = 'childrenSkillJson___internal___type',
+  childrenSkillJson___name = 'childrenSkillJson___name',
+  childrenSkillJson___proficient = 'childrenSkillJson___proficient',
+  childrenSkillJson___show = 'childrenSkillJson___show'
 }
 
 export type FileFilterInput = {
@@ -1219,6 +1262,7 @@ export type FileFilterInput = {
   childImageSharp?: Maybe<ImageSharpFilterInput>,
   childrenExperienceJson?: Maybe<ExperienceJsonFilterListInput>,
   childEducationJson?: Maybe<EducationJsonFilterInput>,
+  childrenSkillJson?: Maybe<SkillJsonFilterListInput>,
 };
 
 export type FileGroupConnection = {
@@ -1844,6 +1888,8 @@ export type Query = {
   allExperienceJson: ExperienceJsonConnection,
   educationJson?: Maybe<EducationJson>,
   allEducationJson: EducationJsonConnection,
+  skillJson?: Maybe<SkillJson>,
+  allSkillJson: SkillJsonConnection,
 };
 
 
@@ -1889,7 +1935,8 @@ export type QueryFileArgs = {
   childResumeJson?: Maybe<ResumeJsonFilterInput>,
   childImageSharp?: Maybe<ImageSharpFilterInput>,
   childrenExperienceJson?: Maybe<ExperienceJsonFilterListInput>,
-  childEducationJson?: Maybe<EducationJsonFilterInput>
+  childEducationJson?: Maybe<EducationJsonFilterInput>,
+  childrenSkillJson?: Maybe<SkillJsonFilterListInput>
 };
 
 
@@ -2099,6 +2146,25 @@ export type QueryEducationJsonArgs = {
 export type QueryAllEducationJsonArgs = {
   filter?: Maybe<EducationJsonFilterInput>,
   sort?: Maybe<EducationJsonSortInput>,
+  skip?: Maybe<Scalars['Int']>,
+  limit?: Maybe<Scalars['Int']>
+};
+
+
+export type QuerySkillJsonArgs = {
+  id?: Maybe<StringQueryOperatorInput>,
+  parent?: Maybe<NodeFilterInput>,
+  children?: Maybe<NodeFilterListInput>,
+  internal?: Maybe<InternalFilterInput>,
+  name?: Maybe<StringQueryOperatorInput>,
+  proficient?: Maybe<BooleanQueryOperatorInput>,
+  show?: Maybe<BooleanQueryOperatorInput>
+};
+
+
+export type QueryAllSkillJsonArgs = {
+  filter?: Maybe<SkillJsonFilterInput>,
+  sort?: Maybe<SkillJsonSortInput>,
   skip?: Maybe<Scalars['Int']>,
   limit?: Maybe<Scalars['Int']>
 };
@@ -4602,6 +4668,167 @@ export type SiteSortInput = {
   order?: Maybe<Array<Maybe<SortOrderEnum>>>,
 };
 
+export type SkillJson = Node & {
+   __typename?: 'SkillJson',
+  id: Scalars['ID'],
+  parent?: Maybe<Node>,
+  children: Array<Node>,
+  internal: Internal,
+  name?: Maybe<Scalars['String']>,
+  proficient?: Maybe<Scalars['Boolean']>,
+  show?: Maybe<Scalars['Boolean']>,
+};
+
+export type SkillJsonConnection = {
+   __typename?: 'SkillJsonConnection',
+  totalCount: Scalars['Int'],
+  edges: Array<SkillJsonEdge>,
+  nodes: Array<SkillJson>,
+  pageInfo: PageInfo,
+  distinct: Array<Scalars['String']>,
+  group: Array<SkillJsonGroupConnection>,
+};
+
+
+export type SkillJsonConnectionDistinctArgs = {
+  field: SkillJsonFieldsEnum
+};
+
+
+export type SkillJsonConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>,
+  limit?: Maybe<Scalars['Int']>,
+  field: SkillJsonFieldsEnum
+};
+
+export type SkillJsonEdge = {
+   __typename?: 'SkillJsonEdge',
+  next?: Maybe<SkillJson>,
+  node: SkillJson,
+  previous?: Maybe<SkillJson>,
+};
+
+export enum SkillJsonFieldsEnum {
+  id = 'id',
+  parent___id = 'parent___id',
+  parent___parent___id = 'parent___parent___id',
+  parent___parent___parent___id = 'parent___parent___parent___id',
+  parent___parent___parent___children = 'parent___parent___parent___children',
+  parent___parent___children = 'parent___parent___children',
+  parent___parent___children___id = 'parent___parent___children___id',
+  parent___parent___children___children = 'parent___parent___children___children',
+  parent___parent___internal___content = 'parent___parent___internal___content',
+  parent___parent___internal___contentDigest = 'parent___parent___internal___contentDigest',
+  parent___parent___internal___description = 'parent___parent___internal___description',
+  parent___parent___internal___fieldOwners = 'parent___parent___internal___fieldOwners',
+  parent___parent___internal___ignoreType = 'parent___parent___internal___ignoreType',
+  parent___parent___internal___mediaType = 'parent___parent___internal___mediaType',
+  parent___parent___internal___owner = 'parent___parent___internal___owner',
+  parent___parent___internal___type = 'parent___parent___internal___type',
+  parent___children = 'parent___children',
+  parent___children___id = 'parent___children___id',
+  parent___children___parent___id = 'parent___children___parent___id',
+  parent___children___parent___children = 'parent___children___parent___children',
+  parent___children___children = 'parent___children___children',
+  parent___children___children___id = 'parent___children___children___id',
+  parent___children___children___children = 'parent___children___children___children',
+  parent___children___internal___content = 'parent___children___internal___content',
+  parent___children___internal___contentDigest = 'parent___children___internal___contentDigest',
+  parent___children___internal___description = 'parent___children___internal___description',
+  parent___children___internal___fieldOwners = 'parent___children___internal___fieldOwners',
+  parent___children___internal___ignoreType = 'parent___children___internal___ignoreType',
+  parent___children___internal___mediaType = 'parent___children___internal___mediaType',
+  parent___children___internal___owner = 'parent___children___internal___owner',
+  parent___children___internal___type = 'parent___children___internal___type',
+  parent___internal___content = 'parent___internal___content',
+  parent___internal___contentDigest = 'parent___internal___contentDigest',
+  parent___internal___description = 'parent___internal___description',
+  parent___internal___fieldOwners = 'parent___internal___fieldOwners',
+  parent___internal___ignoreType = 'parent___internal___ignoreType',
+  parent___internal___mediaType = 'parent___internal___mediaType',
+  parent___internal___owner = 'parent___internal___owner',
+  parent___internal___type = 'parent___internal___type',
+  children = 'children',
+  children___id = 'children___id',
+  children___parent___id = 'children___parent___id',
+  children___parent___parent___id = 'children___parent___parent___id',
+  children___parent___parent___children = 'children___parent___parent___children',
+  children___parent___children = 'children___parent___children',
+  children___parent___children___id = 'children___parent___children___id',
+  children___parent___children___children = 'children___parent___children___children',
+  children___parent___internal___content = 'children___parent___internal___content',
+  children___parent___internal___contentDigest = 'children___parent___internal___contentDigest',
+  children___parent___internal___description = 'children___parent___internal___description',
+  children___parent___internal___fieldOwners = 'children___parent___internal___fieldOwners',
+  children___parent___internal___ignoreType = 'children___parent___internal___ignoreType',
+  children___parent___internal___mediaType = 'children___parent___internal___mediaType',
+  children___parent___internal___owner = 'children___parent___internal___owner',
+  children___parent___internal___type = 'children___parent___internal___type',
+  children___children = 'children___children',
+  children___children___id = 'children___children___id',
+  children___children___parent___id = 'children___children___parent___id',
+  children___children___parent___children = 'children___children___parent___children',
+  children___children___children = 'children___children___children',
+  children___children___children___id = 'children___children___children___id',
+  children___children___children___children = 'children___children___children___children',
+  children___children___internal___content = 'children___children___internal___content',
+  children___children___internal___contentDigest = 'children___children___internal___contentDigest',
+  children___children___internal___description = 'children___children___internal___description',
+  children___children___internal___fieldOwners = 'children___children___internal___fieldOwners',
+  children___children___internal___ignoreType = 'children___children___internal___ignoreType',
+  children___children___internal___mediaType = 'children___children___internal___mediaType',
+  children___children___internal___owner = 'children___children___internal___owner',
+  children___children___internal___type = 'children___children___internal___type',
+  children___internal___content = 'children___internal___content',
+  children___internal___contentDigest = 'children___internal___contentDigest',
+  children___internal___description = 'children___internal___description',
+  children___internal___fieldOwners = 'children___internal___fieldOwners',
+  children___internal___ignoreType = 'children___internal___ignoreType',
+  children___internal___mediaType = 'children___internal___mediaType',
+  children___internal___owner = 'children___internal___owner',
+  children___internal___type = 'children___internal___type',
+  internal___content = 'internal___content',
+  internal___contentDigest = 'internal___contentDigest',
+  internal___description = 'internal___description',
+  internal___fieldOwners = 'internal___fieldOwners',
+  internal___ignoreType = 'internal___ignoreType',
+  internal___mediaType = 'internal___mediaType',
+  internal___owner = 'internal___owner',
+  internal___type = 'internal___type',
+  name = 'name',
+  proficient = 'proficient',
+  show = 'show'
+}
+
+export type SkillJsonFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>,
+  parent?: Maybe<NodeFilterInput>,
+  children?: Maybe<NodeFilterListInput>,
+  internal?: Maybe<InternalFilterInput>,
+  name?: Maybe<StringQueryOperatorInput>,
+  proficient?: Maybe<BooleanQueryOperatorInput>,
+  show?: Maybe<BooleanQueryOperatorInput>,
+};
+
+export type SkillJsonFilterListInput = {
+  elemMatch?: Maybe<SkillJsonFilterInput>,
+};
+
+export type SkillJsonGroupConnection = {
+   __typename?: 'SkillJsonGroupConnection',
+  totalCount: Scalars['Int'],
+  edges: Array<SkillJsonEdge>,
+  nodes: Array<SkillJson>,
+  pageInfo: PageInfo,
+  field: Scalars['String'],
+  fieldValue?: Maybe<Scalars['String']>,
+};
+
+export type SkillJsonSortInput = {
+  fields?: Maybe<Array<Maybe<SkillJsonFieldsEnum>>>,
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>,
+};
+
 export enum SortOrderEnum {
   ASC = 'ASC',
   DESC = 'DESC'
@@ -4811,6 +5038,15 @@ export type AppQuery = (
           { __typename?: 'EducationJsonMark' }
           & Pick<EducationJsonMark, 'name' | 'value'>
         )> }
+      ) }
+    )> }
+  ), skills: (
+    { __typename?: 'SkillJsonConnection' }
+    & { edges: Array<(
+      { __typename?: 'SkillJsonEdge' }
+      & { node: (
+        { __typename?: 'SkillJson' }
+        & Pick<SkillJson, 'name' | 'proficient' | 'show'>
       ) }
     )> }
   ) }
