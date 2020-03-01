@@ -12,7 +12,7 @@
     "name": "Gatsby Resume Maker",
     "link": "https://github.com/anas-didi95/gatsby-resume-maker.git",
     "description": [
-      "The application can generate resume based on the values inputted in the JSON files.",
+      "The application to generate resume based on the values inputted in the JSON files.",
       "Built using GatsbyJS, TypeScript and GraphQL."
     ],
     "show": true
