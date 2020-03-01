@@ -1086,6 +1086,7 @@ export enum FileFieldsEnum {
   childResumeJson___social___github = 'childResumeJson___social___github',
   childResumeJson___social___linkedin = 'childResumeJson___social___linkedin',
   childResumeJson___summary = 'childResumeJson___summary',
+  childResumeJson___summary20200301 = 'childResumeJson___summary20200301',
   childrenProjectJson = 'childrenProjectJson',
   childrenProjectJson___id = 'childrenProjectJson___id',
   childrenProjectJson___parent___id = 'childrenProjectJson___parent___id',
@@ -2298,16 +2299,16 @@ export type Query = {
   allDirectory: DirectoryConnection,
   educationJson?: Maybe<EducationJson>,
   allEducationJson: EducationJsonConnection,
-  experienceJson?: Maybe<ExperienceJson>,
-  allExperienceJson: ExperienceJsonConnection,
-  resumeJson?: Maybe<ResumeJson>,
-  allResumeJson: ResumeJsonConnection,
-  projectJson?: Maybe<ProjectJson>,
-  allProjectJson: ProjectJsonConnection,
-  skillJson?: Maybe<SkillJson>,
-  allSkillJson: SkillJsonConnection,
   languageJson?: Maybe<LanguageJson>,
   allLanguageJson: LanguageJsonConnection,
+  skillJson?: Maybe<SkillJson>,
+  allSkillJson: SkillJsonConnection,
+  resumeJson?: Maybe<ResumeJson>,
+  allResumeJson: ResumeJsonConnection,
+  experienceJson?: Maybe<ExperienceJson>,
+  allExperienceJson: ExperienceJsonConnection,
+  projectJson?: Maybe<ProjectJson>,
+  allProjectJson: ProjectJsonConnection,
 };
 
 
@@ -2530,62 +2531,20 @@ export type QueryAllEducationJsonArgs = {
 };
 
 
-export type QueryExperienceJsonArgs = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  company?: Maybe<StringQueryOperatorInput>,
-  position?: Maybe<StringQueryOperatorInput>,
-  period?: Maybe<StringQueryOperatorInput>,
-  achievements?: Maybe<StringQueryOperatorInput>
-};
-
-
-export type QueryAllExperienceJsonArgs = {
-  filter?: Maybe<ExperienceJsonFilterInput>,
-  sort?: Maybe<ExperienceJsonSortInput>,
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>
-};
-
-
-export type QueryResumeJsonArgs = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
-  fullname?: Maybe<StringQueryOperatorInput>,
-  position?: Maybe<StringQueryOperatorInput>,
-  detail?: Maybe<ResumeJsonDetailFilterInput>,
-  social?: Maybe<ResumeJsonSocialFilterInput>,
-  summary?: Maybe<StringQueryOperatorInput>
-};
-
-
-export type QueryAllResumeJsonArgs = {
-  filter?: Maybe<ResumeJsonFilterInput>,
-  sort?: Maybe<ResumeJsonSortInput>,
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>
-};
-
-
-export type QueryProjectJsonArgs = {
+export type QueryLanguageJsonArgs = {
   id?: Maybe<StringQueryOperatorInput>,
   parent?: Maybe<NodeFilterInput>,
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>,
   name?: Maybe<StringQueryOperatorInput>,
-  link?: Maybe<StringQueryOperatorInput>,
-  description?: Maybe<StringQueryOperatorInput>,
+  level?: Maybe<StringQueryOperatorInput>,
   show?: Maybe<BooleanQueryOperatorInput>
 };
 
 
-export type QueryAllProjectJsonArgs = {
-  filter?: Maybe<ProjectJsonFilterInput>,
-  sort?: Maybe<ProjectJsonSortInput>,
+export type QueryAllLanguageJsonArgs = {
+  filter?: Maybe<LanguageJsonFilterInput>,
+  sort?: Maybe<LanguageJsonSortInput>,
   skip?: Maybe<Scalars['Int']>,
   limit?: Maybe<Scalars['Int']>
 };
@@ -2610,20 +2569,63 @@ export type QueryAllSkillJsonArgs = {
 };
 
 
-export type QueryLanguageJsonArgs = {
+export type QueryResumeJsonArgs = {
+  id?: Maybe<StringQueryOperatorInput>,
+  parent?: Maybe<NodeFilterInput>,
+  children?: Maybe<NodeFilterListInput>,
+  internal?: Maybe<InternalFilterInput>,
+  fullname?: Maybe<StringQueryOperatorInput>,
+  position?: Maybe<StringQueryOperatorInput>,
+  detail?: Maybe<ResumeJsonDetailFilterInput>,
+  social?: Maybe<ResumeJsonSocialFilterInput>,
+  summary?: Maybe<StringQueryOperatorInput>,
+  summary20200301?: Maybe<StringQueryOperatorInput>
+};
+
+
+export type QueryAllResumeJsonArgs = {
+  filter?: Maybe<ResumeJsonFilterInput>,
+  sort?: Maybe<ResumeJsonSortInput>,
+  skip?: Maybe<Scalars['Int']>,
+  limit?: Maybe<Scalars['Int']>
+};
+
+
+export type QueryExperienceJsonArgs = {
+  id?: Maybe<StringQueryOperatorInput>,
+  parent?: Maybe<NodeFilterInput>,
+  children?: Maybe<NodeFilterListInput>,
+  internal?: Maybe<InternalFilterInput>,
+  company?: Maybe<StringQueryOperatorInput>,
+  position?: Maybe<StringQueryOperatorInput>,
+  period?: Maybe<StringQueryOperatorInput>,
+  achievements?: Maybe<StringQueryOperatorInput>
+};
+
+
+export type QueryAllExperienceJsonArgs = {
+  filter?: Maybe<ExperienceJsonFilterInput>,
+  sort?: Maybe<ExperienceJsonSortInput>,
+  skip?: Maybe<Scalars['Int']>,
+  limit?: Maybe<Scalars['Int']>
+};
+
+
+export type QueryProjectJsonArgs = {
   id?: Maybe<StringQueryOperatorInput>,
   parent?: Maybe<NodeFilterInput>,
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>,
   name?: Maybe<StringQueryOperatorInput>,
-  level?: Maybe<StringQueryOperatorInput>,
+  link?: Maybe<StringQueryOperatorInput>,
+  description?: Maybe<StringQueryOperatorInput>,
   show?: Maybe<BooleanQueryOperatorInput>
 };
 
 
-export type QueryAllLanguageJsonArgs = {
-  filter?: Maybe<LanguageJsonFilterInput>,
-  sort?: Maybe<LanguageJsonSortInput>,
+export type QueryAllProjectJsonArgs = {
+  filter?: Maybe<ProjectJsonFilterInput>,
+  sort?: Maybe<ProjectJsonSortInput>,
   skip?: Maybe<Scalars['Int']>,
   limit?: Maybe<Scalars['Int']>
 };
@@ -2639,6 +2641,7 @@ export type ResumeJson = Node & {
   detail?: Maybe<ResumeJsonDetail>,
   social?: Maybe<ResumeJsonSocial>,
   summary?: Maybe<Array<Maybe<Scalars['String']>>>,
+  summary20200301?: Maybe<Array<Maybe<Scalars['String']>>>,
 };
 
 export type ResumeJsonConnection = {
@@ -2780,7 +2783,8 @@ export enum ResumeJsonFieldsEnum {
   detail___email = 'detail___email',
   social___github = 'social___github',
   social___linkedin = 'social___linkedin',
-  summary = 'summary'
+  summary = 'summary',
+  summary20200301 = 'summary20200301'
 }
 
 export type ResumeJsonFilterInput = {
@@ -2793,6 +2797,7 @@ export type ResumeJsonFilterInput = {
   detail?: Maybe<ResumeJsonDetailFilterInput>,
   social?: Maybe<ResumeJsonSocialFilterInput>,
   summary?: Maybe<StringQueryOperatorInput>,
+  summary20200301?: Maybe<StringQueryOperatorInput>,
 };
 
 export type ResumeJsonGroupConnection = {

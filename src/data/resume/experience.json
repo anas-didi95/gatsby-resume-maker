@@ -1,5 +1,25 @@
 [
   {
+    "company": "Hitachi eBworx Sdn Bhd (HeB)",
+    "position": "Application Engineer",
+    "period": "12/2018 - Present",
+    "achievements": [
+      "Developed features in bank application to improve credit card application process by 75%.",
+      "Designed batch application for credit card application process and increase efficiency by 80%.",
+      "Implemented features for generating and downloading report in bank application."
+    ]
+  },
+  {
+    "company": "Hitachi eBworx Sdn Bhd (HeB)",
+    "position": "Internship Application Engineer",
+    "period": "07/2018 - 12/2018",
+    "achievements": [
+      "Developed a Proof-of-concept (POC) Spring Batch application to improve database benchmark analysis by 70%.",
+      "Implemented Application Integrated Interface (API) to allow connection between 3rd-party application and HeB framework.",
+      "Optimized database queries by 80% through Oracle database tuning and TKPROF analysis."
+    ]
+  },
+  {
     "company": "Kulliyah of Information and Communication Technology (KICT)",
     "position": "Teaching Assistant",
     "period": "09/2017 - 08/2018",

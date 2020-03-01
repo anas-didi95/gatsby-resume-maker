@@ -3,14 +3,14 @@
     "name": "EzyAduan :: IIUM Complaint System",
     "link": "https://ezyaduan.iium.edu.my/",
     "description": [
-      "The application able to generate report, analysis receiveing complaint from user using QR.",
+      "The application able to generate report, analysis receiving complaint from user using QR code.",
       "Built using PHP, Laravel and Oracle DB."
     ],
     "show": true
   },
   {
-    "name": "Resume Maker",
-    "link": "",
+    "name": "Gatsby Resume Maker",
+    "link": "https://github.com/anas-didi95/gatsby-resume-maker.git",
     "description": [
       "The application can generate resume based on the values inputted in the JSON files.",
       "Built using GatsbyJS, TypeScript and GraphQL."
