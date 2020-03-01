@@ -8,7 +8,7 @@
   Gatsby Resume Maker
 </h1>
 
-The application can generate resume based on the values inputted in the JSON files.
+The application to generate resume based on the values inputted in the JSON files.
 Built using GatsbyJS, TypeScript and GraphQL
 
 <br/>
