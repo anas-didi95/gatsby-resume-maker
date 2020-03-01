@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter TypeScript`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@andykenward`,
+    title: `Resume Maker`,
+    description: `This application can generate resume based on the values inputted in the JSON files.`,
+    author: `@anasdidi`,
   },
   plugins: [
     `gatsby-transformer-json`,
