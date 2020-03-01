@@ -5,7 +5,7 @@
   </a>
 </p>
 <h1 align="center">
-  Resume Maker
+  Gatsby Resume Maker
 </h1>
 
 The application can generate resume based on the values inputted in the JSON files.
