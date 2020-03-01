@@ -1,15 +1,11 @@
 import React from "react"
 
-export interface ILanguageItem {
+interface ILanguage {
   name: string
   level: string
 }
 
-interface ILanguage {
-  items: ILanguageItem[]
-}
-
-const Language: React.FC<ILanguageItem> = ({ name, level }) => (
+const Language: React.FC<ILanguage> = ({ name, level }) => (
   <>
     <span className="font-bold">{name}</span>
     <span className="italic">{level}</span>
