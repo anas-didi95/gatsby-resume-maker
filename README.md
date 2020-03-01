@@ -34,7 +34,7 @@ _Following guide is based on Linux environment._
     Open VSCode
 
     ```sh
-    cd anasdidi-resume-maker/
+    cd gatsby-resume-maker/
     code .
     ```
 
@@ -81,7 +81,7 @@ _Following guide is based on Linux environment._
 
     _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
 
-    Open the `anasdidi-resume-maker` directory in your code editor of choice and edit `src/pages/index.tsx`. Save your changes and the browser will update in real time!
+    Open the `gatsby-resume-maker` directory in your code editor of choice and edit `src/pages/index.tsx`. Save your changes and the browser will update in real time!
 
 2.  **Print the resume**
 
