@@ -13,7 +13,7 @@ import "../styles/app.scss"
 import { TiLink } from "react-icons/ti"
 import Project from "../components/Project"
 
-interface IApp { }
+interface IApp {}
 
 const App: React.FC<IApp> = () => {
   const data: AppQuery = useStaticQuery(graphql`
@@ -102,7 +102,7 @@ const App: React.FC<IApp> = () => {
     educations,
     skills,
     languages,
-    projects
+    projects,
   } = data
 
   return (
@@ -177,9 +177,15 @@ const App: React.FC<IApp> = () => {
           <br />
           <SectionHeader value="Project" />
           <article>
-            {oc(projects).edges([]).map(edge => (
-              <Project name={oc(edge).node.name("")} link={oc(edge).node.link("")} description={oc(edge).node.description([]) as string[]} />
-            ))}
+            {oc(projects)
+              .edges([])
+              .map(edge => (
+                <Project
+                  name={oc(edge).node.name("")}
+                  link={oc(edge).node.link("")}
+                  description={oc(edge).node.description([]) as string[]}
+                />
+              ))}
           </article>
         </section>
       </div>
