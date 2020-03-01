@@ -18,7 +18,7 @@ const Education: React.FC<IEducation> = ({
   period,
   mark,
 }) => (
-  <article className="mb-3">
+  <>
     <div className="flex justify-between">
       <h1 className="text-orange-500 text-lg">{major}</h1>
     </div>
@@ -27,8 +27,7 @@ const Education: React.FC<IEducation> = ({
     <p className="text-sm mt-1">
       <span className="font-bold">{mark.name}:</span>&nbsp;{mark.value}
     </p>
-    <br />
-  </article>
+  </>
 )
 
 export default Education

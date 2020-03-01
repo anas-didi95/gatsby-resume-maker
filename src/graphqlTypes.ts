@@ -744,6 +744,7 @@ export type File = Node & {
   childEducationJson?: Maybe<EducationJson>,
   childrenSkillJson?: Maybe<Array<Maybe<SkillJson>>>,
   childrenLanguageJson?: Maybe<Array<Maybe<LanguageJson>>>,
+  childrenProjectJson?: Maybe<Array<Maybe<ProjectJson>>>,
 };
 
 
@@ -1259,7 +1260,50 @@ export enum FileFieldsEnum {
   childrenLanguageJson___internal___type = 'childrenLanguageJson___internal___type',
   childrenLanguageJson___name = 'childrenLanguageJson___name',
   childrenLanguageJson___level = 'childrenLanguageJson___level',
-  childrenLanguageJson___show = 'childrenLanguageJson___show'
+  childrenLanguageJson___show = 'childrenLanguageJson___show',
+  childrenProjectJson = 'childrenProjectJson',
+  childrenProjectJson___id = 'childrenProjectJson___id',
+  childrenProjectJson___parent___id = 'childrenProjectJson___parent___id',
+  childrenProjectJson___parent___parent___id = 'childrenProjectJson___parent___parent___id',
+  childrenProjectJson___parent___parent___children = 'childrenProjectJson___parent___parent___children',
+  childrenProjectJson___parent___children = 'childrenProjectJson___parent___children',
+  childrenProjectJson___parent___children___id = 'childrenProjectJson___parent___children___id',
+  childrenProjectJson___parent___children___children = 'childrenProjectJson___parent___children___children',
+  childrenProjectJson___parent___internal___content = 'childrenProjectJson___parent___internal___content',
+  childrenProjectJson___parent___internal___contentDigest = 'childrenProjectJson___parent___internal___contentDigest',
+  childrenProjectJson___parent___internal___description = 'childrenProjectJson___parent___internal___description',
+  childrenProjectJson___parent___internal___fieldOwners = 'childrenProjectJson___parent___internal___fieldOwners',
+  childrenProjectJson___parent___internal___ignoreType = 'childrenProjectJson___parent___internal___ignoreType',
+  childrenProjectJson___parent___internal___mediaType = 'childrenProjectJson___parent___internal___mediaType',
+  childrenProjectJson___parent___internal___owner = 'childrenProjectJson___parent___internal___owner',
+  childrenProjectJson___parent___internal___type = 'childrenProjectJson___parent___internal___type',
+  childrenProjectJson___children = 'childrenProjectJson___children',
+  childrenProjectJson___children___id = 'childrenProjectJson___children___id',
+  childrenProjectJson___children___parent___id = 'childrenProjectJson___children___parent___id',
+  childrenProjectJson___children___parent___children = 'childrenProjectJson___children___parent___children',
+  childrenProjectJson___children___children = 'childrenProjectJson___children___children',
+  childrenProjectJson___children___children___id = 'childrenProjectJson___children___children___id',
+  childrenProjectJson___children___children___children = 'childrenProjectJson___children___children___children',
+  childrenProjectJson___children___internal___content = 'childrenProjectJson___children___internal___content',
+  childrenProjectJson___children___internal___contentDigest = 'childrenProjectJson___children___internal___contentDigest',
+  childrenProjectJson___children___internal___description = 'childrenProjectJson___children___internal___description',
+  childrenProjectJson___children___internal___fieldOwners = 'childrenProjectJson___children___internal___fieldOwners',
+  childrenProjectJson___children___internal___ignoreType = 'childrenProjectJson___children___internal___ignoreType',
+  childrenProjectJson___children___internal___mediaType = 'childrenProjectJson___children___internal___mediaType',
+  childrenProjectJson___children___internal___owner = 'childrenProjectJson___children___internal___owner',
+  childrenProjectJson___children___internal___type = 'childrenProjectJson___children___internal___type',
+  childrenProjectJson___internal___content = 'childrenProjectJson___internal___content',
+  childrenProjectJson___internal___contentDigest = 'childrenProjectJson___internal___contentDigest',
+  childrenProjectJson___internal___description = 'childrenProjectJson___internal___description',
+  childrenProjectJson___internal___fieldOwners = 'childrenProjectJson___internal___fieldOwners',
+  childrenProjectJson___internal___ignoreType = 'childrenProjectJson___internal___ignoreType',
+  childrenProjectJson___internal___mediaType = 'childrenProjectJson___internal___mediaType',
+  childrenProjectJson___internal___owner = 'childrenProjectJson___internal___owner',
+  childrenProjectJson___internal___type = 'childrenProjectJson___internal___type',
+  childrenProjectJson___name = 'childrenProjectJson___name',
+  childrenProjectJson___link = 'childrenProjectJson___link',
+  childrenProjectJson___description = 'childrenProjectJson___description',
+  childrenProjectJson___show = 'childrenProjectJson___show'
 }
 
 export type FileFilterInput = {
@@ -1307,6 +1351,7 @@ export type FileFilterInput = {
   childEducationJson?: Maybe<EducationJsonFilterInput>,
   childrenSkillJson?: Maybe<SkillJsonFilterListInput>,
   childrenLanguageJson?: Maybe<LanguageJsonFilterListInput>,
+  childrenProjectJson?: Maybe<ProjectJsonFilterListInput>,
 };
 
 export type FileGroupConnection = {
@@ -2073,6 +2118,170 @@ export enum PotraceTurnPolicy {
   TURNPOLICY_MAJORITY = 'TURNPOLICY_MAJORITY'
 }
 
+export type ProjectJson = Node & {
+   __typename?: 'ProjectJson',
+  id: Scalars['ID'],
+  parent?: Maybe<Node>,
+  children: Array<Node>,
+  internal: Internal,
+  name?: Maybe<Scalars['String']>,
+  link?: Maybe<Scalars['String']>,
+  description?: Maybe<Array<Maybe<Scalars['String']>>>,
+  show?: Maybe<Scalars['Boolean']>,
+};
+
+export type ProjectJsonConnection = {
+   __typename?: 'ProjectJsonConnection',
+  totalCount: Scalars['Int'],
+  edges: Array<ProjectJsonEdge>,
+  nodes: Array<ProjectJson>,
+  pageInfo: PageInfo,
+  distinct: Array<Scalars['String']>,
+  group: Array<ProjectJsonGroupConnection>,
+};
+
+
+export type ProjectJsonConnectionDistinctArgs = {
+  field: ProjectJsonFieldsEnum
+};
+
+
+export type ProjectJsonConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>,
+  limit?: Maybe<Scalars['Int']>,
+  field: ProjectJsonFieldsEnum
+};
+
+export type ProjectJsonEdge = {
+   __typename?: 'ProjectJsonEdge',
+  next?: Maybe<ProjectJson>,
+  node: ProjectJson,
+  previous?: Maybe<ProjectJson>,
+};
+
+export enum ProjectJsonFieldsEnum {
+  id = 'id',
+  parent___id = 'parent___id',
+  parent___parent___id = 'parent___parent___id',
+  parent___parent___parent___id = 'parent___parent___parent___id',
+  parent___parent___parent___children = 'parent___parent___parent___children',
+  parent___parent___children = 'parent___parent___children',
+  parent___parent___children___id = 'parent___parent___children___id',
+  parent___parent___children___children = 'parent___parent___children___children',
+  parent___parent___internal___content = 'parent___parent___internal___content',
+  parent___parent___internal___contentDigest = 'parent___parent___internal___contentDigest',
+  parent___parent___internal___description = 'parent___parent___internal___description',
+  parent___parent___internal___fieldOwners = 'parent___parent___internal___fieldOwners',
+  parent___parent___internal___ignoreType = 'parent___parent___internal___ignoreType',
+  parent___parent___internal___mediaType = 'parent___parent___internal___mediaType',
+  parent___parent___internal___owner = 'parent___parent___internal___owner',
+  parent___parent___internal___type = 'parent___parent___internal___type',
+  parent___children = 'parent___children',
+  parent___children___id = 'parent___children___id',
+  parent___children___parent___id = 'parent___children___parent___id',
+  parent___children___parent___children = 'parent___children___parent___children',
+  parent___children___children = 'parent___children___children',
+  parent___children___children___id = 'parent___children___children___id',
+  parent___children___children___children = 'parent___children___children___children',
+  parent___children___internal___content = 'parent___children___internal___content',
+  parent___children___internal___contentDigest = 'parent___children___internal___contentDigest',
+  parent___children___internal___description = 'parent___children___internal___description',
+  parent___children___internal___fieldOwners = 'parent___children___internal___fieldOwners',
+  parent___children___internal___ignoreType = 'parent___children___internal___ignoreType',
+  parent___children___internal___mediaType = 'parent___children___internal___mediaType',
+  parent___children___internal___owner = 'parent___children___internal___owner',
+  parent___children___internal___type = 'parent___children___internal___type',
+  parent___internal___content = 'parent___internal___content',
+  parent___internal___contentDigest = 'parent___internal___contentDigest',
+  parent___internal___description = 'parent___internal___description',
+  parent___internal___fieldOwners = 'parent___internal___fieldOwners',
+  parent___internal___ignoreType = 'parent___internal___ignoreType',
+  parent___internal___mediaType = 'parent___internal___mediaType',
+  parent___internal___owner = 'parent___internal___owner',
+  parent___internal___type = 'parent___internal___type',
+  children = 'children',
+  children___id = 'children___id',
+  children___parent___id = 'children___parent___id',
+  children___parent___parent___id = 'children___parent___parent___id',
+  children___parent___parent___children = 'children___parent___parent___children',
+  children___parent___children = 'children___parent___children',
+  children___parent___children___id = 'children___parent___children___id',
+  children___parent___children___children = 'children___parent___children___children',
+  children___parent___internal___content = 'children___parent___internal___content',
+  children___parent___internal___contentDigest = 'children___parent___internal___contentDigest',
+  children___parent___internal___description = 'children___parent___internal___description',
+  children___parent___internal___fieldOwners = 'children___parent___internal___fieldOwners',
+  children___parent___internal___ignoreType = 'children___parent___internal___ignoreType',
+  children___parent___internal___mediaType = 'children___parent___internal___mediaType',
+  children___parent___internal___owner = 'children___parent___internal___owner',
+  children___parent___internal___type = 'children___parent___internal___type',
+  children___children = 'children___children',
+  children___children___id = 'children___children___id',
+  children___children___parent___id = 'children___children___parent___id',
+  children___children___parent___children = 'children___children___parent___children',
+  children___children___children = 'children___children___children',
+  children___children___children___id = 'children___children___children___id',
+  children___children___children___children = 'children___children___children___children',
+  children___children___internal___content = 'children___children___internal___content',
+  children___children___internal___contentDigest = 'children___children___internal___contentDigest',
+  children___children___internal___description = 'children___children___internal___description',
+  children___children___internal___fieldOwners = 'children___children___internal___fieldOwners',
+  children___children___internal___ignoreType = 'children___children___internal___ignoreType',
+  children___children___internal___mediaType = 'children___children___internal___mediaType',
+  children___children___internal___owner = 'children___children___internal___owner',
+  children___children___internal___type = 'children___children___internal___type',
+  children___internal___content = 'children___internal___content',
+  children___internal___contentDigest = 'children___internal___contentDigest',
+  children___internal___description = 'children___internal___description',
+  children___internal___fieldOwners = 'children___internal___fieldOwners',
+  children___internal___ignoreType = 'children___internal___ignoreType',
+  children___internal___mediaType = 'children___internal___mediaType',
+  children___internal___owner = 'children___internal___owner',
+  children___internal___type = 'children___internal___type',
+  internal___content = 'internal___content',
+  internal___contentDigest = 'internal___contentDigest',
+  internal___description = 'internal___description',
+  internal___fieldOwners = 'internal___fieldOwners',
+  internal___ignoreType = 'internal___ignoreType',
+  internal___mediaType = 'internal___mediaType',
+  internal___owner = 'internal___owner',
+  internal___type = 'internal___type',
+  name = 'name',
+  link = 'link',
+  description = 'description',
+  show = 'show'
+}
+
+export type ProjectJsonFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>,
+  parent?: Maybe<NodeFilterInput>,
+  children?: Maybe<NodeFilterListInput>,
+  internal?: Maybe<InternalFilterInput>,
+  name?: Maybe<StringQueryOperatorInput>,
+  link?: Maybe<StringQueryOperatorInput>,
+  description?: Maybe<StringQueryOperatorInput>,
+  show?: Maybe<BooleanQueryOperatorInput>,
+};
+
+export type ProjectJsonFilterListInput = {
+  elemMatch?: Maybe<ProjectJsonFilterInput>,
+};
+
+export type ProjectJsonGroupConnection = {
+   __typename?: 'ProjectJsonGroupConnection',
+  totalCount: Scalars['Int'],
+  edges: Array<ProjectJsonEdge>,
+  nodes: Array<ProjectJson>,
+  pageInfo: PageInfo,
+  field: Scalars['String'],
+  fieldValue?: Maybe<Scalars['String']>,
+};
+
+export type ProjectJsonSortInput = {
+  fields?: Maybe<Array<Maybe<ProjectJsonFieldsEnum>>>,
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>,
+};
+
 export type Query = {
    __typename?: 'Query',
   file?: Maybe<File>,
@@ -2097,6 +2306,8 @@ export type Query = {
   allSkillJson: SkillJsonConnection,
   languageJson?: Maybe<LanguageJson>,
   allLanguageJson: LanguageJsonConnection,
+  projectJson?: Maybe<ProjectJson>,
+  allProjectJson: ProjectJsonConnection,
 };
 
 
@@ -2144,7 +2355,8 @@ export type QueryFileArgs = {
   childrenExperienceJson?: Maybe<ExperienceJsonFilterListInput>,
   childEducationJson?: Maybe<EducationJsonFilterInput>,
   childrenSkillJson?: Maybe<SkillJsonFilterListInput>,
-  childrenLanguageJson?: Maybe<LanguageJsonFilterListInput>
+  childrenLanguageJson?: Maybe<LanguageJsonFilterListInput>,
+  childrenProjectJson?: Maybe<ProjectJsonFilterListInput>
 };
 
 
@@ -2392,6 +2604,26 @@ export type QueryLanguageJsonArgs = {
 export type QueryAllLanguageJsonArgs = {
   filter?: Maybe<LanguageJsonFilterInput>,
   sort?: Maybe<LanguageJsonSortInput>,
+  skip?: Maybe<Scalars['Int']>,
+  limit?: Maybe<Scalars['Int']>
+};
+
+
+export type QueryProjectJsonArgs = {
+  id?: Maybe<StringQueryOperatorInput>,
+  parent?: Maybe<NodeFilterInput>,
+  children?: Maybe<NodeFilterListInput>,
+  internal?: Maybe<InternalFilterInput>,
+  name?: Maybe<StringQueryOperatorInput>,
+  link?: Maybe<StringQueryOperatorInput>,
+  description?: Maybe<StringQueryOperatorInput>,
+  show?: Maybe<BooleanQueryOperatorInput>
+};
+
+
+export type QueryAllProjectJsonArgs = {
+  filter?: Maybe<ProjectJsonFilterInput>,
+  sort?: Maybe<ProjectJsonSortInput>,
   skip?: Maybe<Scalars['Int']>,
   limit?: Maybe<Scalars['Int']>
 };
@@ -5283,6 +5515,15 @@ export type AppQuery = (
       & { node: (
         { __typename?: 'LanguageJson' }
         & Pick<LanguageJson, 'name' | 'level'>
+      ) }
+    )> }
+  ), projects: (
+    { __typename?: 'ProjectJsonConnection' }
+    & { edges: Array<(
+      { __typename?: 'ProjectJsonEdge' }
+      & { node: (
+        { __typename?: 'ProjectJson' }
+        & Pick<ProjectJson, 'name' | 'link' | 'description'>
       ) }
     )> }
   ) }
