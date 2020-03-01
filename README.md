@@ -22,7 +22,7 @@ _Following guide is based on Linux environment._
     Clone the site using Git command.
 
     ```sh
-    git
+    git clone https://github.com/anas-didi95/gatsby-resume-maker.git
     ```
 
 1.  **Start developing.**
