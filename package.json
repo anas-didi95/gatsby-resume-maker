@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default-typescript",
+  "name": "gatsby-resume-maker",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.0",
-  "author": "Andy Kenward <hello@andykenward.com>",
+  "description": "This application can generate resume based on the values inputted in the JSON files",
+  "version": "1.0.0",
+  "author": "Anas Juwadi <anas.didi95@gmail.com>",
   "dependencies": {
     "@babel/core": "7.6.4",
     "gatsby": "2.15.36",
