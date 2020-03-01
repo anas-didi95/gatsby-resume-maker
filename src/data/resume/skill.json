@@ -63,5 +63,10 @@
     "name": "Spring",
     "proficient": true,
     "show": true
+  },
+  {
+    "name": "TypeScript",
+    "proficient": true,
+    "show": true
   }
 ]
