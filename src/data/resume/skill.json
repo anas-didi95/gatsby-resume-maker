@@ -53,5 +53,15 @@
     "name": "Oracle DB",
     "proficient": true,
     "show": true
+  },
+  {
+    "name": "Git",
+    "proficient": true,
+    "show": true
+  },
+  {
+    "name": "Spring",
+    "proficient": true,
+    "show": true
   }
 ]
