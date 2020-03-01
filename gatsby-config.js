@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Resume Maker`,
+    title: `Gatsby Resume Maker`,
     description: `This application can generate resume based on the values inputted in the JSON files.`,
     author: `@anasdidi`,
   },
