@@ -13,7 +13,7 @@ import "../styles/app.scss"
 import { TiLink } from "react-icons/ti"
 import Project from "../components/Project"
 
-interface IApp {}
+interface IApp { }
 
 const App: React.FC<IApp> = () => {
   const data: AppQuery = useStaticQuery(graphql`
@@ -104,6 +104,7 @@ const App: React.FC<IApp> = () => {
     languages,
     projects,
   } = data
+  const totalExperience: number = 3;
 
   return (
     <div className="resume">
@@ -115,33 +116,23 @@ const App: React.FC<IApp> = () => {
         social={oc(header).social() as ISocialHeader}
         summary={oc(header).summary([]) as string[]}
       />
-      <div className="flex mt-10">
+      <div className="flex mt-8">
         <section className="w-3/5 mr-4">
           <SectionHeader value="Work Experience" />
           <article>
             {oc(experiences)
               .edges([])
-              .map(edge => (
-                <Experience
-                  achievements={oc(edge).node.achievements([]) as string[]}
-                  company={oc(edge).node.company("")}
-                  period={oc(edge).node.period("")}
-                  position={oc(edge).node.position("")}
-                />
-              ))}
-          </article>
-          <br />
-          <SectionHeader value="Education" />
-          <article>
-            {oc(educations)
-              .edges([])
-              .map(edge => (
-                <Education
-                  major={oc(edge).node.major("")}
-                  university={oc(edge).node.university("")}
-                  period={oc(edge).node.period("")}
-                  mark={oc(edge).node.mark() as IEducationMark}
-                />
+              .map((edge, idx) => (
+                <>
+                  {idx < totalExperience &&
+                    <Experience
+                      achievements={oc(edge).node.achievements([]) as string[]}
+                      company={oc(edge).node.company("")}
+                      period={oc(edge).node.period("")}
+                      position={oc(edge).node.position("")}
+                    />
+                  }
+                </>
               ))}
           </article>
         </section>
@@ -162,7 +153,7 @@ const App: React.FC<IApp> = () => {
                 />
               ))}
           </article>
-          <br />
+          <div className="mt-5" />
           <SectionHeader value="Language" />
           <article>
             {oc(languages)
@@ -174,7 +165,7 @@ const App: React.FC<IApp> = () => {
                 />
               ))}
           </article>
-          <br />
+          <div className="mt-5" />
           <SectionHeader value="Project" />
           <article>
             {oc(projects)
@@ -184,6 +175,20 @@ const App: React.FC<IApp> = () => {
                   name={oc(edge).node.name("")}
                   link={oc(edge).node.link("")}
                   description={oc(edge).node.description([]) as string[]}
+                />
+              ))}
+          </article>
+          <div className="mt-5" />
+          <SectionHeader value="Education" />
+          <article>
+            {oc(educations)
+              .edges([])
+              .map(edge => (
+                <Education
+                  major={oc(edge).node.major("")}
+                  university={oc(edge).node.university("")}
+                  period={oc(edge).node.period("")}
+                  mark={oc(edge).node.mark() as IEducationMark}
                 />
               ))}
           </article>
