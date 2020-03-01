@@ -29,7 +29,6 @@ _Following guide is based on Linux environment._
 
     Navigate into your new site’s directory and start it up.
     The project is configured with VSCode Devcontainer.
-    Thus following guide if using VSCode.
 
     Open VSCode
 
@@ -39,9 +38,13 @@ _Following guide is based on Linux environment._
     ```
 
     Later the prompt to reopen project in container will display. Click it.
-    After container is configured, start the by using the command.
+    After container is configured, install the packages and start the application using the VS Code terminal.
 
     ```sh
+    # Install packages
+    yarn install
+
+    # Start application
     yarn start
     ```
 
