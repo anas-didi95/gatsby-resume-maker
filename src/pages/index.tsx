@@ -9,8 +9,9 @@ import SectionHeader from "../components/SectionHeader"
 import { AppQuery } from "../graphqlTypes"
 import "../styles/app.scss"
 import Skill from "../components/Skill"
+import Language, { ILanguageItem } from "../components/Language"
 
-interface IApp {}
+interface IApp { }
 
 const App: React.FC<IApp> = () => {
   const data: AppQuery = useStaticQuery(graphql`
@@ -72,10 +73,18 @@ const App: React.FC<IApp> = () => {
           }
         }
       }
+      languages: allLanguageJson(filter: { show: { eq: true } }) {
+        edges {
+          node {
+            name
+            level
+          }
+        }
+      }
     }
   `)
 
-  const { profileImg, header, experiences, educations, skills } = data
+  const { profileImg, header, experiences, educations, skills, languages } = data
 
   return (
     <div className="resume">
@@ -120,7 +129,7 @@ const App: React.FC<IApp> = () => {
             <Skill name="Proficient" proficient={true} />
             <Skill name="Familiar" proficient={false} />
           </div>
-          <div className="flex flex-wrap text-sm justify-center mt-1">
+          <article className="flex flex-wrap text-sm justify-center mt-1">
             {oc(skills)
               .edges([])
               .map(edge => (
@@ -129,10 +138,19 @@ const App: React.FC<IApp> = () => {
                   proficient={oc(edge).node.proficient(false)}
                 />
               ))}
-          </div>
+          </article>
+          <br />
+          <SectionHeader value="Language" />
+          <article>
+            {oc(languages).edges([]).map(edge => (
+              <div className="inline-flex justify-between w-full items-center mt-1">
+                <Language name={oc(edge).node.name("")} level={oc(edge).node.level("")} />
+              </div>
+            ))}
+          </article>
         </section>
       </div>
-    </div>
+    </div >
   )
 }
 
