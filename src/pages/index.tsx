@@ -6,12 +6,11 @@ import Education, { IEducationMark } from "../components/Education"
 import Experience from "../components/Experience"
 import Header, { IDetailHeader, ISocialHeader } from "../components/Header"
 import Language from "../components/Language"
+import Project from "../components/Project"
 import SectionHeader from "../components/SectionHeader"
 import Skill from "../components/Skill"
 import { AppQuery } from "../graphqlTypes"
 import "../styles/app.scss"
-import { TiLink } from "react-icons/ti"
-import Project from "../components/Project"
 
 interface IApp { }
 
@@ -116,7 +115,7 @@ const App: React.FC<IApp> = () => {
         social={oc(header).social() as ISocialHeader}
         summary={oc(header).summary([]) as string[]}
       />
-      <div className="flex mt-8">
+      <div className="flex mt-6">
         <section className="w-3/5 mr-4">
           <SectionHeader value="Work Experience" />
           <article>
