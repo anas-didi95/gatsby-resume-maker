@@ -6,7 +6,7 @@
     "achievements": [
       "Developed features in bank application to improve credit card application process by 75%.",
       "Designed batch application for credit card application process and increase efficiency by 80%.",
-      "Implemented features for generate and downloading report for bank."
+      "Implemented features for generating and downloading report in bank application."
     ]
   },
   {
@@ -14,7 +14,7 @@
     "position": "Internship Application Engineer",
     "period": "07/2018 - 12/2018",
     "achievements": [
-      "Developed a Proof-Of-Concept (POC) Spring Batch application to improve database benchmark analysis by 70%.",
+      "Developed a Proof-of-concept (POC) Spring Batch application to improve database benchmark analysis by 70%.",
       "Implemented Application Integrated Interface (API) to allow connection between 3rd-party application and HeB framework.",
       "Optimized database queries by 80% through Oracle database tuning and TKPROF analysis."
     ]
