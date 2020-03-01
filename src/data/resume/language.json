@@ -1,0 +1,9 @@
+[
+  { "name": "English", "level": "Professional", "show": true },
+  { "name": "Malay", "level": "Native speaker", "show": true },
+  {
+    "name": "Japanese",
+    "level": "Beginner",
+    "show": false
+  }
+]
