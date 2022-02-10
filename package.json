@@ -19,7 +19,7 @@
     "gatsby-transformer-json": "^2.2.26",
     "gatsby-transformer-sharp": "2.2.23",
     "graphql": "14.5.8",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "prop-types": "15.7.2",
     "react": "16.10.2",
     "react-dom": "16.10.2",
